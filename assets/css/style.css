@@ -718,3 +718,13 @@ svg.mark{display:block}
   .why-anim .r2{width:190px;height:190px}
   .why-anim .r3{width:230px;height:230px}
 }
+
+/* ".ai" appended to the primary logo (nav + footer), in brand terracotta */
+.lock:not(.sm) .wm::after{
+  content:".ai";
+  color:var(--accent);
+  font-family:var(--f-display);
+  font-weight:800;
+  letter-spacing:-.03em;
+  margin-left:.03em;
+}
