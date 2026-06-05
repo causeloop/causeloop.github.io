@@ -656,3 +656,61 @@ svg.mark{display:block}
 .agentflow .fb{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-dasharray:4 4;opacity:.55}
 .agentflow .glabel{fill:var(--text-faint);font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
 .agentflow .glabel.end{text-anchor:end}
+
+/* =================================================================
+   HERO INTERACTIVE FLOW DECK — Connect → Detect → Predict → Prove
+   Reuses the art-card, loop-graph and dashboard visuals as stages.
+   ================================================================= */
+.flowdeck{position:relative;z-index:1;--dwell:3.1s}
+.flow-stage{position:relative}
+.flow-card{position:relative;overflow:hidden}
+
+/* auto-advance progress bar (also drives the timer via animationend) */
+.flow-progress{position:absolute;top:0;left:0;width:100%;height:3px;z-index:5;pointer-events:none}
+.flow-progress i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--terra),var(--terra-2))}
+.flowdeck.run .flow-progress i{animation:flowfill var(--dwell) linear forwards}
+.flowdeck.paused .flow-progress i{animation-play-state:paused}
+@keyframes flowfill{to{transform:scaleX(1)}}
+
+/* stage viewport: graph stays in-flow to set the height; others overlay */
+.stage-viewport{position:relative;overflow:hidden;min-height:228px}
+.stage{opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;
+  transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.stage.is-active{opacity:1;visibility:visible;transform:none}
+.stage-graph{position:relative}
+.stage-dash,.stage-proof{position:absolute;inset:0}
+.stage-graph .loopgraph{width:100%;height:auto}
+.stage-graph .edges{transition:opacity .6s var(--ease)}
+.stage-graph:not(.converged) .edges{opacity:0}
+
+/* dashboard stage reuses .dash-* styling; fill bars only when active */
+.stage-viewport .dash-body{padding:0}
+.stage-dash .t-bar i{width:0;transition:width 1s var(--ease)}
+.stage-dash.is-active .t-bar i{width:var(--w)}
+
+/* proof stage */
+.stage-proof{display:grid;place-items:center;text-align:center;padding:6px}
+.proof-inner{display:grid;justify-items:center;gap:13px}
+.proof-badge{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--navy) 0%,#33509e 55%,#1FC2FF 125%);box-shadow:0 0 0 6px rgba(74,120,255,.14)}
+.proof-badge svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2.6}
+.proof-title{font-family:var(--f-display);font-weight:800;letter-spacing:-.02em;font-size:1.06rem;color:var(--text)}
+.proof-list{display:grid;gap:8px;width:100%;max-width:300px}
+.proof-list li{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--r-sm);padding:8px 12px;font-size:.84rem;color:var(--text-soft)}
+.proof-list b{font-family:var(--f-mono);font-weight:600;font-size:.6rem;letter-spacing:.06em;color:#2BA672}
+
+/* interactive stepper */
+.flowsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;position:relative;z-index:4}
+.fstep{display:flex;flex-direction:column;gap:3px;align-items:flex-start;width:100%;
+  padding:10px 12px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);
+  text-align:left;cursor:pointer;
+  transition:border-color .25s var(--ease),transform .2s var(--ease),box-shadow .25s var(--ease)}
+.fstep:hover{border-color:var(--border-2);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.fstep.is-active{border-color:var(--accent);box-shadow:0 6px 18px rgba(226,96,63,.16)}
+.fs-n{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.12em;color:var(--text-faint)}
+.fs-t{font-family:var(--f-display);font-weight:700;font-size:.9rem;letter-spacing:-.01em;color:var(--text)}
+.fstep.is-active .fs-n,.fstep.is-active .fs-t{color:var(--accent)}
+
+@media (max-width:400px){.flowsteps{grid-template-columns:repeat(2,1fr)}}

@@ -119,3 +119,77 @@
   var yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
 })();
+
+/* =================================================================
+   Hero interactive end-to-end flow: Connect → Detect → Predict → Prove
+   Auto-advances in sync with the progress bar; click a step to jump;
+   hover pauses; respects prefers-reduced-motion.
+   ================================================================= */
+(function () {
+  'use strict';
+  var deck = document.getElementById('flowdeck');
+  if (!deck) return;
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pill = document.getElementById('flowPill');
+  var numA = document.getElementById('flowNumA'), labA = document.getElementById('flowLabA');
+  var numB = document.getElementById('flowNumB'), labB = document.getElementById('flowLabB');
+  var chip = document.getElementById('flowChip');
+  var gGraph = document.getElementById('stageGraph');
+  var gDash = document.getElementById('stageDash');
+  var gProof = document.getElementById('stageProof');
+  var steps = [].slice.call(deck.querySelectorAll('.fstep'));
+  var barWrap = deck.querySelector('.flow-progress');
+  var bar = barWrap ? barWrap.querySelector('i') : null;
+
+  var CFG = [
+    { stage: 'graph', converged: false, pill: 'Connecting sources',           a: ['1,284', 'issues'],   b: ['5', 'sources'],     chip: 'Ingesting every source' },
+    { stage: 'graph', converged: true,  pill: 'Root cause found',             a: ['1,284', 'issues'],   b: ['7', 'themes'],      chip: '1,284 → 7 patterns' },
+    { stage: 'dash',                    pill: 'Predicted recurrence · 92%', a: ['14', 'at-risk'],     b: ['92%', 'recurrence'],chip: 'Emerging in Operations' },
+    { stage: 'proof',                   pill: 'Sustainability proven',        a: ['38', 'prevented'],   b: ['0', 'reopened'],    chip: 'Attestation ready' }
+  ];
+  var idx = 0, hovered = false;
+
+  function render(n) {
+    idx = n;
+    var c = CFG[n];
+    steps.forEach(function (b) {
+      var on = (+b.getAttribute('data-step')) === n;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if (pill) pill.textContent = c.pill;
+    if (numA) numA.textContent = c.a[0];
+    if (labA) labA.textContent = c.a[1];
+    if (numB) numB.textContent = c.b[0];
+    if (labB) labB.textContent = c.b[1];
+    if (chip) chip.textContent = c.chip;
+    gGraph.classList.toggle('is-active', c.stage === 'graph');
+    gDash.classList.toggle('is-active', c.stage === 'dash');
+    gProof.classList.toggle('is-active', c.stage === 'proof');
+    gGraph.classList.toggle('converged', !!c.converged);
+  }
+
+  function restart() {
+    if (reduce || !bar) return;
+    deck.classList.remove('run');
+    void bar.offsetWidth; // reflow to restart the CSS animation
+    deck.classList.add('run');
+  }
+
+  function go(n) { render(n); restart(); }
+
+  if (bar) {
+    bar.addEventListener('animationend', function () {
+      if (!hovered) go((idx + 1) % CFG.length);
+    });
+  }
+  steps.forEach(function (b) {
+    b.addEventListener('click', function () { go(+b.getAttribute('data-step')); });
+  });
+  deck.addEventListener('mouseenter', function () { hovered = true; deck.classList.add('paused'); });
+  deck.addEventListener('mouseleave', function () { hovered = false; deck.classList.remove('paused'); });
+
+  if (reduce) { render(1); } // static, meaningful "patterns found" view
+  else { go(0); }
+})();
