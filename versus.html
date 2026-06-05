@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Causeloop vs. legacy GRC vs. manual analysis</title>
+<meta name="description" content="How Causeloop compares to legacy GRC platforms and manual analysis across the atomic object, data model, sustainability, audit trail, deployment, and pricing." />
+<meta name="theme-color" content="#1E2A5A" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Causeloop vs. legacy GRC vs. manual analysis" />
+<meta property="og:description" content="How Causeloop compares to legacy GRC platforms and manual analysis across the atomic object, data model, sustainability, audit trail, deployment, and pricing." />
+<meta property="og:image" content="https://causeloop.ai/assets/img/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="clg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+  </linearGradient>
+  <symbol id="mk" viewBox="0 0 64 64">
+    <g fill="none" stroke="url(#clg)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/><path d="M41.5 15.55 L44.38 12.26"/>
+    </g>
+    <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#clg)"/>
+    <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+  </symbol>
+</defs></svg>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar" id="top">
+  <nav class="nav wrap" aria-label="Primary">
+    <a class="lock" href="index.html" aria-label="Causeloop home">
+      <svg class="mark" aria-hidden="true"><use href="#mk"/></svg>
+      <span class="wm">causel<span class="oo">oo</span>p</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#problem">Problem</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#platform">Platform</a>
+      <a href="versus.html">Why us</a>
+      <a href="pricing.html">Pricing</a>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.2" y1="5.2" x2="6.9" y2="6.9"/><line x1="17.1" y1="17.1" x2="18.8" y2="18.8"/><line x1="18.8" y1="5.2" x2="17.1" y2="6.9"/><line x1="6.9" y1="17.1" x2="5.2" y2="18.8"/></g></svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="index.html#contact">Book a demo</a>
+      </div>
+    </div>
+    <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="page-crumb"><a href="index.html">Causeloop</a> &nbsp;/&nbsp; Why us</p>
+      <h1>Causeloop vs. legacy GRC vs. manual analysis.</h1>
+      <p class="lede">Every enterprise risk leader is already paying for one or both of these alternatives. So why Causeloop? Here is the honest comparison &mdash; including where legacy GRC is genuinely strong.</p>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="wrap">
+      <div class="cmp-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th>Dimension</th><th class="is-cl">Causeloop</th><th>Legacy GRC</th><th>Manual analysis</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Atomic object</th><td class="is-cl">The pattern &mdash; a governed object spanning many issues</td><td>The issue / ticket</td><td>The spreadsheet row</td></tr>
+            <tr><th>Data model</th><td class="is-cl">Cross-system pattern graph</td><td>Siloed records inside one tool</td><td>Ad hoc, per analyst</td></tr>
+            <tr><th>Root cause</th><td class="is-cl">AI-extracted, structured, mapped to your taxonomy</td><td>Free-text field</td><td>Analyst-dependent, inconsistent</td></tr>
+            <tr><th>Pattern detection</th><td class="is-cl">Automatic clustering across systems</td><td>Manual queries and tags</td><td>None at scale</td></tr>
+            <tr><th>Recurrence prediction</th><td class="is-cl">Predicts where patterns recur next</td><td>Not offered</td><td>Not feasible</td></tr>
+            <tr><th>Sustainability monitoring</th><td class="is-cl">Automated post-remediation window</td><td>Manual attestation</td><td>Manual, point-in-time</td></tr>
+            <tr><th>Audit trail</th><td class="is-cl">Per-pattern governed lifecycle</td><td>Per-issue history (strong)</td><td>Emails and files</td></tr>
+            <tr><th>System of record</th><td class="is-cl">No &mdash; overlay; sources stay authoritative</td><td>Yes &mdash; becomes the SoR (a real strength)</td><td>No</td></tr>
+            <tr><th>Workflow change (1LOD)</th><td class="is-cl">None</td><td>Significant rollout and adoption</td><td>n/a</td></tr>
+            <tr><th>Deployment</th><td class="is-cl">Passive integration, no migration</td><td>Multi-quarter implementation</td><td>n/a</td></tr>
+            <tr><th>Explainability</th><td class="is-cl">Regulator-grade evidence per pattern</td><td>Limited to record fields</td><td>Analyst notes</td></tr>
+            <tr><th>Learning over time</th><td class="is-cl">Compounds with every cycle</td><td>Static</td><td>None</td></tr>
+            <tr><th>Pricing model</th><td class="is-cl">Outcome-based, unlimited users</td><td>Per-seat / per-module</td><td>Labor / hours</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="measure" style="margin-top:36px">
+        <p>Causeloop is the AI-native intelligence layer that finds patterns across your issues, predicts recurrence, and proves sustainability. It is <strong>not</strong> a system of record, and it is not trying to be one &mdash; legacy GRC platforms are genuinely good at workflow, controls libraries, and being the authoritative store for individual issues.</p>
+        <p>Use Causeloop <strong>alongside</strong> your GRC system when you need cross-system patterns, recurrence prediction, and regulator-grade sustainability evidence. Consider it a <strong>replacement</strong> for the manual analysis &mdash; the spreadsheets, the consultant engagements, the quarterly fire drills &mdash; that exist today precisely because your current tools can&rsquo;t connect the dots.</p>
+        <p class="about-punch">Causeloop doesn&rsquo;t replace your GRC system. It makes it answer the questions your regulators are now asking.</p>
+      </div>
+    </div>
+  </section>
+  <section class="page-cta">
+    <div class="wrap">
+      <h2>Compare it on your own inventory.</h2>
+      <p>We&rsquo;ll run a diagnostic on a sample of your issues and show you what your current stack can&rsquo;t.</p>
+      <a class="btn btn-primary" href="index.html#contact">Book the diagnostic<svg viewBox="0 0 24 24" class="ic-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="lock" href="index.html" aria-label="Causeloop home">
+        <svg class="mark" aria-hidden="true"><use href="#mk"/></svg>
+        <span class="wm">causel<span class="oo">oo</span>p</span>
+      </a>
+      <p class="footer-tag">Find the <span class="hl">cause</span>, break the <span class="hl">loop</span>.</p>
+    </div>
+    <nav class="footer-col" aria-label="Product">
+      <span class="fcol-h mono">PRODUCT</span>
+      <a href="index.html#how">How it works</a>
+      <a href="what-our-ai-does.html">What our AI does</a>
+      <a href="versus.html">Causeloop vs. legacy GRC</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <nav class="footer-col" aria-label="Company">
+      <span class="fcol-h mono">COMPANY</span>
+      <a href="index.html#about">About us</a>
+      <a href="index.html#contact">Book a demo</a>
+      <a href="mailto:hello@causeloop.ai">hello@causeloop.ai</a>
+    </nav>
+    <nav class="footer-col" aria-label="Trust">
+      <span class="fcol-h mono">TRUST</span>
+      <a href="security.html">Security &amp; Trust</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; <span id="year">2026</span> Causeloop &middot; All rights reserved.</span>
+    <span class="mono">FIND THE CAUSE &middot; BREAK THE LOOP</span>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
