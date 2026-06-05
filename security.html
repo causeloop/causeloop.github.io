@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css?v=20260605b" />
+<link rel="stylesheet" href="assets/css/style.css?v=20260605c" />
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -30,13 +30,18 @@
     <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#clg)"/>
     <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
   </symbol>
+  <symbol id="inf" viewBox="24 6 52 38">
+    <path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z"
+          fill="none" stroke="url(#clg)" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50" cy="25" r="4.4" fill="#E2603F"/>
+  </symbol>
 </defs></svg>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="topbar" id="top">
   <nav class="nav wrap" aria-label="Primary">
     <a class="lock" href="index.html" aria-label="Causeloop home">
       <svg class="mark" aria-hidden="true"><use href="#mk"/></svg>
-      <span class="wm">causel<span class="oo">oo</span>p</span>
+      <span class="wm">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="index.html#problem">Problem</a>
@@ -88,7 +93,7 @@
     <div class="footer-brand">
       <a class="lock" href="index.html" aria-label="Causeloop home">
         <svg class="mark" aria-hidden="true"><use href="#mk"/></svg>
-        <span class="wm">causel<span class="oo">oo</span>p</span>
+        <span class="wm">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span>
       </a>
       <p class="footer-tag">Find the <span class="hl">cause</span>, break the <span class="hl">loop</span>.</p>
     </div>
@@ -117,6 +122,6 @@
     <span class="mono">FIND THE CAUSE &middot; BREAK THE LOOP</span>
   </div>
 </footer>
-<script src="assets/js/main.js?v=20260605b" defer></script>
+<script src="assets/js/main.js?v=20260605c" defer></script>
 </body>
 </html>

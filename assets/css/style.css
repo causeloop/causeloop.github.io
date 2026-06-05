@@ -714,3 +714,14 @@ svg.mark{display:block}
 .fstep.is-active .fs-n,.fstep.is-active .fs-t{color:var(--accent)}
 
 @media (max-width:400px){.flowsteps{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Restored animated brand mark (Why now) ---------- */
+.why-anim{display:grid;place-items:center;margin:0 auto 32px;min-height:240px}
+@media (max-width:560px){
+  .why-anim{min-height:200px;margin-bottom:22px}
+  .why-anim .why-loop{width:200px;height:200px}
+  .why-anim .bigmark{width:96px;height:96px}
+  .why-anim .r1{width:150px;height:150px}
+  .why-anim .r2{width:190px;height:190px}
+  .why-anim .r3{width:230px;height:230px}
+}
