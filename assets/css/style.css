@@ -446,15 +446,15 @@ svg.mark{display:block}
 .founder:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--border-2)}
 .avatar{
   width:96px;height:96px;border-radius:50%;margin:0 auto 16px;position:relative;
-  background:linear-gradient(150deg,var(--navy) 0%,#33509e 55%,#1FC2FF 125%);
+  background:linear-gradient(150deg,var(--navy) 0%,#2B3B70 60%,#3B4D88 120%);
   display:grid;place-items:center;overflow:hidden;
-  box-shadow:0 0 0 4px rgba(74,120,255,.14);
+  box-shadow:0 0 0 4px rgba(30,42,90,.16);
 }
 .avatar .ph{width:96px;height:96px}
 .avatar .sil{fill:rgba(255,255,255,.72)}
 .mono-init{font-family:var(--f-display);font-weight:800;font-size:2rem;letter-spacing:-.02em;color:#fff;z-index:0}
 /* photo sits on the brand gradient; a radial mask fades its edges so any
-   headshot background dissolves into the navy->cyan brand frame */
+   headshot background dissolves into the navy brand frame */
 .avatar-img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;z-index:1;
   -webkit-mask-image:radial-gradient(circle at 50% 41%, #000 60%, transparent 94%);
@@ -463,7 +463,7 @@ svg.mark{display:block}
 .avatar:has(.avatar-img)::before{content:"";position:absolute;inset:0;border-radius:50%;z-index:2;pointer-events:none;
   background:linear-gradient(to top,rgba(18,28,66,.45),transparent 52%)}
 .avatar::after{content:"";position:absolute;right:8px;bottom:8px;width:14px;height:14px;border-radius:50%;background:var(--terra);border:3px solid var(--surface);z-index:3}
-.founder.is-soon .avatar{box-shadow:0 0 0 4px rgba(74,120,255,.08);opacity:.85}
+.founder.is-soon .avatar{box-shadow:0 0 0 4px rgba(30,42,90,.10);opacity:.85}
 .founder.is-soon .avatar::after{display:none}
 .soon-tag{color:var(--text-faint);font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase}
 .founder-name{font-family:var(--f-display);font-weight:700;font-size:1.14rem;letter-spacing:-.02em;color:var(--text)}
@@ -512,13 +512,6 @@ svg.mark{display:block}
    capabilities, agent network, flywheel, forces, CTA, sub-pages
    ================================================================= */
 
-/* ---------- Wordmark: spelled-out "causeloop" with brand "oo" ---------- */
-.wm .oo{
-  background:linear-gradient(115deg,#4A78FF,#1FC2FF);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-  letter-spacing:-.04em;
-}
 
 /* ---------- Hero copy additions ---------- */
 .hero-claim{margin-top:20px;font-family:var(--f-display);font-weight:700;font-size:1.16rem;letter-spacing:-.02em;color:var(--text);max-width:560px}
@@ -693,7 +686,7 @@ svg.mark{display:block}
 .stage-proof{display:grid;place-items:center;text-align:center;padding:6px}
 .proof-inner{display:grid;justify-items:center;gap:13px}
 .proof-badge{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;
-  background:linear-gradient(150deg,var(--navy) 0%,#33509e 55%,#1FC2FF 125%);box-shadow:0 0 0 6px rgba(74,120,255,.14)}
+  background:linear-gradient(150deg,var(--navy) 0%,#2B3B70 60%,#3B4D88 120%);box-shadow:0 0 0 6px rgba(30,42,90,.16)}
 .proof-badge svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:2.6}
 .proof-title{font-family:var(--f-display);font-weight:800;letter-spacing:-.02em;font-size:1.06rem;color:var(--text)}
 .proof-list{display:grid;gap:8px;width:100%;max-width:300px}
