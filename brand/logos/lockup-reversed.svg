@@ -1,0 +1,25 @@
+<!-- Causeloop.ai reversed lockup for dark backgrounds. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80" role="img" aria-label="causeloop">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@800&amp;display=swap');
+      .w{font-family:'Schibsted Grotesk',Arial,sans-serif;font-weight:800;font-size:44px;letter-spacing:-2.2px}</style>
+    <linearGradient id="clg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="80" fill="#10172E"/>
+  <g transform="translate(8,8)">
+    <g fill="none" stroke="url(#clg)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/><path d="M41.5 15.55 L44.38 12.26"/>
+    </g>
+    <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#clg)"/>
+    <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+  </g>
+  <text class="w" x="86" y="54" fill="#FFFFFF">causel</text>
+  <g transform="translate(184.5,18.75) scale(0.95)">
+    <path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z"
+          fill="none" stroke="url(#clg)" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50" cy="25" r="4.4" fill="#E2603F"/>
+  </g>
+  <text class="w" x="253" y="54" fill="#FFFFFF">p</text>
+</svg>

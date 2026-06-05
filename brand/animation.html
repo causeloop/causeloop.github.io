@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Causeloop — Brand Animation</title>
+<meta name="description" content="Find the cause, break the loop — the Causeloop brand animation." />
+<link rel="icon" href="logos/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#1E2A5A; --ink:#0C1124; --ink-2:#10172E;
+    --cobalt:#4A78FF; --cyan:#1FC2FF; --terra:#E2603F;
+    --mist:#EAF0FF; --slate:#9AA6BE;
+    --f-d:'Schibsted Grotesk',system-ui,sans-serif;
+    --f-m:'JetBrains Mono',ui-monospace,monospace;
+    --T:10s; /* master loop duration */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;display:grid;place-items:center;
+    background:radial-gradient(900px 600px at 75% -10%,rgba(74,120,255,.22),transparent 60%),
+               radial-gradient(700px 500px at 10% 110%,rgba(31,194,255,.12),transparent 55%),
+               linear-gradient(160deg,#0C1124,#10172E);
+    font-family:var(--f-d);padding:24px;
+  }
+  .stage-wrap{
+    width:min(680px,96vw);background:rgba(255,255,255,.02);
+    border:1px solid rgba(255,255,255,.06);border-radius:28px;
+    box-shadow:0 40px 100px rgba(0,0,0,.5);overflow:hidden;position:relative;
+  }
+  .grid-bg{position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:38px 38px;
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 45%,#000 40%,transparent 78%);
+            mask-image:radial-gradient(ellipse 70% 60% at 50% 45%,#000 40%,transparent 78%);}
+  svg.stage{display:block;width:100%;height:auto;position:relative}
+  .replay{position:absolute;right:16px;bottom:14px;z-index:5;display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--f-m);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--slate);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+    border-radius:999px;padding:7px 12px;cursor:pointer;transition:.2s}
+  .replay:hover{color:var(--cyan);border-color:var(--cobalt)}
+
+  /* ---------- timeline-driven elements ---------- */
+  .draw{stroke-dasharray:980;stroke-dashoffset:980}
+  .cap{font-family:var(--f-m);font-size:13px;letter-spacing:3px;text-transform:uppercase;opacity:0}
+  .infinity{opacity:0}
+  .infinity-path{stroke-dasharray:980;stroke-dashoffset:980}
+  .orbit{opacity:0}
+  .cause{opacity:0}
+  .brk{opacity:0}
+  .brk path{stroke-dasharray:130;stroke-dashoffset:130}
+  .logo{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.78)}
+  .wm{opacity:0}
+  .tag{opacity:0}
+
+  .run .infinity{animation:fade var(--T) linear infinite}
+  .run .infinity-path{animation:drawIn var(--T) ease-in-out infinite}
+  .run .orbit{animation:fadeOrbit var(--T) linear infinite}
+  .run .cause{animation:fadeCause var(--T) linear infinite}
+  .run .cap1{animation:cap1 var(--T) linear infinite}
+  .run .cap2{animation:cap2 var(--T) linear infinite}
+  .run .cap3{animation:cap3 var(--T) linear infinite}
+  .run .brk{animation:brk var(--T) ease-out infinite}
+  .run .logo{animation:logoIn var(--T) cubic-bezier(.2,.8,.2,1) infinite}
+  .run .wm{animation:wmIn var(--T) ease-out infinite}
+  .run .tag{animation:tagIn var(--T) ease-out infinite}
+  .run .ripple{animation:ripple 2.2s ease-out infinite}
+  .run .ripple.d{animation-delay:1.1s}
+
+  @keyframes fade{0%,2%{opacity:0}6%{opacity:1}58%{opacity:1}66%{opacity:0}100%{opacity:0}}
+  @keyframes drawIn{0%{stroke-dashoffset:980}13%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+  @keyframes fadeOrbit{0%,6%{opacity:0}10%{opacity:1}56%{opacity:1}62%{opacity:0}100%{opacity:0}}
+  @keyframes fadeCause{0%,27%{opacity:0}32%{opacity:1}60%{opacity:1}66%{opacity:0}100%{opacity:0}}
+  @keyframes cap1{0%{opacity:0}5%{opacity:1}22%{opacity:1}27%{opacity:0}100%{opacity:0}}
+  @keyframes cap2{0%,28%{opacity:0}33%{opacity:.9}46%{opacity:.9}50%{opacity:0}100%{opacity:0}}
+  @keyframes cap3{0%,50%{opacity:0}55%{opacity:.9}63%{opacity:.9}67%{opacity:0}100%{opacity:0}}
+  @keyframes brk{0%,52%{opacity:0}56%{opacity:1}64%{opacity:1}68%{opacity:0}100%{opacity:0}}
+  @keyframes brkDraw{0%{stroke-dashoffset:130}100%{stroke-dashoffset:0}}
+  @keyframes logoIn{0%,64%{opacity:0;transform:scale(.78)}73%{opacity:1;transform:scale(1)}95%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+  @keyframes wmIn{0%,72%{opacity:0;transform:translateY(10px)}82%{opacity:1;transform:translateY(0)}95%{opacity:1}100%{opacity:0}}
+  @keyframes tagIn{0%,80%{opacity:0;transform:translateY(8px)}90%{opacity:1;transform:translateY(0)}95%{opacity:1}100%{opacity:0}}
+  @keyframes ripple{0%{transform:scale(1);opacity:.6}100%{transform:scale(3.4);opacity:0}}
+  .run .brk path{animation:brkDraw var(--T) ease-out infinite}
+  .ripple{transform-box:fill-box;transform-origin:center}
+
+  @media (prefers-reduced-motion:reduce){
+    .run *{animation:none!important}
+    .infinity,.cause,.logo,.wm,.tag{opacity:1!important}
+    .infinity-path,.draw{stroke-dashoffset:0!important}
+    .logo{transform:scale(1)!important}
+    .orbit,.brk,.cap{opacity:0!important}
+  }
+</style>
+</head>
+<body>
+  <div class="stage-wrap">
+    <div class="grid-bg"></div>
+    <svg class="stage run" id="stage" viewBox="0 0 680 460" role="img" aria-label="Find the cause, break the loop — Causeloop animation">
+      <defs>
+        <linearGradient id="clg" x1="180" y1="120" x2="500" y2="260" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+        </linearGradient>
+        <linearGradient id="clgb" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3"/>
+        </filter>
+        <!-- the infinity path used both for drawing and as the orbit track -->
+        <path id="infPath" d="M340 190 C340 120 210 120 210 190 C210 260 340 260 340 190 C340 120 470 120 470 190 C470 260 340 260 340 190 Z"/>
+      </defs>
+
+      <!-- captions -->
+      <text class="cap cap1" x="340" y="70" text-anchor="middle" fill="#9AA6BE">The recurring loop</text>
+      <text class="cap cap2" x="340" y="70" text-anchor="middle" fill="#E2603F">Find the cause</text>
+      <text class="cap cap3" x="340" y="70" text-anchor="middle" fill="#1FC2FF">Break the loop</text>
+
+      <!-- the infinity loop -->
+      <g class="infinity">
+        <path class="infinity-path" d="M340 190 C340 120 210 120 210 190 C210 260 340 260 340 190 C340 120 470 120 470 190 C470 260 340 260 340 190 Z"
+              fill="none" stroke="url(#clg)" stroke-width="17" stroke-linecap="round"/>
+      </g>
+
+      <!-- orbiting signal dot travelling the loop -->
+      <g class="orbit">
+        <circle r="13" fill="url(#glow)">
+          <animateMotion dur="4s" repeatCount="indefinite" rotate="auto"><mpath href="#infPath"/></animateMotion>
+        </circle>
+        <circle r="6" fill="#EAF0FF">
+          <animateMotion dur="4s" repeatCount="indefinite"><mpath href="#infPath"/></animateMotion>
+        </circle>
+      </g>
+
+      <!-- the cause: terracotta point at the crossover with ripples -->
+      <g class="cause">
+        <circle class="ripple" cx="340" cy="190" r="11" fill="none" stroke="#E2603F" stroke-width="2"/>
+        <circle class="ripple d" cx="340" cy="190" r="11" fill="none" stroke="#E2603F" stroke-width="2"/>
+        <circle cx="340" cy="190" r="11" fill="#E2603F"/>
+        <circle cx="340" cy="190" r="20" fill="none" stroke="#E2603F" stroke-opacity=".35" stroke-width="1.5"/>
+      </g>
+
+      <!-- the break: an arrow shooting out of the loop -->
+      <g class="brk" stroke="url(#clg)" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M455 150 C480 120 505 100 540 92"/>
+        <path d="M540 92 L516 92 M540 92 L538 116"/>
+      </g>
+
+      <!-- the logo mark (loop broken into an arrow) -->
+      <g transform="translate(284,78) scale(1.78)">
+        <g class="logo">
+          <g fill="none" stroke="url(#clgb)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/><path d="M41.5 15.55 L44.38 12.26"/>
+          </g>
+          <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#clgb)"/>
+          <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+        </g>
+      </g>
+
+      <!-- wordmark causeloop (oo = infinity) -->
+      <g class="wm">
+        <text x="317" y="318" text-anchor="end" font-weight="800" font-size="46" letter-spacing="-2.4" fill="#EAF0FF">causel</text>
+        <g transform="translate(292.5,282.25) scale(0.95)">
+          <path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z"
+                fill="none" stroke="url(#clgb)" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="50" cy="25" r="4.4" fill="#E2603F"/>
+        </g>
+        <text x="363" y="318" text-anchor="start" font-weight="800" font-size="46" letter-spacing="-2.4" fill="#EAF0FF">p</text>
+      </g>
+
+      <!-- tagline -->
+      <text class="tag" x="340" y="372" text-anchor="middle" font-weight="500" font-size="22" fill="#9AA6BE">Find the <tspan fill="#E2603F" font-weight="700">cause</tspan>, break the <tspan fill="url(#clgb)" font-weight="700">loop</tspan>.</text>
+    </svg>
+    <button class="replay" id="replay" type="button" aria-label="Replay animation">↻ Replay</button>
+  </div>
+
+  <script>
+    var stage=document.getElementById('stage');
+    document.getElementById('replay').addEventListener('click',function(){
+      stage.classList.remove('run');void stage.offsetWidth;stage.classList.add('run');
+    });
+  </script>
+</body>
+</html>

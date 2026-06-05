@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Causeloop — Brand & Design System</title>
+<meta name="description" content="The Causeloop brand and product design system: logo, app icon, colour, typography, tokens and UI primitives." />
+<meta name="theme-color" content="#1E2A5A" />
+<link rel="icon" href="logos/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#1E2A5A; --ink:#10172E; --cobalt:#4A78FF; --cyan:#1FC2FF;
+    --terra:#E2603F; --terra-2:#F0764F; --slate:#5A6480; --faint:#98A0B5;
+    --line:#E7E9F0; --line-2:#DDE0EA; --paper:#FBFBFC; --paper-2:#F4F5F8; --card:#FFFFFF;
+    --grad:linear-gradient(135deg,#4A78FF,#1FC2FF);
+    --bg:var(--paper); --bg-alt:var(--paper-2); --surface:var(--card);
+    --text:var(--navy); --text-soft:var(--slate); --text-faint:var(--faint);
+    --border:var(--line); --border-2:var(--line-2); --accent:var(--terra);
+    --f-display:'Schibsted Grotesk',system-ui,sans-serif;
+    --f-text:'Hanken Grotesk',system-ui,sans-serif;
+    --f-mono:'JetBrains Mono',ui-monospace,monospace;
+    --r-sm:12px; --r:18px; --r-lg:26px;
+    --shadow-sm:0 1px 2px rgba(16,23,46,.05),0 1px 0 var(--line);
+    --shadow-md:0 10px 30px rgba(30,42,90,.08);
+    --ease:cubic-bezier(.22,.7,.2,1);
+  }
+  [data-theme="dark"]{
+    --bg:#0C1124; --bg-alt:#0F1530; --surface:#141B38; --card:#141B38;
+    --text:#EEF1FA; --text-soft:#A9B2CD; --text-faint:#6E7798;
+    --border:#222B4E; --border-2:#2C3660; --accent:#F0764F;
+    --line:#222B4E;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4); --shadow-md:0 14px 36px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--f-text);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .35s var(--ease),color .35s var(--ease)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  svg.mark{display:block}
+  .mono{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint)}
+  .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  a{color:var(--cobalt);text-decoration:none}
+
+  /* nav */
+  .topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  nav{display:flex;align-items:center;justify-content:space-between;max-width:1080px;margin:0 auto;padding:15px 28px}
+  .lock{display:flex;align-items:center;gap:11px}
+  .lock .mark{width:30px;height:30px}
+  .lock .wm{font-family:var(--f-display);font-weight:800;font-size:1.3rem;letter-spacing:-.05em;color:var(--text)}
+  .wm,.hero-wm{display:inline-flex;align-items:baseline;white-space:nowrap}
+  .wm-oo{width:1.16em;height:.82em;align-self:center;margin:0 .015em;position:relative;top:.02em;flex:none}
+  .wm-tld{color:var(--terra);letter-spacing:-.03em}
+  .toggle{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--border-2);background:none;color:var(--text-soft);cursor:pointer;font-size:1rem;transition:.25s var(--ease)}
+  .toggle:hover{color:var(--cyan);border-color:var(--cobalt);transform:rotate(18deg)}
+
+  header{text-align:center;padding:84px 0 60px}
+  .hero-mark{width:92px;height:92px;margin:0 auto 28px}
+  .hero-wm{font-family:var(--f-display);font-weight:800;font-size:clamp(2.6rem,7vw,4.4rem);letter-spacing:-.05em;line-height:.95;color:var(--text)}
+  .hero-tag{margin-top:16px;font-family:var(--f-display);font-weight:500;font-size:clamp(1.05rem,2.3vw,1.4rem)}
+  .hero-sub{max-width:540px;margin:14px auto 0;color:var(--text-soft)}
+
+  section{padding:54px 0;border-top:1px solid var(--border)}
+  .eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:10px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-soft);font-weight:600}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--terra);box-shadow:0 0 10px var(--terra)}
+  h2{font-family:var(--f-display);font-weight:800;font-size:1.7rem;letter-spacing:-.03em;margin-bottom:8px}
+  .lede{color:var(--text-soft);max-width:640px;margin-bottom:28px}
+
+  .idea{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:center}
+  .stage{aspect-ratio:1;background:var(--surface);border:1px solid var(--border);border-radius:22px;display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+  .stage .mark{width:120px;height:120px}
+  .legend{display:flex;gap:28px;margin-top:18px;flex-wrap:wrap}
+  .legend div{font-size:.9rem;color:var(--text-soft);max-width:200px}
+  .legend .k{display:flex;align-items:center;gap:8px;color:var(--text);font-family:var(--f-display);font-weight:600;margin-bottom:3px}
+  .dotn{width:9px;height:9px;border-radius:50%;background:var(--terra)}
+  .dotl{width:11px;height:11px;border-radius:50%;background:var(--cobalt)}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{border:1px solid var(--border);border-radius:16px;min-height:150px;display:flex;align-items:center;justify-content:center;position:relative;background:var(--surface)}
+  .card .t{position:absolute;top:13px;left:15px}
+  .card.dark{background:var(--ink);border-color:var(--ink)}
+  .card.dark .t{color:#8893b8}
+  .ll{display:flex;align-items:center;gap:14px}
+  .ll .mark{width:44px;height:44px}
+  .ll .wm{font-family:var(--f-display);font-weight:800;font-size:2rem;letter-spacing:-.05em}
+  .ll.stk{flex-direction:column;gap:13px}
+
+  .spec{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .spec .card{flex-direction:column;gap:16px;padding:30px}
+  .cs-box{padding:24px;border:1px dashed var(--border-2);border-radius:12px}
+  .cs-box .ll .mark{width:40px;height:40px}.cs-box .ll .wm{font-size:1.7rem}
+  .sizes{display:flex;align-items:flex-end;gap:26px}
+  .sizes .s{display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--text-faint);font-family:var(--f-mono);font-size:.66rem}
+
+  .appicon{width:128px;height:128px;border-radius:29px;background:linear-gradient(180deg,#1E2A5A,#10172E);display:grid;place-items:center;box-shadow:0 14px 34px rgba(30,42,90,.28)}
+  .appicon .mark{width:78px;height:78px}
+  .iconrow{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .fav{border:1px solid var(--border);border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg,#1E2A5A,#10172E)}
+  .fav.a{width:48px;height:48px}.fav.a .mark{width:30px;height:30px}
+  .fav.b{width:34px;height:34px}.fav.b .mark{width:20px;height:20px}
+
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .sw{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface)}
+  .sw .chip{height:74px}
+  .sw .m{padding:11px 13px}
+  .sw .nm{font-family:var(--f-display);font-weight:600;font-size:.9rem}
+  .sw .hx{font-family:var(--f-mono);font-size:.72rem;color:var(--text-soft);margin-top:2px}
+  .sw .ro{font-size:.74rem;color:var(--text-faint);margin-top:5px}
+  .gradbar{height:88px;border-radius:14px;background:var(--grad);display:flex;align-items:flex-end;padding:12px;color:#fff;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em}
+
+  .typ{display:grid;gap:14px}
+  .tr{border:1px solid var(--border);border-radius:14px;padding:22px 24px;background:var(--surface)}
+  .tr .l{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:10px}
+  .t-sch{font-family:var(--f-display);font-weight:800;font-size:2rem;letter-spacing:-.04em;color:var(--text)}
+  .t-hank{font-family:var(--f-text);font-size:1.05rem;color:var(--text-soft)}
+  .t-mono{font-family:var(--f-mono);font-size:.9rem;color:var(--text-soft);letter-spacing:.04em}
+
+  .ui{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:600;border-radius:999px;padding:13px 22px;cursor:pointer;border:none}
+  .btn-primary{background:var(--terra);color:#fff;box-shadow:0 8px 22px rgba(226,96,63,.3)}
+  .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border-2)}
+  .pill{display:inline-flex;align-items:center;gap:7px;background:var(--grad);color:#fff;font-family:var(--f-display);font-weight:600;font-size:.78rem;padding:7px 13px;border-radius:999px}
+  .chipcard{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:20px;box-shadow:var(--shadow-sm);min-width:180px}
+  .tokens{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:8px}
+  .tok{border:1px solid var(--border);border-radius:12px;padding:14px;background:var(--surface)}
+  .tok .v{font-family:var(--f-mono);font-size:.74rem;color:var(--text-soft);margin-top:6px}
+  .radii{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap}
+  .radii .rb{background:var(--grad);width:80px;height:60px}
+  .radii .s{display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.66rem;color:var(--text-faint)}
+
+  .files{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+  .file{border:1px solid var(--border);border-radius:12px;padding:14px 16px;background:var(--surface);display:flex;align-items:center;gap:12px}
+  .file .mark{width:26px;height:26px;flex:none}
+  .file .fn{font-family:var(--f-mono);font-size:.78rem;color:var(--text)}
+  .file .fd{font-size:.76rem;color:var(--text-faint)}
+
+  footer{border-top:1px solid var(--border);padding:28px 0 60px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--text-faint);font-size:.84rem}
+  @media(max-width:720px){.idea,.spec{grid-template-columns:1fr}.grid,.swatches{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="clg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+  </linearGradient>
+  <symbol id="mk" viewBox="0 0 64 64">
+    <g fill="none" stroke="url(#clg)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/><path d="M41.5 15.55 L44.38 12.26"/>
+    </g>
+    <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#clg)"/>
+    <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+  </symbol>
+  <symbol id="mkw" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/><path d="M41.5 15.55 L44.38 12.26"/>
+    </g>
+    <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="currentColor"/>
+    <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+  </symbol>
+  <symbol id="inf" viewBox="24 6 52 38">
+    <path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z"
+          fill="none" stroke="url(#clg)" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50" cy="25" r="4.4" fill="#E2603F"/>
+  </symbol>
+</defs></svg>
+
+<div class="topbar"><nav>
+  <div class="lock"><svg class="mark"><use href="#mk"/></svg><span class="wm">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span></div>
+  <button class="toggle" id="t" aria-label="Toggle theme">◑</button>
+</nav></div>
+
+<header class="wrap">
+  <svg class="hero-mark mark"><use href="#mk"/></svg>
+  <div class="hero-wm">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</div>
+  <div class="hero-tag">Find the <span class="hl">cause</span>, break the <span class="hl">loop</span>.</div>
+  <p class="hero-sub">Brand &amp; design system — logo, app icon, colour, typography, tokens and UI primitives for the platform and beyond.</p>
+  <p style="margin-top:20px"><a href="animation.html" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--border-2);border-radius:999px;padding:9px 16px">▶ Play brand animation</a></p>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <div class="eyebrow">The mark</div>
+    <div class="idea">
+      <div class="stage"><svg class="mark"><use href="#mk"/></svg></div>
+      <div>
+        <h2>A loop, broken into an arrow.</h2>
+        <p class="lede">The loop nearly closes — the recurring cycle of risk — then breaks outward into an arrow: the cycle escaped. The blue gradient carries the brand; a single terracotta point marks the cause the platform pinpoints.</p>
+        <div class="legend">
+          <div><span class="k"><span class="dotl"></span>Loop → arrow</span>recurring risk, interrupted</div>
+          <div><span class="k"><span class="dotn"></span>The point</span>the root cause, surfaced (always terracotta)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Logo system</div>
+    <h2>Lockups</h2>
+    <p class="lede">Primary blue-gradient mark with the Schibsted Grotesk wordmark. Use reversed on dark surfaces; use single-colour where colour isn't available.</p>
+    <div class="grid">
+      <div class="card"><span class="t mono">Primary</span><div class="ll" style="color:var(--navy)"><svg class="mark"><use href="#mk"/></svg><span class="wm" style="color:var(--text)">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span></div></div>
+      <div class="card"><span class="t mono">Stacked</span><div class="ll stk"><svg class="mark"><use href="#mk"/></svg><span class="wm" style="color:var(--text)">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span></div></div>
+      <div class="card dark"><span class="t mono">Reversed</span><div class="ll" style="color:#F4F6FB"><svg class="mark"><use href="#mk"/></svg><span class="wm" style="color:#F4F6FB">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span></div></div>
+      <div class="card"><span class="t mono">Monochrome</span><div class="ll" style="color:var(--text)"><svg class="mark"><use href="#mkw"/></svg><span class="wm" style="color:var(--text)">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Usage</div>
+    <h2>Clear space &amp; minimum size</h2>
+    <div class="spec">
+      <div class="card"><div class="cs-box"><div class="ll" style="color:var(--navy)"><svg class="mark"><use href="#mk"/></svg><span class="wm" style="color:var(--text)">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span></div></div><span class="mono">Clear space ≥ the height of the mark</span></div>
+      <div class="card"><div class="sizes">
+        <div class="s"><svg class="mark" style="width:40px;height:40px"><use href="#mk"/></svg><span>40 px</span></div>
+        <div class="s"><svg class="mark" style="width:24px;height:24px"><use href="#mk"/></svg><span>24 px</span></div>
+        <div class="s"><svg class="mark" style="width:16px;height:16px"><use href="#mk"/></svg><span>16 px · min</span></div>
+      </div><span class="mono">Mark stays legible to 16 px</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">In use</div>
+    <h2>App icon &amp; favicon</h2>
+    <div class="iconrow">
+      <div class="appicon"><svg class="mark" style="color:#fff"><use href="#mk"/></svg></div>
+      <div class="fav a"><svg class="mark" style="color:#fff"><use href="#mk"/></svg></div>
+      <div class="fav b"><svg class="mark" style="color:#fff"><use href="#mk"/></svg></div>
+      <span class="mono">app icon 512 · favicon 32 / 16</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Palette</div>
+    <h2>Colour</h2>
+    <div class="swatches" style="margin-bottom:14px">
+      <div class="sw"><div class="chip" style="background:#1E2A5A"></div><div class="m"><div class="nm">Deep Navy</div><div class="hx">#1E2A5A</div><div class="ro">Primary · wordmark</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E2603F"></div><div class="m"><div class="nm">Terracotta</div><div class="hx">#E2603F</div><div class="ro">Accent · the cause</div></div></div>
+      <div class="sw"><div class="chip" style="background:#4A78FF"></div><div class="m"><div class="nm">Cobalt</div><div class="hx">#4A78FF</div><div class="ro">Gradient start</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1FC2FF"></div><div class="m"><div class="nm">Cyan</div><div class="hx">#1FC2FF</div><div class="ro">Gradient end</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5A6480"></div><div class="m"><div class="nm">Slate</div><div class="hx">#5A6480</div><div class="ro">Body text</div></div></div>
+      <div class="sw"><div class="chip" style="background:#10172E"></div><div class="m"><div class="nm">Ink</div><div class="hx">#10172E</div><div class="ro">Darkest</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E7E9F0"></div><div class="m"><div class="nm">Line</div><div class="hx">#E7E9F0</div><div class="ro">Borders</div></div></div>
+      <div class="sw"><div class="chip" style="background:#FBFBFC;border-bottom:1px solid var(--line)"></div><div class="m"><div class="nm">Paper</div><div class="hx">#FBFBFC</div><div class="ro">Canvas</div></div></div>
+    </div>
+    <div class="gradbar">BRAND GRADIENT · linear-gradient(135deg, #4A78FF, #1FC2FF)</div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Typography</div>
+    <h2>Type</h2>
+    <div class="typ">
+      <div class="tr"><div class="l">Display &amp; wordmark · Schibsted Grotesk 800</div><div class="t-sch">Find the cause, break the loop.</div></div>
+      <div class="tr"><div class="l">Body · Hanken Grotesk 400</div><div class="t-hank">Detect hidden patterns across issue data, surface the root cause, and predict emerging risk before it escalates.</div></div>
+      <div class="tr"><div class="l">Labels · JetBrains Mono 500</div><div class="t-mono">ROOT CAUSE FOUND · 92% PREDICTED RECURRENCE</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Foundations</div>
+    <h2>Radii &amp; tokens</h2>
+    <p class="lede">8-pt spacing, soft radii, layered shadows. Full token set lives in <code>brand/BRAND.md</code> and matches the site's <code>assets/css/style.css</code>.</p>
+    <div class="radii" style="margin-bottom:22px">
+      <div class="s"><div class="rb" style="border-radius:12px"></div>12 · sm</div>
+      <div class="s"><div class="rb" style="border-radius:18px"></div>18 · base</div>
+      <div class="s"><div class="rb" style="border-radius:26px"></div>26 · lg</div>
+      <div class="s"><div class="rb" style="border-radius:999px;width:60px"></div>pill</div>
+    </div>
+    <div class="tokens">
+      <div class="tok"><div class="nm mono">--ease</div><div class="v">cubic-bezier(.22,.7,.2,1)</div></div>
+      <div class="tok"><div class="nm mono">--shadow-md</div><div class="v">0 10px 30px rgba(30,42,90,.08)</div></div>
+      <div class="tok"><div class="nm mono">--grad</div><div class="v">135deg #4A78FF→#1FC2FF</div></div>
+      <div class="tok"><div class="nm mono">base font</div><div class="v">17px / 1.65</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Components</div>
+    <h2>UI primitives</h2>
+    <div class="ui">
+      <button class="btn btn-primary">Book a demo →</button>
+      <button class="btn btn-ghost">See how it works</button>
+      <span class="pill">Root cause found</span>
+      <div class="chipcard">
+        <div class="mono" style="margin-bottom:8px">EMERGING THEME</div>
+        <div style="font-family:var(--f-display);font-weight:700">Access-control drift</div>
+        <div style="height:8px;border-radius:5px;background:var(--grad);width:80%;margin-top:10px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Assets</div>
+    <h2>Files in this kit</h2>
+    <div class="files">
+      <div class="file"><svg class="mark"><use href="#mk"/></svg><div><div class="fn">logos/mark.svg</div><div class="fd">Primary gradient mark</div></div></div>
+      <div class="file"><svg class="mark" style="color:var(--navy)"><use href="#mkw"/></svg><div><div class="fn">logos/mark-mono-navy.svg</div><div class="fd">One-colour, light bg</div></div></div>
+      <div class="file"><svg class="mark"><use href="#mk"/></svg><div><div class="fn">logos/mark-mono-white.svg</div><div class="fd">One-colour, dark bg</div></div></div>
+      <div class="file"><svg class="mark"><use href="#mk"/></svg><div><div class="fn">logos/app-icon.svg</div><div class="fd">512 app/store icon</div></div></div>
+      <div class="file"><svg class="mark"><use href="#mk"/></svg><div><div class="fn">logos/favicon.svg</div><div class="fd">64 favicon</div></div></div>
+      <div class="file"><svg class="mark"><use href="#mk"/></svg><div><div class="fn">logos/lockup-*.svg</div><div class="fd">Horizontal · stacked · reversed</div></div></div>
+      <div class="file"><svg class="mark"><use href="#mk"/></svg><div><div class="fn"><a href="animation.html" style="color:var(--text)">animation.html</a></div><div class="fd">Looping brand animation</div></div></div>
+      <div class="file"><svg class="mark"><use href="#mk"/></svg><div><div class="fn">BRAND.md</div><div class="fd">Full spec + CSS tokens</div></div></div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="wrap">
+  <span>Causeloop — Brand &amp; Design System · v1</span>
+  <span class="mono">find the cause · break the loop</span>
+</footer>
+
+<script>
+  (function(){
+    var r=document.documentElement, b=document.getElementById('t');
+    try{ if(localStorage.getItem('cl-brand-theme')==='dark') r.setAttribute('data-theme','dark'); }catch(e){}
+    b.addEventListener('click',function(){
+      var n=r.getAttribute('data-theme')==='dark'?'light':'dark';
+      r.setAttribute('data-theme',n);
+      try{localStorage.setItem('cl-brand-theme',n);}catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>

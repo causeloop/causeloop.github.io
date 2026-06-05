@@ -1,0 +1,19 @@
+<!-- Causeloop app icon — 512×512, navy app square with the gradient mark -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Causeloop app icon">
+  <defs>
+    <linearGradient id="clg" x1="48" y1="48" x2="464" y2="464" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+    </linearGradient>
+    <linearGradient id="sq" x1="0" y1="0" x2="0" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1E2A5A"/><stop offset="1" stop-color="#10172E"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="114" fill="url(#sq)"/>
+  <g transform="translate(112,120) scale(4.6)">
+    <g fill="none" stroke="url(#clg)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/><path d="M41.5 15.55 L44.38 12.26"/>
+    </g>
+    <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#clg)"/>
+    <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+  </g>
+</svg>

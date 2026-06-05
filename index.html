@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Causeloop — Find the cause, break the loop.</title>
+<meta name="description" content="Causeloop is AI-native risk intelligence that connects fragmented issue data, surfaces the thematic patterns behind recurring failures, and predicts where risk will appear next — so enterprises can prevent problems before they escalate." />
+<meta name="theme-color" content="#1E2A5A" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://causeloop.ai/" />
+<meta property="og:title" content="Causeloop — AI-native risk intelligence" />
+<meta property="og:description" content="Stop fixing the same problems twice. Causeloop connects fragmented issue data into thematic patterns, predicts recurrence, and recommends what to do next." />
+<meta property="og:image" content="https://causeloop.ai/assets/img/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Causeloop — Find the cause, break the loop." />
+<meta name="twitter:description" content="AI-native risk intelligence that surfaces the root cause behind recurring issues — and stops them before they repeat." />
+<meta name="twitter:image" content="https://causeloop.ai/assets/img/og-image.svg" />
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ============ SHARED SVG SYMBOLS ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <!-- Brand blue gradient for the mark (cobalt -> cyan) -->
+  <linearGradient id="clg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+  </linearGradient>
+  <!-- The mark: a loop that nearly closes (recurring risk) then breaks outward into
+       an arrow (the cycle escaped). The blue gradient carries the brand; the
+       terracotta point marks the surfaced cause. -->
+  <symbol id="mk" viewBox="0 0 64 64">
+    <g fill="none" stroke="url(#clg)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/><path d="M41.5 15.55 L44.38 12.26"/>
+    </g>
+    <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#clg)"/>
+    <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+  </symbol>
+  <!-- The "oo" of causeloop, drawn as an infinity (the recurring loop) in the brand
+       gradient, with the terracotta cause-point at the crossover. -->
+  <symbol id="inf" viewBox="24 6 52 38">
+    <path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z"
+          fill="none" stroke="url(#clg)" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50" cy="25" r="4.4" fill="#E2603F"/>
+  </symbol>
+</defs></svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="topbar" id="top">
+  <nav class="nav wrap" aria-label="Primary">
+    <a class="lock" href="#top" aria-label="Causeloop home">
+      <svg class="mark" aria-hidden="true"><use href="#mk"/></svg>
+      <span class="wm">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#problem">Problem</a>
+      <a href="#how">How it works</a>
+      <a href="#platform">Platform</a>
+      <a href="#why-now">Why now</a>
+      <a href="#about">About</a>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.2" y1="5.2" x2="6.9" y2="6.9"/><line x1="17.1" y1="17.1" x2="18.8" y2="18.8"/><line x1="18.8" y1="5.2" x2="17.1" y2="6.9"/><line x1="6.9" y1="17.1" x2="5.2" y2="18.8"/></g></svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="#contact">Book a demo</a>
+      </div>
+    </div>
+
+    <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <div class="grid-fade"></div>
+    </div>
+
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal"><span class="dot"></span>AI-native risk intelligence</span>
+        <h1 class="hero-title reveal" style="--d:.05s">
+          Find the <span class="hl">cause</span>.<br/>Break the <span class="hl">loop</span>.
+        </h1>
+        <p class="hero-sub reveal" style="--d:.12s">
+          Enterprises don't lack issue data — they're drowning in it. Causeloop connects thousands of fragmented issues into the <strong>thematic patterns</strong> behind recurring failures, predicts where risk appears next, and recommends what to do about it.
+        </p>
+        <div class="hero-cta reveal" style="--d:.18s">
+          <a class="btn btn-primary" href="#contact">Book a demo<svg viewBox="0 0 24 24" class="ic-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <div class="hero-meta reveal" style="--d:.24s">
+          <span class="mono">PROVEN INSIDE A SYSTEMICALLY IMPORTANT ENTERPRISE</span>
+        </div>
+      </div>
+
+      <div class="hero-art reveal" style="--d:.1s" aria-hidden="true">
+        <!-- Living "loop graph" illustration -->
+        <div class="art-card">
+          <div class="art-head">
+            <div class="lock sm"><svg class="mark"><use href="#mk"/></svg><span class="wm">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span></div>
+            <span class="pill"><span class="pulse"></span>Root cause found</span>
+          </div>
+          <svg class="loopgraph" viewBox="0 0 360 240" role="img" aria-label="Thematic pattern graph connecting scattered issues to a single root cause">
+            <defs>
+              <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="var(--terra)" stop-opacity=".15"/>
+                <stop offset="1" stop-color="var(--terra)" stop-opacity=".85"/>
+              </linearGradient>
+            </defs>
+            <!-- edges -->
+            <g class="edges" stroke="url(#edge)" stroke-width="1.6" fill="none">
+              <path d="M60 50 C120 70 150 110 180 120"/>
+              <path d="M40 130 C110 120 150 120 180 120"/>
+              <path d="M70 200 C120 170 150 140 180 120"/>
+              <path d="M300 60 C240 80 210 110 180 120"/>
+              <path d="M320 150 C250 140 220 125 180 120"/>
+              <path d="M280 205 C230 175 205 145 180 120"/>
+            </g>
+            <!-- scattered issue nodes -->
+            <g class="nodes">
+              <circle class="n" cx="60" cy="50" r="6"/>
+              <circle class="n" cx="40" cy="130" r="6"/>
+              <circle class="n" cx="70" cy="200" r="6"/>
+              <circle class="n" cx="300" cy="60" r="6"/>
+              <circle class="n" cx="320" cy="150" r="6"/>
+              <circle class="n" cx="280" cy="205" r="6"/>
+            </g>
+            <!-- central root cause -->
+            <circle class="core-ring" cx="180" cy="120" r="26" fill="none"/>
+            <circle class="core" cx="180" cy="120" r="13"/>
+            <circle class="core-dot" cx="180" cy="120" r="5"/>
+          </svg>
+          <div class="art-foot">
+            <div class="metric"><span class="num" data-count="1284">0</span><span class="lab">issues</span></div>
+            <svg class="flow" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h28M24 6l8 6-8 6" /></svg>
+            <div class="metric accent"><span class="num" data-count="7">0</span><span class="lab">themes</span></div>
+          </div>
+        </div>
+        <div class="float-chip chip-1"><span class="dotn"></span>Compliance · drift detected</div>
+        <div class="float-chip chip-2"><span class="dotn"></span>Predicted recurrence · 92%</div>
+      </div>
+    </div>
+
+    <div class="logobar wrap reveal" style="--d:.3s">
+      <span class="mono">CONNECTS ACROSS</span>
+      <ul>
+        <li>Risk</li><li>Compliance</li><li>Operations</li><li>Audit</li><li>Engineering</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="section" id="problem">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>The problem</span>
+        <h2 class="sec-title">Thousands of "separate" issues are the same failure, repeating.</h2>
+        <p class="sec-lede">Issues live in silos and are treated as isolated events. So organizations keep fixing the same types of problems — never realizing they're connected.</p>
+      </div>
+
+      <div class="problem-grid">
+        <article class="pcard reveal">
+          <div class="picon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <h3>Siloed by system</h3>
+          <p>Risk, compliance, audit, ops and engineering each track issues their own way — no shared view across the business.</p>
+        </article>
+        <article class="pcard reveal" style="--d:.06s">
+          <div class="picon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v8h8" stroke-linecap="round"/></svg></div>
+          <h3>Manual root cause</h3>
+          <p>Analysis is inconsistent and limited to the team that owns the ticket. Insight never travels.</p>
+        </article>
+        <article class="pcard reveal" style="--d:.12s">
+          <div class="picon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg></div>
+          <h3>Failures resurface</h3>
+          <p>The same failure modes reappear in different parts of the org, quarter after quarter, disguised as new tickets.</p>
+        </article>
+      </div>
+
+      <div class="quote-strip reveal">
+        <p>“The value shifts from <em>tracking</em> problems to <em>preventing</em> them — and standardizing remediation across the organization.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section alt" id="how">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>How it works</span>
+        <h2 class="sec-title">From disconnected tickets to a living map of risk.</h2>
+        <p class="sec-lede">Causeloop is AI-native. It passively connects across fragmented sources, then continuously learns from every new issue and resolution.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step-n mono">01</span>
+          <div class="step-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12a3 3 0 0 0 3 3h1a3 3 0 0 0 0-6h-1M15 12a3 3 0 0 0-3-3h-1a3 3 0 0 0 0 6h1"/></svg></div>
+          <h3>Connect, passively</h3>
+          <p>Ingests issues across risk, compliance, ops, audit and engineering systems — no workflow change required.</p>
+        </li>
+        <li class="step reveal" style="--d:.06s">
+          <span class="step-n mono">02</span>
+          <div class="step-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="8" r="2.5"/><circle cx="12" cy="17" r="2.5"/><path d="M9 8l6 1M8 9l3 6M16 10l-3 5"/></svg></div>
+          <h3>Detect thematic patterns</h3>
+          <p>AI models issues as interconnected signals and surfaces the recurring themes across time, teams and systems.</p>
+        </li>
+        <li class="step reveal" style="--d:.12s">
+          <span class="step-n mono">03</span>
+          <div class="step-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5-5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 7h-4M20 7v4" stroke-linecap="round"/></svg></div>
+          <h3>Predict recurrence</h3>
+          <p>Surfaces emerging risk themes and forecasts where similar issues are likely to appear next.</p>
+        </li>
+        <li class="step reveal" style="--d:.18s">
+          <span class="step-n mono">04</span>
+          <div class="step-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 5 5.6.8-4 4 1 5.5L12 19.8 6 17.3l1-5.5-4-4L8.6 7z"/></svg></div>
+          <h3>Recommend remediation</h3>
+          <p>Suggests strategies based on what successfully resolved similar patterns elsewhere in the organization.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PLATFORM / PRODUCT ============ -->
+  <section class="section" id="platform">
+    <div class="wrap platform-grid">
+      <div class="platform-copy reveal">
+        <span class="eyebrow"><span class="dot"></span>The platform</span>
+        <h2 class="sec-title">A continuously evolving view of enterprise risk.</h2>
+        <p class="sec-lede">Thematic patterns, early-warning signals and recommended actions — showing leaders where attention actually matters, before problems escalate.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5 11-11" stroke-linecap="round" stroke-linejoin="round"/></svg>Move from reactive tracking to proactive prioritization</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5 11-11" stroke-linecap="round" stroke-linejoin="round"/></svg>Standardize remediation across every team</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5 11-11" stroke-linecap="round" stroke-linejoin="round"/></svg>Learns continuously from new issues &amp; resolutions</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Get early access<svg viewBox="0 0 24 24" class="ic-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <!-- Dashboard mockup -->
+      <div class="dash reveal" style="--d:.1s" aria-hidden="true">
+        <div class="dash-bar">
+          <div class="lock sm"><svg class="mark"><use href="#mk"/></svg><span class="wm">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span></div>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-row dash-kpis">
+            <div class="kpi"><span class="kpi-lab mono">ACTIVE THEMES</span><span class="kpi-num">7</span><span class="kpi-trend up">▲ 2</span></div>
+            <div class="kpi"><span class="kpi-lab mono">AT-RISK AREAS</span><span class="kpi-num">14</span><span class="kpi-trend">3 new</span></div>
+            <div class="kpi"><span class="kpi-lab mono">PREVENTED</span><span class="kpi-num accent">38</span><span class="kpi-trend up">▲ 11</span></div>
+          </div>
+          <div class="dash-panel">
+            <div class="dp-head"><span>Emerging risk themes</span><span class="mono">LAST 90 DAYS</span></div>
+            <div class="theme"><span class="t-name">Access-control drift</span><div class="t-bar"><i style="--w:86%"></i></div><span class="t-val">86</span></div>
+            <div class="theme"><span class="t-name">Vendor onboarding gaps</span><div class="t-bar"><i style="--w:71%"></i></div><span class="t-val">71</span></div>
+            <div class="theme"><span class="t-name">Data-retention misconfig</span><div class="t-bar"><i style="--w:58%"></i></div><span class="t-val">58</span></div>
+            <div class="theme"><span class="t-name">Change-mgmt bypass</span><div class="t-bar"><i style="--w:44%"></i></div><span class="t-val">44</span></div>
+          </div>
+          <div class="dash-panel rec">
+            <span class="pill sm"><span class="pulse"></span>Recommended action</span>
+            <p>Apply the access-review playbook that resolved 9 similar issues in Engineering to the 3 predicted hot-spots in Operations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="section stats-sec">
+    <div class="wrap stats">
+      <div class="stat reveal"><span class="stat-num"><span data-count="1000">0</span>s</span><span class="stat-lab">of issues unified into a handful of themes</span></div>
+      <div class="stat reveal" style="--d:.06s"><span class="stat-num"><span data-count="5">0</span></span><span class="stat-lab">fragmented sources connected — risk to engineering</span></div>
+      <div class="stat reveal" style="--d:.12s"><span class="stat-num accent"><span data-count="90">0</span>%</span><span class="stat-lab">less noise — focus on what actually drives failures</span></div>
+    </div>
+  </section>
+
+  <!-- ============ WHY NOW ============ -->
+  <section class="section alt" id="why-now">
+    <div class="wrap why-grid">
+      <div class="why-art reveal" aria-hidden="true">
+        <div class="why-loop">
+          <svg class="bigmark" viewBox="0 0 64 64"><use href="#mk"/></svg>
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+        </div>
+      </div>
+      <div class="why-copy reveal" style="--d:.08s">
+        <span class="eyebrow"><span class="dot"></span>Why now</span>
+        <h2 class="sec-title">Modern AI can finally read messy operational data at scale.</h2>
+        <p class="sec-lede">Patterns that were invisible across systems and teams are now connectable. We proved the signal inside a large, systemically important enterprise — once issues are linked through thematic patterns, the value shifts decisively from tracking to prevention.</p>
+        <p class="sec-lede">That pointed to a much larger opportunity: a unified enterprise intelligence platform.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="dot"></span>About us</span>
+        <h2 class="sec-title">Born inside one enterprise. Built for all of them.</h2>
+        <p class="sec-lede">The short version of how we got here — and why fragmented issue data is a category-scale problem.</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- A narrow editorial column -->
+        <div class="about-story reveal">
+          <p>Causeloop began as a simplified internal system inside a large, systemically important institution. The team noticed something the dashboards never said out loud: most of what was being tracked as separate issues across the firm wasn't separate at all. The same underlying failure modes were recurring across business lines, year after year — hidden by org structure and the simple fact that no one had a view across the silos.</p>
+          <p>When those issues were connected — clustered by underlying pattern instead of by which team filed them — two things became obvious. First, the firm was solving the same problems repeatedly, paying for them every time. Second, once the patterns were visible, predicting where they'd recur next was straightforward, and remediation that had worked once could be propagated systematically.</p>
+          <p>That experience pointed to a category-scale opportunity. The same principle that worked inside one enterprise applies to every organization that drowns in fragmented issue data — which is, in our experience, most of them.</p>
+        </div>
+
+        <!-- Convergence illustration — separate issues resolve into a few underlying patterns -->
+        <div class="about-art reveal" style="--d:.08s" aria-hidden="true">
+          <div class="about-art-card">
+            <div class="aa-head">
+              <span class="aa-col mono">Issues, as filed</span>
+              <span class="aa-col mono">Underlying patterns</span>
+            </div>
+            <svg class="clustergraph" viewBox="0 0 480 300" role="img" aria-label="Separate issues converging into three shared underlying patterns">
+              <defs>
+                <linearGradient id="edge2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="var(--terra)" stop-opacity=".08"/>
+                  <stop offset="1" stop-color="var(--terra)" stop-opacity=".7"/>
+                </linearGradient>
+              </defs>
+              <g class="edges" stroke="url(#edge2)" stroke-width="1.5" fill="none">
+                <path d="M58 54 C250 54 320 70 410 70"/><path d="M118 70 C250 70 320 70 410 70"/><path d="M70 90 C250 90 320 70 410 70"/>
+                <path d="M58 134 C250 134 320 150 410 150"/><path d="M118 150 C250 150 320 150 410 150"/><path d="M70 170 C250 170 320 150 410 150"/>
+                <path d="M58 214 C250 214 320 230 410 230"/><path d="M118 230 C250 230 320 230 410 230"/><path d="M70 250 C250 250 320 230 410 230"/>
+              </g>
+              <g class="nodes">
+                <circle cx="58" cy="54" r="5"/><circle cx="118" cy="70" r="5"/><circle cx="70" cy="90" r="5"/>
+                <circle cx="58" cy="134" r="5"/><circle cx="118" cy="150" r="5"/><circle cx="70" cy="170" r="5"/>
+                <circle cx="58" cy="214" r="5"/><circle cx="118" cy="230" r="5"/><circle cx="70" cy="250" r="5"/>
+              </g>
+              <g class="hubs">
+                <g><circle class="hub-ring" cx="410" cy="70" r="22"/><circle class="hub" cx="410" cy="70" r="11"/><circle class="hub-core" cx="410" cy="70" r="4.5"/></g>
+                <g><circle class="hub-ring" cx="410" cy="150" r="22"/><circle class="hub" cx="410" cy="150" r="11"/><circle class="hub-core" cx="410" cy="150" r="4.5"/></g>
+                <g><circle class="hub-ring" cx="410" cy="230" r="22"/><circle class="hub" cx="410" cy="230" r="11"/><circle class="hub-core" cx="410" cy="230" r="4.5"/></g>
+              </g>
+            </svg>
+            <div class="aa-foot">
+              <div class="metric"><span class="num">1,200+</span><span class="lab">scattered issues</span></div>
+              <svg class="flow" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h28M24 6l8 6-8 6"/></svg>
+              <div class="metric accent"><span class="num">3</span><span class="lab">underlying patterns</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What we believe -->
+      <div class="beliefs-block reveal">
+        <div class="eyebrow"><span class="dot"></span>What we believe</div>
+        <ul class="beliefs">
+          <li class="belief">Risk isn't a tickets problem. It's a <span class="hl">pattern-recognition</span> problem.</li>
+          <li class="belief">Institutional knowledge should be <span class="hl">structured</span>, not tribal.</li>
+          <li class="belief">Forward-looking risk views are achievable <span class="hl">now</span>, not in five years.</li>
+        </ul>
+      </div>
+
+      <!-- Team -->
+      <div class="team-block">
+        <div class="sec-head reveal">
+          <span class="eyebrow"><span class="dot"></span>Team</span>
+          <h2 class="sec-title sub-title">Built by a small, senior team.</h2>
+          <p class="sec-lede">Founding backgrounds in enterprise risk, audit, financial-services platform engineering, and applied machine learning at scale.</p>
+        </div>
+
+        <!-- Founder cards. To show a real photo, drop a square image at the path in each
+             img src (e.g. assets/img/team/rushabh-patel.jpg). Until then the branded
+             monogram shows automatically. The avatar frame applies the brand background. -->
+        <div class="team-grid">
+          <article class="founder reveal">
+            <div class="avatar">
+              <span class="mono-init" aria-hidden="true">YC</span>
+              <img class="avatar-img" src="assets/img/team/yeshuai-cui.jpg" alt="Yeshuai Cui" loading="lazy" onerror="this.remove()" />
+            </div>
+            <h3 class="founder-name">Yeshuai Cui</h3>
+            <p class="founder-role">Co-founder</p>
+            <a class="founder-link" href="https://www.linkedin.com/in/yeshuai-cui-2581b01b4" target="_blank" rel="noopener" aria-label="Yeshuai Cui on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg>LinkedIn</a>
+          </article>
+
+          <article class="founder reveal" style="--d:.06s">
+            <div class="avatar">
+              <span class="mono-init" aria-hidden="true">ZK</span>
+              <img class="avatar-img" src="assets/img/team/zhanar-k.jpg" alt="Zhanar K." loading="lazy" onerror="this.remove()" />
+            </div>
+            <h3 class="founder-name">Zhanar K.</h3>
+            <p class="founder-role">Co-founder</p>
+            <a class="founder-link" href="https://www.linkedin.com/in/zhanar-k-131a7b2" target="_blank" rel="noopener" aria-label="Zhanar K. on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg>LinkedIn</a>
+          </article>
+
+          <article class="founder reveal" style="--d:.12s">
+            <div class="avatar">
+              <span class="mono-init" aria-hidden="true">RP</span>
+              <img class="avatar-img" src="assets/img/team/rushabh-patel.jpg" alt="Rushabh Patel" loading="lazy" onerror="this.remove()" />
+            </div>
+            <h3 class="founder-name">Rushabh Patel</h3>
+            <p class="founder-role">Co-founder</p>
+            <a class="founder-link" href="https://www.linkedin.com/in/rushabhpatel5" target="_blank" rel="noopener" aria-label="Rushabh Patel on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg>LinkedIn</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta-sec" id="contact">
+    <div class="wrap cta reveal">
+      <svg class="cta-mark mark" aria-hidden="true"><use href="#mk"/></svg>
+      <h2>See the patterns hiding in your issue data.</h2>
+      <p>We'll connect a sample of your sources and show you the thematic patterns — and where they're likely to recur — in a single session.</p>
+      <form class="cta-form" id="ctaForm" novalidate>
+        <label class="visually-hidden" for="email">Work email</label>
+        <input id="email" name="email" type="email" inputmode="email" placeholder="you@enterprise.com" autocomplete="email" required />
+        <button class="btn btn-primary" type="submit">Book a demo<svg viewBox="0 0 24 24" class="ic-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+      <p class="cta-note mono" id="ctaNote">NO WORKFLOW CHANGE · PASSIVE INTEGRATION · ENTERPRISE-READY</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="lock" href="#top" aria-label="Causeloop home">
+        <svg class="mark" aria-hidden="true"><use href="#mk"/></svg>
+        <span class="wm">causel<svg class="wm-oo" aria-hidden="true"><use href="#inf"/></svg>p</span>
+      </a>
+      <p class="footer-tag">Find the <span class="hl">cause</span>, break the <span class="hl">loop</span>.</p>
+    </div>
+    <nav class="footer-col" aria-label="Product">
+      <span class="fcol-h mono">PRODUCT</span>
+      <a href="#how">How it works</a>
+      <a href="#platform">Platform</a>
+      <a href="#why-now">Why now</a>
+    </nav>
+    <nav class="footer-col" aria-label="Company">
+      <span class="fcol-h mono">COMPANY</span>
+      <a href="#about">About us</a>
+      <a href="#problem">The problem</a>
+      <a href="#contact">Book a demo</a>
+      <a href="mailto:hello@causeloop.ai">hello@causeloop.ai</a>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span id="year">2026</span> Causeloop · All rights reserved.</span>
+    <span class="mono">FIND THE CAUSE · BREAK THE LOOP</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

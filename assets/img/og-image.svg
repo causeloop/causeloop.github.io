@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E2A5A"/>
+      <stop offset="1" stop-color="#10172E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="82%" cy="20%" r="60%">
+      <stop offset="0" stop-color="#E2603F" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#E2603F" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M46 0H0V46" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="clg" x1="160" y1="220" x2="260" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g transform="translate(96,140) scale(1.7)">
+    <g fill="none" stroke="url(#clg)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/><path d="M41.5 15.55 L44.38 12.26"/>
+    </g>
+    <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#clg)"/>
+    <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+  </g>
+
+  <text id="c1" x="96" y="360" font-family="'Schibsted Grotesk',Arial,sans-serif" font-weight="800" font-size="92" letter-spacing="-4" fill="#FFFFFF">causel</text>
+  <g transform="translate(308.8,286.4) scale(1.983)">
+    <path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z"
+          fill="none" stroke="url(#clg)" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50" cy="25" r="4.4" fill="#E2603F"/>
+  </g>
+  <text id="c2" x="456" y="360" font-family="'Schibsted Grotesk',Arial,sans-serif" font-weight="800" font-size="92" letter-spacing="-4" fill="#FFFFFF">p</text>
+  <text x="98" y="430" font-family="'Schibsted Grotesk',Arial,sans-serif" font-weight="500" font-size="40" fill="#F4D9D0">Find the <tspan fill="#E2603F">cause</tspan>, break the <tspan fill="#E2603F">loop</tspan>.</text>
+  <text x="98" y="500" font-family="Arial,sans-serif" font-size="30" fill="#98A0B5">AI-native risk intelligence for the enterprise</text>
+</svg>
