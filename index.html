@@ -107,52 +107,98 @@
         </div>
       </div>
 
-      <!-- Hero product surface: the patterns view -->
-      <div class="hero-art reveal" style="--d:.1s" aria-hidden="true">
-        <!-- Living "loop graph" illustration -->
-        <div class="art-card">
-          <div class="art-head">
-            <div class="lock sm"><svg class="mark"><use href="#mk"/></svg><span class="wm">causel<span class="oo">oo</span>p</span></div>
-            <span class="pill"><span class="pulse"></span>Root cause found</span>
+      <!-- Interactive end-to-end flow: Connect → Detect → Predict → Prove -->
+      <div class="hero-art reveal" style="--d:.1s">
+        <div class="flowdeck" id="flowdeck" style="--dwell:3.1s">
+          <div class="flow-stage">
+            <div class="art-card flow-card">
+              <span class="flow-progress" aria-hidden="true"><i></i></span>
+              <div class="art-head">
+                <div class="lock sm"><svg class="mark" aria-hidden="true"><use href="#mk"/></svg><span class="wm">causel<span class="oo">oo</span>p</span></div>
+                <span class="pill"><span class="pulse"></span><span class="pill-txt" id="flowPill">Connecting sources</span></span>
+              </div>
+
+              <div class="stage-viewport" aria-hidden="true">
+                <!-- STAGE · Connect + Detect: the loop graph -->
+                <div class="stage stage-graph is-active" id="stageGraph">
+                  <svg class="loopgraph" viewBox="0 0 360 240" role="img" aria-label="Scattered issues converging on a single root cause">
+                    <defs>
+                      <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="var(--terra)" stop-opacity=".15"/>
+                        <stop offset="1" stop-color="var(--terra)" stop-opacity=".85"/>
+                      </linearGradient>
+                    </defs>
+                    <g class="edges" stroke="url(#edge)" stroke-width="1.6" fill="none">
+                      <path d="M60 50 C120 70 150 110 180 120"/>
+                      <path d="M40 130 C110 120 150 120 180 120"/>
+                      <path d="M70 200 C120 170 150 140 180 120"/>
+                      <path d="M300 60 C240 80 210 110 180 120"/>
+                      <path d="M320 150 C250 140 220 125 180 120"/>
+                      <path d="M280 205 C230 175 205 145 180 120"/>
+                    </g>
+                    <g class="nodes">
+                      <circle class="n" cx="60" cy="50" r="6"/>
+                      <circle class="n" cx="40" cy="130" r="6"/>
+                      <circle class="n" cx="70" cy="200" r="6"/>
+                      <circle class="n" cx="300" cy="60" r="6"/>
+                      <circle class="n" cx="320" cy="150" r="6"/>
+                      <circle class="n" cx="280" cy="205" r="6"/>
+                    </g>
+                    <circle class="core-ring" cx="180" cy="120" r="26" fill="none"/>
+                    <circle class="core" cx="180" cy="120" r="13"/>
+                    <circle class="core-dot" cx="180" cy="120" r="5"/>
+                  </svg>
+                </div>
+
+                <!-- STAGE · Predict: the dashboard -->
+                <div class="stage stage-dash" id="stageDash">
+                  <div class="dash-body">
+                    <div class="dash-kpis">
+                      <div class="kpi"><span class="kpi-lab mono">ACTIVE THEMES</span><span class="kpi-num">7</span><span class="kpi-trend up">▲ 2</span></div>
+                      <div class="kpi"><span class="kpi-lab mono">AT-RISK AREAS</span><span class="kpi-num">14</span><span class="kpi-trend">3 new</span></div>
+                      <div class="kpi"><span class="kpi-lab mono">PREVENTED</span><span class="kpi-num accent">38</span><span class="kpi-trend up">▲ 11</span></div>
+                    </div>
+                    <div class="dash-panel">
+                      <div class="dp-head"><span>Emerging risk themes</span><span class="mono">PREDICTED</span></div>
+                      <div class="theme"><span class="t-name">Access-control drift</span><div class="t-bar"><i style="--w:86%"></i></div><span class="t-val">86</span></div>
+                      <div class="theme"><span class="t-name">Vendor onboarding gaps</span><div class="t-bar"><i style="--w:71%"></i></div><span class="t-val">71</span></div>
+                      <div class="theme"><span class="t-name">Data-retention misconfig</span><div class="t-bar"><i style="--w:58%"></i></div><span class="t-val">58</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- STAGE · Prove: the loop closed -->
+                <div class="stage stage-proof" id="stageProof">
+                  <div class="proof-inner">
+                    <span class="proof-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5 11-11" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <p class="proof-title">Loop closed · sustainability proven</p>
+                    <ul class="proof-list">
+                      <li><span>Access-control drift</span><b>Held 90d</b></li>
+                      <li><span>Vendor onboarding gaps</span><b>Held 90d</b></li>
+                      <li><span>Regulator attestation</span><b>Ready</b></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="art-foot">
+                <div class="metric"><span class="num" id="flowNumA">1,284</span><span class="lab" id="flowLabA">issues</span></div>
+                <svg class="flow" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h28M24 6l8 6-8 6"/></svg>
+                <div class="metric accent"><span class="num" id="flowNumB">7</span><span class="lab" id="flowLabB">themes</span></div>
+              </div>
+            </div>
+            <div class="float-chip chip-1"><span class="dotn"></span><span id="flowChip">Ingesting every source</span></div>
+            <div class="float-chip chip-2"><span class="dotn"></span>Passive integration</div>
           </div>
-          <svg class="loopgraph" viewBox="0 0 360 240" role="img" aria-label="Thematic pattern graph connecting scattered issues to a single root cause">
-            <defs>
-              <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="var(--terra)" stop-opacity=".15"/>
-                <stop offset="1" stop-color="var(--terra)" stop-opacity=".85"/>
-              </linearGradient>
-            </defs>
-            <!-- edges -->
-            <g class="edges" stroke="url(#edge)" stroke-width="1.6" fill="none">
-              <path d="M60 50 C120 70 150 110 180 120"/>
-              <path d="M40 130 C110 120 150 120 180 120"/>
-              <path d="M70 200 C120 170 150 140 180 120"/>
-              <path d="M300 60 C240 80 210 110 180 120"/>
-              <path d="M320 150 C250 140 220 125 180 120"/>
-              <path d="M280 205 C230 175 205 145 180 120"/>
-            </g>
-            <!-- scattered issue nodes -->
-            <g class="nodes">
-              <circle class="n" cx="60" cy="50" r="6"/>
-              <circle class="n" cx="40" cy="130" r="6"/>
-              <circle class="n" cx="70" cy="200" r="6"/>
-              <circle class="n" cx="300" cy="60" r="6"/>
-              <circle class="n" cx="320" cy="150" r="6"/>
-              <circle class="n" cx="280" cy="205" r="6"/>
-            </g>
-            <!-- central root cause -->
-            <circle class="core-ring" cx="180" cy="120" r="26" fill="none"/>
-            <circle class="core" cx="180" cy="120" r="13"/>
-            <circle class="core-dot" cx="180" cy="120" r="5"/>
-          </svg>
-          <div class="art-foot">
-            <div class="metric"><span class="num" data-count="1284">0</span><span class="lab">issues</span></div>
-            <svg class="flow" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h28M24 6l8 6-8 6" /></svg>
-            <div class="metric accent"><span class="num" data-count="7">0</span><span class="lab">themes</span></div>
-          </div>
+
+          <!-- interactive stepper -->
+          <ol class="flowsteps" aria-label="Causeloop, end to end">
+            <li><button type="button" class="fstep is-active" data-step="0" aria-pressed="true"><span class="fs-n">01</span><span class="fs-t">Connect</span></button></li>
+            <li><button type="button" class="fstep" data-step="1" aria-pressed="false"><span class="fs-n">02</span><span class="fs-t">Detect</span></button></li>
+            <li><button type="button" class="fstep" data-step="2" aria-pressed="false"><span class="fs-n">03</span><span class="fs-t">Predict</span></button></li>
+            <li><button type="button" class="fstep" data-step="3" aria-pressed="false"><span class="fs-n">04</span><span class="fs-t">Prove</span></button></li>
+          </ol>
         </div>
-        <div class="float-chip chip-1"><span class="dotn"></span>Compliance · drift detected</div>
-        <div class="float-chip chip-2"><span class="dotn"></span>Predicted recurrence · 92%</div>
       </div>
     </div>
   </section>
