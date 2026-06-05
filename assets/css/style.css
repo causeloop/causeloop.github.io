@@ -506,3 +506,153 @@ svg.mark{display:block}
 @media (max-width:440px){
   .steps,.team-grid{grid-template-columns:1fr}
 }
+
+/* =================================================================
+   REWRITE ADDITIONS — wordmark fix, hero, regulated industries,
+   capabilities, agent network, flywheel, forces, CTA, sub-pages
+   ================================================================= */
+
+/* ---------- Wordmark: spelled-out "causeloop" with brand "oo" ---------- */
+.wm .oo{
+  background:linear-gradient(115deg,#4A78FF,#1FC2FF);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:-.04em;
+}
+
+/* ---------- Hero copy additions ---------- */
+.hero-claim{margin-top:20px;font-family:var(--f-display);font-weight:700;font-size:1.16rem;letter-spacing:-.02em;color:var(--text);max-width:560px}
+.hero-icp{margin-top:14px;color:var(--text-soft);font-size:1rem;max-width:560px}
+.hero-meta{margin-top:28px;display:flex;flex-direction:column;gap:8px}
+.trust-dots{font-size:.92rem;color:var(--text-soft)}
+.trust-dots b{color:var(--text);font-weight:700}
+
+/* ---------- Built for regulated industries ---------- */
+.industry-strip{max-width:920px;margin:0 auto;text-align:center;display:grid;gap:16px}
+.ind-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.ind-row li{font-family:var(--f-display);font-weight:600;font-size:.98rem;letter-spacing:-.01em;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:9px 16px;box-shadow:var(--shadow-sm)}
+.reg-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font-size:.64rem;letter-spacing:.1em;color:var(--text-faint)}
+.reg-row li{white-space:nowrap}
+
+/* ---------- Problem prose ---------- */
+.prose-center{max-width:760px;margin:0 auto 44px;text-align:center}
+.prose-center p{color:var(--text-soft);font-size:1.1rem}
+.prose-center .prose-punch{margin-top:16px;font-family:var(--f-display);font-weight:700;font-size:1.22rem;letter-spacing:-.02em;color:var(--text)}
+.pcard h3{margin-bottom:8px}
+.cadence{font-weight:600;color:var(--text)!important;font-size:1.04rem!important}
+
+/* ---------- How it works — capabilities ---------- */
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:30px 28px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+.cap:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--border-2)}
+.cap-ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;background:var(--bg-alt);border:1px solid var(--border);color:var(--text)}
+.cap-ic svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8}
+.cap h3{font-family:var(--f-display);font-weight:700;font-size:1.2rem;letter-spacing:-.02em;margin-bottom:10px}
+.cap p{color:var(--text-soft);font-size:.98rem}
+.how-close{text-align:center;margin-top:34px;font-family:var(--f-display);font-size:1.12rem;letter-spacing:-.01em;color:var(--text)}
+
+/* ---------- Platform additions ---------- */
+.platform-body{margin-top:16px;color:var(--text-soft);font-size:1.04rem}
+.platform-signal{margin:6px 0 26px;padding:14px 18px;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--r-sm) var(--r-sm) 0;color:var(--text-soft);font-size:1rem}
+.platform-signal strong{color:var(--accent)}
+
+/* ---------- Metrics block ---------- */
+.stats-head{text-align:center;margin-bottom:30px}
+.stats{grid-template-columns:repeat(4,1fr)}
+.stat-num{font-size:clamp(2.2rem,5vw,3.3rem)}
+
+/* ---------- Why now — three forces ---------- */
+.forces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.force{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:30px 26px;box-shadow:var(--shadow-sm)}
+.force-n{display:block;color:var(--accent);font-size:.66rem;letter-spacing:.1em;margin-bottom:14px}
+.force p{color:var(--text-soft);font-size:1rem}
+
+/* ---------- About punch ---------- */
+.about-story .about-punch{margin-top:6px;font-family:var(--f-display);font-weight:700;font-size:1.3rem;letter-spacing:-.02em;color:var(--text)}
+.about-story .about-tail{color:var(--accent);font-weight:600}
+
+/* ---------- CTA additions ---------- */
+.cta-bars{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:24px}
+.cta-bars span{font-family:var(--f-display);font-weight:600;font-size:.9rem;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 16px}
+.cta-guarantee{color:rgba(255,255,255,.7)!important;font-size:.95rem!important;margin-top:18px!important;font-style:italic}
+
+/* ---------- Footer 4-col ---------- */
+.footer-grid{grid-template-columns:1.5fr 1fr 1fr 1fr}
+
+/* =================================================================
+   SUB-PAGE SHELL (pricing / what-our-ai-does / versus / security /
+   legal docs) — shared page hero + content primitives
+   ================================================================= */
+.page-hero{padding:clamp(56px,8vw,100px) 0 clamp(30px,4vw,44px);border-bottom:1px solid var(--border);background:var(--bg-alt);position:relative;overflow:hidden}
+.page-hero .wrap{position:relative;z-index:1;max-width:840px}
+.page-hero h1{font-family:var(--f-display);font-weight:800;letter-spacing:-.04em;line-height:1.04;font-size:clamp(2.1rem,5vw,3.4rem);color:var(--text)}
+.page-hero .lede{margin-top:18px;color:var(--text-soft);font-size:1.16rem;max-width:680px}
+.page-crumb{margin-bottom:18px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+.page-crumb a:hover{color:var(--accent)}
+
+.page-section{padding:clamp(48px,6vw,80px) 0}
+.page-section + .page-section{border-top:1px solid var(--border)}
+.measure{max-width:760px;margin:0 auto}
+.measure h2{font-family:var(--f-display);font-weight:800;letter-spacing:-.03em;font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--text);margin-bottom:16px}
+.measure h3{font-family:var(--f-display);font-weight:700;font-size:1.2rem;letter-spacing:-.02em;color:var(--text);margin:28px 0 8px}
+.measure p{color:var(--text-soft);font-size:1.06rem;margin-bottom:14px}
+.measure p strong{color:var(--text);font-weight:600}
+.measure ul.bullets{margin:14px 0 18px;display:grid;gap:10px}
+.measure ul.bullets li{position:relative;padding-left:26px;color:var(--text-soft);font-size:1.02rem}
+.measure ul.bullets li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+
+/* capability list (what-our-ai-does) */
+.cap-list{display:grid;gap:18px;margin-top:8px}
+.cap-list .cap{padding:26px 26px}
+.cap-list .cap .eg{margin-top:10px;font-size:.92rem;color:var(--text-faint);border-left:2px solid var(--border-2);padding-left:12px}
+
+/* pricing tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.tier{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.tier.feature{border-color:var(--accent);box-shadow:var(--shadow-md)}
+.tier-name{font-family:var(--f-display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--text)}
+.tier-tag{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:8px 0 14px}
+.tier p{color:var(--text-soft);font-size:.98rem}
+.tier-note{margin-top:22px;text-align:center;color:var(--text-soft);font-size:.98rem}
+
+/* comparison table (versus) */
+.cmp-wrap{overflow-x:auto;margin-top:8px;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm)}
+.cmp{width:100%;border-collapse:collapse;min-width:640px;font-size:.95rem}
+.cmp th,.cmp td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+.cmp thead th{font-family:var(--f-display);font-weight:700;color:var(--text);background:var(--bg-alt);position:sticky;top:0}
+.cmp thead th.is-cl{color:var(--accent)}
+.cmp tbody th{font-family:var(--f-text);font-weight:600;color:var(--text);width:24%}
+.cmp td{color:var(--text-soft)}
+.cmp td.is-cl{color:var(--text);font-weight:500;background:rgba(226,96,63,.045)}
+.cmp tr:last-child th,.cmp tr:last-child td{border-bottom:none}
+
+/* security definition list */
+.trust-list{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--border)}
+.trust-item{display:grid;grid-template-columns:34% 1fr;gap:20px;padding:18px 4px;border-bottom:1px solid var(--border)}
+.trust-item dt{font-family:var(--f-display);font-weight:700;color:var(--text);font-size:1.02rem}
+.trust-item dd{color:var(--text-soft);font-size:1rem}
+.badge-soon{display:inline-block;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:rgba(226,96,63,.12);border-radius:999px;padding:3px 9px;margin-left:6px}
+
+.page-cta{text-align:center;padding:clamp(48px,6vw,80px) 0;border-top:1px solid var(--border);background:var(--bg-alt)}
+.page-cta h2{font-family:var(--f-display);font-weight:800;letter-spacing:-.03em;font-size:clamp(1.5rem,3.4vw,2.2rem);color:var(--text)}
+.page-cta p{color:var(--text-soft);margin:12px auto 24px;max-width:560px;font-size:1.06rem}
+
+/* ---------- Responsive additions ---------- */
+@media (max-width:980px){
+  .cap-grid,.forces-grid,.tiers{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .stats{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .trust-item{grid-template-columns:1fr;gap:6px}
+  .ind-row li{font-size:.88rem;padding:7px 13px}
+}
+
+/* ---------- Agent network diagram (reuses the loop-graph language) ---------- */
+.agentfig{max-width:520px;margin:44px auto 0}
+.loopgraph .n.out{fill:var(--accent)}
+.agentflow .fb{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-dasharray:4 4;opacity:.55}
+.agentflow .glabel{fill:var(--text-faint);font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.agentflow .glabel.end{text-anchor:end}
