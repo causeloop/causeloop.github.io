@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Causeloop — Predictions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2A5A;--ink:#10172E;--cobalt:#4A78FF;--cyan:#1FC2FF;--terra:#E2603F;--terra-2:#F0764F;
+  --slate:#5A6480;--faint:#98A0B5;--line:#E7E9F0;--paper:#FBFBFC;--paper-2:#F4F5F8;
+  --grad:linear-gradient(135deg,#4A78FF,#1FC2FF);
+  --f-d:'Schibsted Grotesk',system-ui,sans-serif;
+  --f-t:'Hanken Grotesk',system-ui,sans-serif;
+  --f-m:'JetBrains Mono',ui-monospace,monospace;
+  --r-sm:12px;--r:18px;--r-lg:26px;--r-pill:999px;--ease:cubic-bezier(.22,.7,.2,1);
+}
+[data-theme="dark"]{
+  --bg:#0C1124;--bg-alt:#0F1530;--surface:#141B38;--surface-2:#18204A;
+  --text:#EEF1FA;--text-soft:#A9B2CD;--text-faint:#6E7798;
+  --border:#222B4E;--border-2:#2C3660;--accent:#F0764F;--accent-ink:#1A1206;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);--shadow-md:0 14px 36px rgba(0,0,0,.45);--shadow-lg:0 30px 70px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{display:flex;min-height:100vh;font-family:var(--f-t);font-size:14px;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+
+/* ============ SIDEBAR ============ */
+.sidebar{width:240px;flex-shrink:0;background:var(--bg-alt);border-right:1px solid var(--border);position:sticky;top:0;height:100vh;display:flex;flex-direction:column;}
+.sidebar-logo{display:flex;align-items:center;gap:10px;padding:20px 18px 16px;border-bottom:1px solid var(--border);}
+.wm{font-family:var(--f-d);font-weight:800;font-size:1.15rem;letter-spacing:-.04em;color:var(--text);display:flex;align-items:center;}
+.wm-oo{width:1.1em;height:.78em;align-self:center;}
+nav{padding:8px 0 0;}
+.nav-item{display:flex;align-items:center;gap:11px;padding:9px 14px;border-radius:10px;margin:1px 8px;color:var(--text-soft);font-size:.9rem;font-weight:500;transition:background .15s var(--ease),color .15s var(--ease);}
+.nav-item svg{width:17px;height:17px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;}
+.nav-item:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.nav-item.active{background:rgba(74,120,255,.14);color:var(--cobalt);}
+.badge{margin-left:auto;font-family:var(--f-m);font-size:.58rem;background:var(--terra-2);color:#fff;border-radius:999px;padding:2px 6px;line-height:1.4;}
+.nav-item.active .badge{background:var(--cobalt);}
+.sidebar-spacer{flex:1;}
+.sidebar-user{display:flex;align-items:center;gap:10px;padding:14px;border-top:1px solid var(--border);}
+.user-avatar{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--grad);color:#fff;font-family:var(--f-d);font-weight:700;font-size:.76rem;display:flex;align-items:center;justify-content:center;}
+.user-name{font-size:.86rem;font-weight:600;line-height:1.2;}
+.user-role{font-family:var(--f-m);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);}
+.back-link{display:block;text-align:center;padding:8px;font-family:var(--f-m);font-size:.58rem;text-transform:uppercase;color:var(--text-faint);border-top:1px solid var(--border);letter-spacing:.04em;}
+.back-link:hover{color:var(--text-soft);}
+
+/* ============ MAIN ============ */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--border);background:var(--bg-alt);position:sticky;top:0;z-index:10;}
+.page-title{font-family:var(--f-d);font-weight:700;font-size:1.22rem;letter-spacing:-.02em;}
+.tb-right{display:flex;align-items:center;gap:10px;}
+.tb-btn{display:flex;align-items:center;gap:7px;padding:7px 13px;border-radius:8px;border:1px solid var(--border-2);background:transparent;font-family:var(--f-t);font-size:.84rem;color:var(--text-soft);cursor:pointer;transition:background .15s var(--ease),color .15s var(--ease);}
+.tb-btn:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.tb-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.tb-chev{width:13px!important;height:13px!important;opacity:.7;}
+.tb-btn-primary{background:var(--terra);border-color:var(--terra);color:#fff;font-weight:600;}
+.tb-btn-primary:hover{background:var(--terra-2);border-color:var(--terra-2);color:#fff;}
+.tb-btn-primary svg{stroke:#fff;}
+
+.content{padding:24px 28px;overflow-y:auto;flex:1;}
+
+/* ============ KPI ============ */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;display:flex;flex-direction:column;gap:7px;}
+.kpi-label{font-family:var(--f-m);font-size:.6rem;letter-spacing:.12em;color:var(--text-faint);text-transform:uppercase;}
+.kpi-num{font-family:var(--f-d);font-weight:800;font-size:1.9rem;color:var(--text);line-height:1;letter-spacing:-.02em;}
+.kpi-sub{font-size:.72rem;color:var(--text-faint);}
+
+/* ============ PANELS ============ */
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.panel-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);}
+.panel-title{font-family:var(--f-d);font-weight:600;font-size:.95rem;}
+.panel-link{font-family:var(--f-m);font-size:.64rem;color:var(--cobalt);}
+.panel-link:hover{text-decoration:underline;}
+.panel-body{padding:16px 18px;}
+.mt16{margin-top:16px;}
+
+/* toggle segment */
+.seg{display:inline-flex;background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--r-pill);padding:2px;gap:2px;}
+.seg-btn{font-family:var(--f-m);font-size:.62rem;letter-spacing:.04em;color:var(--text-faint);background:transparent;border:none;cursor:pointer;padding:4px 11px;border-radius:var(--r-pill);transition:background .15s var(--ease),color .15s var(--ease);}
+.seg-btn:hover{color:var(--text-soft);}
+.seg-btn.active{background:var(--cobalt);color:#fff;}
+
+/* chart */
+.chart-wrap{width:100%;}
+.chart-svg{width:100%;height:auto;display:block;}
+.chart-legend{display:flex;gap:18px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(34,43,78,.5);}
+.legend-item{display:flex;align-items:center;gap:7px;font-size:.74rem;color:var(--text-soft);}
+.legend-swatch{width:14px;height:8px;border-radius:3px;flex-shrink:0;}
+.legend-line{width:14px;height:2px;border-radius:2px;background:var(--cobalt);flex-shrink:0;}
+
+/* ============ SIGNALS TABLE ============ */
+.sig-table{width:100%;border-collapse:collapse;}
+.sig-table thead th{font-family:var(--f-m);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);text-align:left;padding:0 14px 10px;font-weight:500;}
+.sig-table tbody tr{border-top:1px solid rgba(34,43,78,.6);transition:background .15s var(--ease);}
+.sig-table tbody tr:hover{background:rgba(255,255,255,.02);}
+.sig-table td{padding:13px 14px;vertical-align:middle;}
+.sig-name{font-weight:600;font-size:.88rem;color:var(--text);}
+.pat-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-m);font-size:.62rem;background:rgba(74,120,255,.1);color:var(--cobalt);border-radius:var(--r-pill);padding:3px 9px 3px 7px;white-space:nowrap;}
+.pat-tag svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;flex-shrink:0;}
+.prob-cell{display:flex;align-items:center;gap:9px;}
+.prob-num{font-family:var(--f-m);font-size:.82rem;font-weight:600;width:34px;text-align:right;}
+.prob-bar{width:64px;height:6px;background:var(--border-2);border-radius:3px;overflow:hidden;flex-shrink:0;}
+.prob-fill{height:100%;border-radius:3px;}
+.win-cell{font-size:.82rem;color:var(--text-soft);white-space:nowrap;}
+.imp-chip{font-family:var(--f-m);font-size:.56rem;letter-spacing:.05em;border-radius:var(--r-pill);padding:3px 9px;text-transform:uppercase;white-space:nowrap;}
+.imp-critical{background:rgba(255,75,107,.14);color:#FF4B6B;}
+.imp-high{background:rgba(240,118,79,.14);color:var(--terra-2);}
+.imp-medium{background:rgba(245,166,35,.14);color:#F5A623;}
+.imp-low{background:rgba(110,119,152,.16);color:var(--text-faint);}
+
+/* ============ STAT ROWS (Forecast Accuracy) ============ */
+.stat-row{padding:12px 0;border-bottom:1px solid rgba(34,43,78,.5);}
+.stat-row:last-child{border-bottom:none;}
+.stat-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;}
+.stat-label{font-family:var(--f-m);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);}
+.stat-val{font-family:var(--f-d);font-weight:800;font-size:1.05rem;color:var(--text);letter-spacing:-.01em;}
+.stat-bar{width:100%;height:5px;background:var(--border-2);border-radius:3px;overflow:hidden;}
+.stat-fill{height:100%;border-radius:3px;background:var(--cobalt);}
+
+/* ============ ALERT RULES ============ */
+.rule-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid rgba(34,43,78,.5);}
+.rule-row:last-child{border-bottom:none;}
+.rule-body{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0;}
+.rule-desc{font-size:.86rem;font-weight:500;color:var(--text);line-height:1.3;}
+.rule-chan{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-family:var(--f-m);font-size:.58rem;letter-spacing:.04em;border-radius:var(--r-pill);padding:3px 9px;}
+.chan-slack{background:rgba(74,120,255,.12);color:var(--cobalt);}
+.chan-pager{background:rgba(43,166,114,.14);color:#2BA672;}
+.chan-email{background:rgba(110,119,152,.16);color:var(--text-soft);}
+.chan-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+.toggle{width:38px;height:21px;border-radius:var(--r-pill);background:var(--cobalt);position:relative;flex-shrink:0;cursor:pointer;transition:background .15s var(--ease);}
+.toggle::after{content:"";position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;background:#fff;transition:left .15s var(--ease);}
+.toggle.on::after{left:19px;}
+.toggle.off{background:var(--border-2);}
+</style>
+</head>
+<body>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#grad)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/>
+        <path d="M41.5 15.55 L44.38 12.26"/>
+      </g>
+      <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#grad)"/>
+      <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+    </svg>
+    <span class="wm">causel<svg class="wm-oo" viewBox="24 6 52 38"><path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z" fill="none" stroke="currentColor" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="25" r="4.4" fill="#E2603F"/></svg>p</span>
+  </div>
+
+  <nav>
+    <a class="nav-item" href="dashboard.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      Dashboard
+    </a>
+    <a class="nav-item" href="issues.html">
+      <svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="18" r="1"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg>
+      Issues<span class="badge">247</span>
+    </a>
+    <a class="nav-item" href="patterns.html">
+      <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>
+      Patterns<span class="badge">12</span>
+    </a>
+    <a class="nav-item active" href="predictions.html">
+      <svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+      Predictions
+    </a>
+    <a class="nav-item" href="recommendations.html">
+      <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      Recommendations
+    </a>
+    <div style="height:1px;background:var(--border);margin:10px 16px"></div>
+    <a class="nav-item" href="integrations.html">
+      <svg viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M7 8h10v4a5 5 0 0 1-10 0V8zM12 17v5"/></svg>
+      Integrations
+    </a>
+    <a class="nav-item" href="settings.html">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Settings
+    </a>
+  </nav>
+
+  <div class="sidebar-spacer"></div>
+
+  <div class="sidebar-user">
+    <div class="user-avatar">RP</div>
+    <div>
+      <div class="user-name">Rushabh Patel</div>
+      <div class="user-role">Admin</div>
+    </div>
+  </div>
+  <a class="back-link" href="../../index.html">← Back to site</a>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<div class="main">
+  <header class="topbar">
+    <h1 class="page-title">Predictions</h1>
+    <div class="tb-right">
+      <button class="tb-btn">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+        Next 30 days
+        <svg class="tb-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <button class="tb-btn tb-btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        Configure alerts
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- ===== Section A: KPI row ===== -->
+    <section class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-label">Predicted Recurrences</div>
+        <div class="kpi-num">14</div>
+        <div class="kpi-sub">next 30 days</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">High-Probability</div>
+        <div class="kpi-num" style="color:var(--terra-2)">5</div>
+        <div class="kpi-sub">≥80% likely</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Forecast Accuracy</div>
+        <div class="kpi-num" style="color:#2BA672">91%</div>
+        <div class="kpi-sub">trailing 90d</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Alerts Active</div>
+        <div class="kpi-num">8</div>
+        <div class="kpi-sub">3 channels</div>
+      </div>
+    </section>
+
+    <!-- ===== Section B: Risk Forecast chart ===== -->
+    <section class="panel mt16">
+      <div class="panel-head">
+        <span class="panel-title">Risk Forecast</span>
+        <div class="seg">
+          <button class="seg-btn">7d</button>
+          <button class="seg-btn active">30d</button>
+          <button class="seg-btn">90d</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="chart-wrap">
+          <svg class="chart-svg" viewBox="0 0 640 200" preserveAspectRatio="none" aria-label="Projected portfolio risk forecast">
+            <!-- grid lines -->
+            <g stroke="#222B4E" stroke-width="1">
+              <line x1="40" y1="20"  x2="620" y2="20"/>
+              <line x1="40" y1="60"  x2="620" y2="60"/>
+              <line x1="40" y1="100" x2="620" y2="100"/>
+              <line x1="40" y1="140" x2="620" y2="140"/>
+              <line x1="40" y1="180" x2="620" y2="180"/>
+            </g>
+            <!-- y axis ticks -->
+            <g fill="#6E7798" font-family="'JetBrains Mono',monospace" font-size="9" text-anchor="end">
+              <text x="33" y="23">100</text>
+              <text x="33" y="63">80</text>
+              <text x="33" y="103">60</text>
+              <text x="33" y="143">40</text>
+              <text x="33" y="183">20</text>
+            </g>
+            <!-- x axis ticks -->
+            <g fill="#6E7798" font-family="'JetBrains Mono',monospace" font-size="9" text-anchor="middle">
+              <text x="40"  y="195">now</text>
+              <text x="185" y="195">+7d</text>
+              <text x="330" y="195">+14d</text>
+              <text x="475" y="195">+21d</text>
+              <text x="620" y="195">+30d</text>
+            </g>
+            <!-- divider where forecast (future third) begins -->
+            <line x1="427" y1="20" x2="427" y2="180" stroke="#2C3660" stroke-width="1" stroke-dasharray="3 4"/>
+            <text x="431" y="32" fill="#6E7798" font-family="'JetBrains Mono',monospace" font-size="8.5">forecast</text>
+
+            <!-- confidence band (filled area between upper + lower bound) -->
+            <path d="M40,150 L100,142 L160,134 L220,121 L280,109 L340,96 L390,86 L427,79
+                     L475,66 L525,53 L575,42 L620,33
+                     L620,63 L575,72 L525,83 L475,96 L427,109
+                     L390,116 L340,126 L280,139 L220,151 L160,162 L100,170 L40,176 Z"
+                  fill="rgba(74,120,255,0.12)" stroke="none"/>
+
+            <!-- observed risk line (solid) -->
+            <polyline fill="none" stroke="#4A78FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+                      points="40,163 100,156 160,148 220,136 280,124 340,111 390,101 427,94"/>
+            <!-- projected risk line (dashed future segment) -->
+            <polyline fill="none" stroke="#4A78FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5"
+                      points="427,94 475,81 525,68 575,57 620,48"/>
+
+            <!-- data point markers (observed) -->
+            <g fill="#0C1124" stroke="#4A78FF" stroke-width="2">
+              <circle cx="40"  cy="163" r="3"/>
+              <circle cx="160" cy="148" r="3"/>
+              <circle cx="280" cy="124" r="3"/>
+              <circle cx="390" cy="101" r="3"/>
+            </g>
+            <!-- endpoint of forecast -->
+            <circle cx="620" cy="48" r="3.4" fill="#1FC2FF" stroke="#0C1124" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-line"></span>Projected risk</span>
+          <span class="legend-item"><span class="legend-swatch" style="background:rgba(74,120,255,0.22)"></span>Confidence band</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section C: Predicted Risk Signals ===== -->
+    <section class="panel mt16">
+      <div class="panel-head">
+        <span class="panel-title">Predicted Risk Signals</span>
+        <a class="panel-link" href="patterns.html">View patterns →</a>
+      </div>
+      <div class="panel-body" style="padding:14px 6px 6px;">
+        <table class="sig-table">
+          <thead>
+            <tr>
+              <th>Signal</th>
+              <th>Pattern</th>
+              <th>Probability</th>
+              <th>Window</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="sig-name">Auth timeout recurrence</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:#FF4B6B">93%</span><span class="prob-bar"><span class="prob-fill" style="width:93%;background:#FF4B6B"></span></span></div></td>
+              <td><span class="win-cell">within 14d</span></td>
+              <td><span class="imp-chip imp-critical">Critical</span></td>
+            </tr>
+            <tr>
+              <td><span class="sig-name">DB pool exhaustion</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>DB pool exhaustion</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:#FF4B6B">88%</span><span class="prob-bar"><span class="prob-fill" style="width:88%;background:#FF4B6B"></span></span></div></td>
+              <td><span class="win-cell">within 3d</span></td>
+              <td><span class="imp-chip imp-high">High</span></td>
+            </tr>
+            <tr>
+              <td><span class="sig-name">Payment retry storm</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Payment retry cascade</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:#FF4B6B">81%</span><span class="prob-bar"><span class="prob-fill" style="width:81%;background:#FF4B6B"></span></span></div></td>
+              <td><span class="win-cell">within 9d</span></td>
+              <td><span class="imp-chip imp-high">High</span></td>
+            </tr>
+            <tr>
+              <td><span class="sig-name">Rate limiter false-positive spike</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Rate limiter false positives</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:var(--terra-2)">64%</span><span class="prob-bar"><span class="prob-fill" style="width:64%;background:#F0764F"></span></span></div></td>
+              <td><span class="win-cell">within 21d</span></td>
+              <td><span class="imp-chip imp-medium">Medium</span></td>
+            </tr>
+            <tr>
+              <td><span class="sig-name">CDN cache miss storm</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>S3 CDN cache misses</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:#F5A623">52%</span><span class="prob-bar"><span class="prob-fill" style="width:52%;background:#F5A623"></span></span></div></td>
+              <td><span class="win-cell">within 30d</span></td>
+              <td><span class="imp-chip imp-medium">Medium</span></td>
+            </tr>
+            <tr>
+              <td><span class="sig-name">Token refresh thundering herd</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:#F5A623">47%</span><span class="prob-bar"><span class="prob-fill" style="width:47%;background:#F5A623"></span></span></div></td>
+              <td><span class="win-cell">within 30d</span></td>
+              <td><span class="imp-chip imp-low">Low</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== Section D: two-column ===== -->
+    <section class="kpi-row mt16" style="grid-template-columns:1fr 1fr;">
+
+      <!-- Left: Forecast Accuracy -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-title">Forecast Accuracy</span>
+        </div>
+        <div class="panel-body" style="padding:6px 18px 10px;">
+          <div class="stat-row">
+            <div class="stat-top"><span class="stat-label">Precision</span><span class="stat-val">0.89</span></div>
+            <div class="stat-bar"><span class="stat-fill" style="width:89%"></span></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-top"><span class="stat-label">Recall</span><span class="stat-val">0.84</span></div>
+            <div class="stat-bar"><span class="stat-fill" style="width:84%"></span></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-top"><span class="stat-label">Brier Score · lower better</span><span class="stat-val">0.11</span></div>
+            <div class="stat-bar"><span class="stat-fill" style="width:11%;background:#2BA672"></span></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-top"><span class="stat-label">Lead Time Avg</span><span class="stat-val">6.2 days</span></div>
+            <div class="stat-bar"><span class="stat-fill" style="width:62%;background:var(--cyan)"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Alert Rules -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-title">Alert Rules</span>
+          <a class="panel-link" href="#">Manage →</a>
+        </div>
+        <div class="panel-body" style="padding:6px 18px 10px;">
+          <div class="rule-row">
+            <div class="rule-body">
+              <span class="rule-desc">Recurrence ≥ 80% within 7 days</span>
+              <span class="rule-chan chan-slack"><span class="chan-dot"></span>Slack #risk-eng</span>
+            </div>
+            <span class="toggle on" role="switch" aria-checked="true"></span>
+          </div>
+          <div class="rule-row">
+            <div class="rule-body">
+              <span class="rule-desc">Any Critical pattern predicted to recur</span>
+              <span class="rule-chan chan-pager"><span class="chan-dot"></span>PagerDuty</span>
+            </div>
+            <span class="toggle on" role="switch" aria-checked="true"></span>
+          </div>
+          <div class="rule-row">
+            <div class="rule-body">
+              <span class="rule-desc">Weekly forecast digest</span>
+              <span class="rule-chan chan-email"><span class="chan-dot"></span>Email</span>
+            </div>
+            <span class="toggle on" role="switch" aria-checked="true"></span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

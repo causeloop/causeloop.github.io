@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Causeloop — Recommendations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2A5A;--ink:#10172E;--cobalt:#4A78FF;--cyan:#1FC2FF;--terra:#E2603F;--terra-2:#F0764F;
+  --slate:#5A6480;--faint:#98A0B5;--line:#E7E9F0;--paper:#FBFBFC;--paper-2:#F4F5F8;
+  --grad:linear-gradient(135deg,#4A78FF,#1FC2FF);
+  --f-d:'Schibsted Grotesk',system-ui,sans-serif;
+  --f-t:'Hanken Grotesk',system-ui,sans-serif;
+  --f-m:'JetBrains Mono',ui-monospace,monospace;
+  --r-sm:12px;--r:18px;--r-lg:26px;--r-pill:999px;--ease:cubic-bezier(.22,.7,.2,1);
+}
+[data-theme="dark"]{
+  --bg:#0C1124;--bg-alt:#0F1530;--surface:#141B38;--surface-2:#18204A;
+  --text:#EEF1FA;--text-soft:#A9B2CD;--text-faint:#6E7798;
+  --border:#222B4E;--border-2:#2C3660;--accent:#F0764F;--accent-ink:#1A1206;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);--shadow-md:0 14px 36px rgba(0,0,0,.45);--shadow-lg:0 30px 70px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{display:flex;min-height:100vh;font-family:var(--f-t);font-size:14px;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+
+/* ============ SIDEBAR ============ */
+.sidebar{width:240px;flex-shrink:0;background:var(--bg-alt);border-right:1px solid var(--border);position:sticky;top:0;height:100vh;display:flex;flex-direction:column;}
+.sidebar-logo{display:flex;align-items:center;gap:10px;padding:20px 18px 16px;border-bottom:1px solid var(--border);}
+.wm{font-family:var(--f-d);font-weight:800;font-size:1.15rem;letter-spacing:-.04em;color:var(--text);display:flex;align-items:center;}
+.wm-oo{width:1.1em;height:.78em;align-self:center;}
+nav{padding:8px 0 0;}
+.nav-item{display:flex;align-items:center;gap:11px;padding:9px 14px;border-radius:10px;margin:1px 8px;color:var(--text-soft);font-size:.9rem;font-weight:500;transition:background .15s var(--ease),color .15s var(--ease);}
+.nav-item svg{width:17px;height:17px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;}
+.nav-item:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.nav-item.active{background:rgba(74,120,255,.14);color:var(--cobalt);}
+.badge{margin-left:auto;font-family:var(--f-m);font-size:.58rem;background:var(--terra-2);color:#fff;border-radius:999px;padding:2px 6px;line-height:1.4;}
+.nav-item.active .badge{background:var(--cobalt);}
+.sidebar-spacer{flex:1;}
+.sidebar-user{display:flex;align-items:center;gap:10px;padding:14px;border-top:1px solid var(--border);}
+.user-avatar{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--grad);color:#fff;font-family:var(--f-d);font-weight:700;font-size:.76rem;display:flex;align-items:center;justify-content:center;}
+.user-name{font-size:.86rem;font-weight:600;line-height:1.2;}
+.user-role{font-family:var(--f-m);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);}
+.back-link{display:block;text-align:center;padding:8px;font-family:var(--f-m);font-size:.58rem;text-transform:uppercase;color:var(--text-faint);border-top:1px solid var(--border);letter-spacing:.04em;}
+.back-link:hover{color:var(--text-soft);}
+
+/* ============ MAIN ============ */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--border);background:var(--bg-alt);position:sticky;top:0;z-index:10;}
+.page-title{font-family:var(--f-d);font-weight:700;font-size:1.22rem;letter-spacing:-.02em;}
+.tb-right{display:flex;align-items:center;gap:10px;}
+.tb-btn{display:flex;align-items:center;gap:7px;padding:7px 13px;border-radius:8px;border:1px solid var(--border-2);background:transparent;font-family:var(--f-t);font-size:.84rem;color:var(--text-soft);cursor:pointer;transition:background .15s var(--ease),color .15s var(--ease);}
+.tb-btn:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.tb-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.tb-chev{width:13px!important;height:13px!important;opacity:.7;}
+.tb-btn.primary{background:var(--terra);border-color:var(--terra);color:#fff;font-weight:600;}
+.tb-btn.primary:hover{background:var(--terra-2);border-color:var(--terra-2);color:#fff;}
+.tb-btn.primary svg{stroke:#fff;}
+
+.content{padding:24px 28px;overflow-y:auto;flex:1;}
+
+/* ============ KPI ============ */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;display:flex;flex-direction:column;gap:7px;}
+.kpi-label{font-family:var(--f-m);font-size:.6rem;letter-spacing:.12em;color:var(--text-faint);text-transform:uppercase;}
+.kpi-num{font-family:var(--f-d);font-weight:800;font-size:1.9rem;color:var(--text);line-height:1;letter-spacing:-.02em;}
+.kpi-sub{font-size:.72rem;}
+
+/* ============ FILTER CHIPS ============ */
+.filter-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;flex-wrap:wrap;}
+.chip-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:8px;border:1px solid var(--border-2);background:var(--surface);font-family:var(--f-t);font-size:.82rem;font-weight:500;color:var(--text-soft);cursor:pointer;transition:background .15s var(--ease),color .15s var(--ease),border-color .15s var(--ease);}
+.chip:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.chip.active{background:rgba(74,120,255,.14);border-color:rgba(74,120,255,.4);color:var(--cobalt);}
+.seg{display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;overflow:hidden;}
+.seg-item{padding:6px 13px;font-family:var(--f-t);font-size:.8rem;font-weight:500;color:var(--text-soft);cursor:pointer;border-right:1px solid var(--border-2);transition:background .15s var(--ease),color .15s var(--ease);}
+.seg-item:last-child{border-right:none;}
+.seg-item:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.seg-item.active{background:rgba(74,120,255,.14);color:var(--cobalt);}
+
+/* ============ RECOMMENDATIONS LIST ============ */
+.rec-list{display:flex;flex-direction:column;gap:14px;margin-top:18px;}
+.rec-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:17px 18px;display:flex;flex-direction:column;gap:11px;transition:border-color .15s var(--ease);}
+.rec-card:hover{border-color:var(--border-2);}
+
+.rec-head{display:flex;align-items:center;gap:13px;}
+.rec-rank{width:30px;height:30px;flex-shrink:0;border-radius:50%;background:rgba(74,120,255,.14);color:var(--cobalt);font-family:var(--f-d);font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;}
+.rec-title{flex:1;font-family:var(--f-d);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;color:var(--text);line-height:1.25;min-width:0;}
+.rec-chips{display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.r-chip{font-family:var(--f-m);font-size:.56rem;letter-spacing:.04em;border-radius:var(--r-pill);padding:3px 9px;text-transform:uppercase;white-space:nowrap;}
+.chip-terra{background:rgba(240,118,79,.14);color:var(--terra-2);}
+.chip-amber{background:rgba(245,166,35,.14);color:#F5A623;}
+.chip-green{background:rgba(43,166,114,.14);color:#2BA672;}
+.chip-cobalt{background:rgba(74,120,255,.14);color:var(--cobalt);}
+.chip-faint{background:rgba(110,119,152,.14);color:var(--text-faint);}
+
+.rec-desc{font-size:.86rem;color:var(--text-soft);line-height:1.45;padding-left:43px;}
+
+.rec-meta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-left:43px;font-family:var(--f-m);font-size:.66rem;color:var(--text-faint);}
+.meta-item{display:inline-flex;align-items:center;gap:6px;}
+.type-badge{font-family:var(--f-m);font-size:.6rem;letter-spacing:.04em;border-radius:6px;padding:3px 8px;text-transform:uppercase;background:var(--bg-alt);border:1px solid var(--border);color:var(--text-soft);}
+.meta-item svg{width:13px;height:13px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;}
+.pattern-tag{display:inline-flex;align-items:center;gap:6px;color:var(--cobalt);}
+.pattern-tag svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;}
+
+.rec-foot{display:flex;align-items:center;gap:10px;padding-left:43px;padding-top:3px;border-top:1px solid rgba(34,43,78,.5);margin-top:1px;}
+.rec-foot .pad{padding-top:11px;}
+.ghost-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;border:1px solid var(--border-2);background:transparent;font-family:var(--f-t);font-size:.8rem;font-weight:500;color:var(--text-soft);cursor:pointer;transition:background .15s var(--ease),color .15s var(--ease);}
+.ghost-btn:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.ghost-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.ghost-btn.dismiss{margin-left:auto;border-color:transparent;color:var(--text-faint);}
+.ghost-btn.dismiss:hover{color:var(--terra-2);}
+</style>
+</head>
+<body>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#grad)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/>
+        <path d="M41.5 15.55 L44.38 12.26"/>
+      </g>
+      <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#grad)"/>
+      <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+    </svg>
+    <span class="wm">causel<svg class="wm-oo" viewBox="24 6 52 38"><path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z" fill="none" stroke="currentColor" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="25" r="4.4" fill="#E2603F"/></svg>p</span>
+  </div>
+
+  <nav>
+    <a class="nav-item" href="dashboard.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      Dashboard
+    </a>
+    <a class="nav-item" href="issues.html">
+      <svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="18" r="1"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg>
+      Issues<span class="badge">247</span>
+    </a>
+    <a class="nav-item" href="patterns.html">
+      <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>
+      Patterns<span class="badge">12</span>
+    </a>
+    <a class="nav-item" href="predictions.html">
+      <svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+      Predictions
+    </a>
+    <a class="nav-item active" href="recommendations.html">
+      <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      Recommendations
+    </a>
+    <div style="height:1px;background:var(--border);margin:10px 16px"></div>
+    <a class="nav-item" href="integrations.html">
+      <svg viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M7 8h10v4a5 5 0 0 1-10 0V8zM12 17v5"/></svg>
+      Integrations
+    </a>
+    <a class="nav-item" href="settings.html">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Settings
+    </a>
+  </nav>
+
+  <div class="sidebar-spacer"></div>
+
+  <div class="sidebar-user">
+    <div class="user-avatar">RP</div>
+    <div>
+      <div class="user-name">Rushabh Patel</div>
+      <div class="user-role">Admin</div>
+    </div>
+  </div>
+  <a class="back-link" href="../../index.html">← Back to site</a>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<div class="main">
+  <header class="topbar">
+    <h1 class="page-title">Recommendations</h1>
+    <div class="tb-right">
+      <button class="tb-btn">
+        <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        All types
+        <svg class="tb-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <button class="tb-btn primary">
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        Push to tracker
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- ===== Section A: KPI row ===== -->
+    <section class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-label">Open Actions</div>
+        <div class="kpi-num">18</div>
+        <div class="kpi-sub" style="color:var(--text-faint)">across 5 patterns</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">High Impact</div>
+        <div class="kpi-num" style="color:var(--terra-2)">6</div>
+        <div class="kpi-sub" style="color:var(--terra-2)">priority queue</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">In Progress</div>
+        <div class="kpi-num" style="color:var(--cobalt)">4</div>
+        <div class="kpi-sub" style="color:var(--text-faint)">being shipped</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Loops Prevented</div>
+        <div class="kpi-num" style="color:#2BA672">11</div>
+        <div class="kpi-sub" style="color:var(--text-faint)">this quarter</div>
+      </div>
+    </section>
+
+    <!-- ===== Section B: Filter chips ===== -->
+    <section class="filter-bar">
+      <div class="chip-group">
+        <span class="chip active">All</span>
+        <span class="chip">Code fix</span>
+        <span class="chip">Config change</span>
+        <span class="chip">Process</span>
+        <span class="chip">Monitoring</span>
+      </div>
+      <div class="seg">
+        <span class="seg-item active">Pending</span>
+        <span class="seg-item">In Progress</span>
+        <span class="seg-item">Implemented</span>
+        <span class="seg-item">Dismissed</span>
+      </div>
+    </section>
+
+    <!-- ===== Section C: Recommendations list ===== -->
+    <section class="rec-list">
+
+      <!-- Card 1 -->
+      <article class="rec-card">
+        <div class="rec-head">
+          <span class="rec-rank">1</span>
+          <span class="rec-title">Offload JWT signing to async crypto workers</span>
+          <span class="rec-chips">
+            <span class="r-chip chip-terra">High Impact</span>
+            <span class="r-chip chip-cobalt">In Progress</span>
+          </span>
+        </div>
+        <p class="rec-desc">Move HMAC-SHA256 signing off request threads into a dedicated worker pool to remove head-of-line blocking under load.</p>
+        <div class="rec-meta">
+          <span class="type-badge">Code fix</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>3–5 day fix</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~4 loops</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span>
+        </div>
+        <div class="rec-foot pad">
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Push to Jira</button>
+          <button class="ghost-btn dismiss"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dismiss</button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="rec-card">
+        <div class="rec-head">
+          <span class="rec-rank">2</span>
+          <span class="rec-title">Add circuit breaker on auth gateway</span>
+          <span class="rec-chips">
+            <span class="r-chip chip-terra">High Impact</span>
+            <span class="r-chip chip-faint">Pending</span>
+          </span>
+        </div>
+        <p class="rec-desc">Reject retry storms during auth degradation; cut load amplification from 4× to 1×.</p>
+        <div class="rec-meta">
+          <span class="type-badge">Code fix</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>1–2 day fix</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~3 loops</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span>
+        </div>
+        <div class="rec-foot pad">
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Push to Jira</button>
+          <button class="ghost-btn dismiss"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dismiss</button>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="rec-card">
+        <div class="rec-head">
+          <span class="rec-rank">3</span>
+          <span class="rec-title">Raise DB pool max + add backpressure</span>
+          <span class="rec-chips">
+            <span class="r-chip chip-terra">High Impact</span>
+            <span class="r-chip chip-cobalt">In Progress</span>
+          </span>
+        </div>
+        <p class="rec-desc">Size the orders-service connection pool to peak load and add queue backpressure to fail fast.</p>
+        <div class="rec-meta">
+          <span class="type-badge">Config change</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>1 day</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~3 loops</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>DB pool exhaustion</span>
+        </div>
+        <div class="rec-foot pad">
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Push to Jira</button>
+          <button class="ghost-btn dismiss"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dismiss</button>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="rec-card">
+        <div class="rec-head">
+          <span class="rec-rank">4</span>
+          <span class="rec-title">Add ±10% jitter to token TTL</span>
+          <span class="rec-chips">
+            <span class="r-chip chip-green">Quick Win</span>
+            <span class="r-chip chip-faint">Pending</span>
+          </span>
+        </div>
+        <p class="rec-desc">Prevent synchronized refresh storms by jittering token expiry; cuts peak auth RPS ~35%.</p>
+        <div class="rec-meta">
+          <span class="type-badge">Config change</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>&lt;4h</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~2 loops</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span>
+        </div>
+        <div class="rec-foot pad">
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Push to Jira</button>
+          <button class="ghost-btn dismiss"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dismiss</button>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="rec-card">
+        <div class="rec-head">
+          <span class="rec-rank">5</span>
+          <span class="rec-title">Idempotency keys on payment retries</span>
+          <span class="rec-chips">
+            <span class="r-chip chip-amber">Medium</span>
+            <span class="r-chip chip-faint">Pending</span>
+          </span>
+        </div>
+        <p class="rec-desc">Make the payment retry path idempotent so the 3rd-retry cascade stops triggering the rate limiter.</p>
+        <div class="rec-meta">
+          <span class="type-badge">Code fix</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>2–3 day fix</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~2 loops</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Payment retry cascade</span>
+        </div>
+        <div class="rec-foot pad">
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Push to Jira</button>
+          <button class="ghost-btn dismiss"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dismiss</button>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="rec-card">
+        <div class="rec-head">
+          <span class="rec-rank">6</span>
+          <span class="rec-title">Alert on CDN cache-hit ratio &lt; 85%</span>
+          <span class="rec-chips">
+            <span class="r-chip chip-amber">Medium</span>
+            <span class="r-chip chip-green">Implemented</span>
+          </span>
+        </div>
+        <p class="rec-desc">Add a monitoring alert that fires before a deploy-time cache-miss storm escalates to an incident.</p>
+        <div class="rec-meta">
+          <span class="type-badge">Monitoring</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>done</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~1 loop</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>S3 CDN cache misses</span>
+        </div>
+        <div class="rec-foot pad">
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
+          <button class="ghost-btn"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Push to Jira</button>
+          <button class="ghost-btn dismiss"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dismiss</button>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

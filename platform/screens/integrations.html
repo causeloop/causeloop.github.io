@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Causeloop — Integrations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2A5A;--ink:#10172E;--cobalt:#4A78FF;--cyan:#1FC2FF;--terra:#E2603F;--terra-2:#F0764F;
+  --slate:#5A6480;--faint:#98A0B5;--line:#E7E9F0;--paper:#FBFBFC;--paper-2:#F4F5F8;
+  --grad:linear-gradient(135deg,#4A78FF,#1FC2FF);
+  --f-d:'Schibsted Grotesk',system-ui,sans-serif;
+  --f-t:'Hanken Grotesk',system-ui,sans-serif;
+  --f-m:'JetBrains Mono',ui-monospace,monospace;
+  --r-sm:12px;--r:18px;--r-lg:26px;--r-pill:999px;--ease:cubic-bezier(.22,.7,.2,1);
+}
+[data-theme="dark"]{
+  --bg:#0C1124;--bg-alt:#0F1530;--surface:#141B38;--surface-2:#18204A;
+  --text:#EEF1FA;--text-soft:#A9B2CD;--text-faint:#6E7798;
+  --border:#222B4E;--border-2:#2C3660;--accent:#F0764F;--accent-ink:#1A1206;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);--shadow-md:0 14px 36px rgba(0,0,0,.45);--shadow-lg:0 30px 70px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{display:flex;min-height:100vh;font-family:var(--f-t);font-size:14px;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+
+/* ============ SIDEBAR ============ */
+.sidebar{width:240px;flex-shrink:0;background:var(--bg-alt);border-right:1px solid var(--border);position:sticky;top:0;height:100vh;display:flex;flex-direction:column;}
+.sidebar-logo{display:flex;align-items:center;gap:10px;padding:20px 18px 16px;border-bottom:1px solid var(--border);}
+.wm{font-family:var(--f-d);font-weight:800;font-size:1.15rem;letter-spacing:-.04em;color:var(--text);display:flex;align-items:center;}
+.wm-oo{width:1.1em;height:.78em;align-self:center;}
+nav{padding:8px 0 0;}
+.nav-item{display:flex;align-items:center;gap:11px;padding:9px 14px;border-radius:10px;margin:1px 8px;color:var(--text-soft);font-size:.9rem;font-weight:500;transition:background .15s var(--ease),color .15s var(--ease);}
+.nav-item svg{width:17px;height:17px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;}
+.nav-item:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.nav-item.active{background:rgba(74,120,255,.14);color:var(--cobalt);}
+.badge{margin-left:auto;font-family:var(--f-m);font-size:.58rem;background:var(--terra-2);color:#fff;border-radius:999px;padding:2px 6px;line-height:1.4;}
+.nav-item.active .badge{background:var(--cobalt);}
+.sidebar-spacer{flex:1;}
+.sidebar-user{display:flex;align-items:center;gap:10px;padding:14px;border-top:1px solid var(--border);}
+.user-avatar{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--grad);color:#fff;font-family:var(--f-d);font-weight:700;font-size:.76rem;display:flex;align-items:center;justify-content:center;}
+.user-name{font-size:.86rem;font-weight:600;line-height:1.2;}
+.user-role{font-family:var(--f-m);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);}
+.back-link{display:block;text-align:center;padding:8px;font-family:var(--f-m);font-size:.58rem;text-transform:uppercase;color:var(--text-faint);border-top:1px solid var(--border);letter-spacing:.04em;}
+.back-link:hover{color:var(--text-soft);}
+
+/* ============ MAIN ============ */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--border);background:var(--bg-alt);position:sticky;top:0;z-index:10;}
+.page-title{font-family:var(--f-d);font-weight:700;font-size:1.22rem;letter-spacing:-.02em;}
+.tb-right{display:flex;align-items:center;gap:10px;}
+.tb-btn{display:flex;align-items:center;gap:7px;padding:7px 13px;border-radius:8px;border:1px solid var(--border-2);background:transparent;font-family:var(--f-t);font-size:.84rem;color:var(--text-soft);cursor:pointer;transition:background .15s var(--ease),color .15s var(--ease);}
+.tb-btn:hover{background:rgba(255,255,255,.05);color:var(--text);}
+.tb-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.tb-chev{width:13px!important;height:13px!important;opacity:.7;}
+.ws-dot{width:14px;height:14px;border-radius:50%;background:var(--grad);flex-shrink:0;}
+.tb-bell{position:relative;padding:7px 9px;}
+.tb-unread{position:absolute;top:5px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--terra-2);border:1.5px solid var(--bg-alt);}
+
+/* search input */
+.tb-search{display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:8px;border:1px solid var(--border-2);background:var(--surface);min-width:230px;transition:border-color .15s var(--ease);}
+.tb-search:focus-within{border-color:var(--cobalt);}
+.tb-search svg{width:15px;height:15px;flex-shrink:0;fill:none;stroke:var(--text-faint);stroke-width:1.8;}
+.tb-search input{border:none;background:transparent;outline:none;font-family:var(--f-t);font-size:.84rem;color:var(--text);width:100%;}
+.tb-search input::placeholder{color:var(--text-faint);}
+.tb-primary{display:flex;align-items:center;gap:7px;padding:8px 15px;border-radius:8px;border:none;background:var(--terra-2);color:#fff;font-family:var(--f-t);font-weight:600;font-size:.84rem;cursor:pointer;transition:background .15s var(--ease),transform .1s var(--ease);}
+.tb-primary:hover{background:var(--terra);}
+.tb-primary:active{transform:translateY(1px);}
+.tb-primary svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;}
+
+.content{padding:24px 28px;overflow-y:auto;flex:1;}
+
+/* ============ KPI ============ */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;display:flex;flex-direction:column;gap:7px;}
+.kpi-label{font-family:var(--f-m);font-size:.6rem;letter-spacing:.12em;color:var(--text-faint);text-transform:uppercase;}
+.kpi-num{font-family:var(--f-d);font-weight:800;font-size:1.9rem;color:var(--text);line-height:1;letter-spacing:-.02em;}
+.kpi-sub{font-size:.72rem;}
+
+/* ============ PANELS ============ */
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:16px;}
+.panel-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);}
+.panel-title{font-family:var(--f-d);font-weight:600;font-size:.95rem;}
+.panel-count{font-family:var(--f-m);font-size:.64rem;color:var(--text-faint);}
+.panel-link{font-family:var(--f-m);font-size:.64rem;color:var(--cobalt);}
+.panel-link:hover{text-decoration:underline;}
+.panel-body{padding:16px 18px;}
+
+/* ============ CONNECTOR GRID ============ */
+.conn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.conn-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s var(--ease),transform .12s var(--ease),box-shadow .15s var(--ease);}
+.conn-card:hover{border-color:var(--border-2);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.conn-card.muted{opacity:.72;}
+.conn-card.muted:hover{opacity:1;}
+.conn-top{display:flex;align-items:center;gap:11px;}
+.conn-glyph{width:36px;height:36px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--f-d);font-weight:700;font-size:1rem;color:#fff;}
+.conn-glyph svg{width:20px;height:20px;display:block;}
+.conn-name{flex:1;font-weight:600;font-size:.92rem;color:var(--text);min-width:0;}
+.conn-pill{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-m);font-size:.58rem;letter-spacing:.04em;border-radius:var(--r-pill);padding:3px 9px;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+.conn-pill.connected{background:rgba(43,166,114,.14);color:#2BA672;}
+.conn-pill .pdot{width:6px;height:6px;border-radius:50%;background:#2BA672;}
+.conn-meta{font-family:var(--f-m);font-size:.66rem;color:var(--text-faint);line-height:1.4;}
+.conn-foot{display:flex;align-items:center;justify-content:space-between;padding-top:11px;border-top:1px solid rgba(34,43,78,.6);}
+.ghost-link{font-family:var(--f-m);font-size:.64rem;color:var(--text-soft);cursor:pointer;transition:color .15s var(--ease);}
+.ghost-link:hover{color:var(--text);}
+.conn-connect{font-family:var(--f-m);font-size:.64rem;color:var(--cobalt);cursor:pointer;transition:color .15s var(--ease);}
+.conn-connect:hover{color:var(--cyan);}
+.conn-avail-meta{font-size:.78rem;color:var(--text-soft);}
+
+/* sync toggle */
+.toggle{position:relative;width:32px;height:18px;border-radius:var(--r-pill);background:var(--border-2);cursor:pointer;transition:background .18s var(--ease);flex-shrink:0;}
+.toggle .knob{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .18s var(--ease);box-shadow:0 1px 2px rgba(0,0,0,.4);}
+.toggle.on{background:var(--cobalt);}
+.toggle.on .knob{left:16px;}
+
+/* ============ WEBHOOK TABLE ============ */
+.wh-table{width:100%;border-collapse:collapse;}
+.wh-table th{font-family:var(--f-m);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 12px 10px;}
+.wh-table td{padding:13px 12px;border-top:1px solid rgba(34,43,78,.6);font-size:.86rem;color:var(--text);vertical-align:middle;}
+.wh-table tr:hover td{background:rgba(255,255,255,.02);}
+.wh-src{font-weight:600;}
+.wh-ep{font-family:var(--f-m);font-size:.74rem;color:var(--text-faint);}
+.wh-time{font-family:var(--f-m);font-size:.74rem;color:var(--text-soft);}
+.wh-status-cell{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.wh-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-m);font-size:.6rem;letter-spacing:.04em;border-radius:var(--r-pill);padding:3px 9px;text-transform:uppercase;white-space:nowrap;}
+.wh-chip.healthy{background:rgba(43,166,114,.14);color:#2BA672;}
+.wh-chip.healthy .wdot{width:6px;height:6px;border-radius:50%;background:#2BA672;}
+.wh-chip.degraded{background:rgba(245,166,35,.14);color:#F5A623;}
+.wh-chip.degraded .wdot{width:6px;height:6px;border-radius:50%;background:#F5A623;}
+.wh-rotate{font-family:var(--f-m);font-size:.6rem;color:var(--text-faint);cursor:pointer;transition:color .15s var(--ease);}
+.wh-rotate:hover{color:var(--text-soft);}
+</style>
+</head>
+<body>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#grad)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M41.5 15.55 A19 19 0 1 1 25.5 14.15"/>
+        <path d="M41.5 15.55 L44.38 12.26"/>
+      </g>
+      <path d="M49 7 L47.54 15.03 L41.22 9.49 Z" fill="url(#grad)"/>
+      <circle cx="25.5" cy="14.15" r="3.8" fill="#E2603F"/>
+    </svg>
+    <span class="wm">causel<svg class="wm-oo" viewBox="24 6 52 38"><path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z" fill="none" stroke="currentColor" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="25" r="4.4" fill="#E2603F"/></svg>p</span>
+  </div>
+
+  <nav>
+    <a class="nav-item" href="dashboard.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      Dashboard
+    </a>
+    <a class="nav-item" href="issues.html">
+      <svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="18" r="1"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg>
+      Issues<span class="badge">247</span>
+    </a>
+    <a class="nav-item" href="patterns.html">
+      <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>
+      Patterns<span class="badge">12</span>
+    </a>
+    <a class="nav-item" href="predictions.html">
+      <svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+      Predictions
+    </a>
+    <a class="nav-item" href="recommendations.html">
+      <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      Recommendations
+    </a>
+    <div style="height:1px;background:var(--border);margin:10px 16px"></div>
+    <a class="nav-item active" href="integrations.html">
+      <svg viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M7 8h10v4a5 5 0 0 1-10 0V8zM12 17v5"/></svg>
+      Integrations
+    </a>
+    <a class="nav-item" href="settings.html">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Settings
+    </a>
+  </nav>
+
+  <div class="sidebar-spacer"></div>
+
+  <div class="sidebar-user">
+    <div class="user-avatar">RP</div>
+    <div>
+      <div class="user-name">Rushabh Patel</div>
+      <div class="user-role">Admin</div>
+    </div>
+  </div>
+  <a class="back-link" href="../../index.html">← Back to site</a>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<div class="main">
+  <header class="topbar">
+    <h1 class="page-title">Integrations</h1>
+    <div class="tb-right">
+      <div class="tb-search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search connectors…">
+      </div>
+      <button class="tb-primary">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add connector
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- ===== Section A: KPI row ===== -->
+    <section class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-label">Connected</div>
+        <div class="kpi-num">5</div>
+        <div class="kpi-sub" style="color:var(--text-faint)">of 9 available</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Issues Synced</div>
+        <div class="kpi-num">2,431</div>
+        <div class="kpi-sub" style="color:#2BA672">last 24h: +184</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Sync Health</div>
+        <div class="kpi-num" style="color:#2BA672">Healthy</div>
+        <div class="kpi-sub" style="color:var(--text-faint)">5 of 5 sources</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Webhooks</div>
+        <div class="kpi-num">7</div>
+        <div class="kpi-sub" style="color:var(--text-faint)">all delivering</div>
+      </div>
+    </section>
+
+    <!-- ===== Section B: Connected ===== -->
+    <section class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Connected</span>
+        <span class="panel-count">5 sources</span>
+      </div>
+      <div class="panel-body">
+        <div class="conn-grid">
+
+          <!-- Jira -->
+          <div class="conn-card">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#2563EB">J</span>
+              <span class="conn-name">Jira</span>
+              <span class="conn-pill connected"><span class="pdot"></span>Connected</span>
+            </div>
+            <div class="conn-meta">Synced 2 min ago · 1,204 issues</div>
+            <div class="conn-foot">
+              <span class="ghost-link">Configure</span>
+              <span class="toggle on"><span class="knob"></span></span>
+            </div>
+          </div>
+
+          <!-- ServiceNow -->
+          <div class="conn-card">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#7C3AED">S</span>
+              <span class="conn-name">ServiceNow</span>
+              <span class="conn-pill connected"><span class="pdot"></span>Connected</span>
+            </div>
+            <div class="conn-meta">Synced 5 min ago · 612 issues</div>
+            <div class="conn-foot">
+              <span class="ghost-link">Configure</span>
+              <span class="toggle on"><span class="knob"></span></span>
+            </div>
+          </div>
+
+          <!-- GitHub Issues -->
+          <div class="conn-card">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#30363D">
+                <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 1.5A10.5 10.5 0 0 0 8.68 22a.55.55 0 0 0 .73-.53v-1.86c-2.92.63-3.54-1.41-3.54-1.41a2.78 2.78 0 0 0-1.17-1.54c-.95-.65.07-.64.07-.64a2.2 2.2 0 0 1 1.61 1.08 2.24 2.24 0 0 0 3.06.87 2.24 2.24 0 0 1 .67-1.41c-2.33-.27-4.78-1.17-4.78-5.18a4.05 4.05 0 0 1 1.08-2.82 3.77 3.77 0 0 1 .1-2.78s.88-.28 2.88 1.07a9.9 9.9 0 0 1 5.24 0c2-1.35 2.88-1.07 2.88-1.07a3.77 3.77 0 0 1 .1 2.78 4.05 4.05 0 0 1 1.08 2.82c0 4.02-2.46 4.9-4.8 5.16a2.5 2.5 0 0 1 .72 1.95v2.89a.55.55 0 0 0 .74.53A10.5 10.5 0 0 0 12 1.5Z"/></svg>
+              </span>
+              <span class="conn-name">GitHub Issues</span>
+              <span class="conn-pill connected"><span class="pdot"></span>Connected</span>
+            </div>
+            <div class="conn-meta">Synced 1 min ago · 388 issues</div>
+            <div class="conn-foot">
+              <span class="ghost-link">Configure</span>
+              <span class="toggle on"><span class="knob"></span></span>
+            </div>
+          </div>
+
+          <!-- PagerDuty -->
+          <div class="conn-card">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#06AC38">P</span>
+              <span class="conn-name">PagerDuty</span>
+              <span class="conn-pill connected"><span class="pdot"></span>Connected</span>
+            </div>
+            <div class="conn-meta">Real-time webhook · 142 incidents</div>
+            <div class="conn-foot">
+              <span class="ghost-link">Configure</span>
+              <span class="toggle on"><span class="knob"></span></span>
+            </div>
+          </div>
+
+          <!-- Linear -->
+          <div class="conn-card">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#5E6AD2">L</span>
+              <span class="conn-name">Linear</span>
+              <span class="conn-pill connected"><span class="pdot"></span>Connected</span>
+            </div>
+            <div class="conn-meta">Synced 9 min ago · 85 issues</div>
+            <div class="conn-foot">
+              <span class="ghost-link">Configure</span>
+              <span class="toggle on"><span class="knob"></span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section C: Available ===== -->
+    <section class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Available</span>
+        <span class="panel-count">4 connectors</span>
+      </div>
+      <div class="panel-body">
+        <div class="conn-grid">
+
+          <!-- OpsGenie -->
+          <div class="conn-card muted">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#1A6BCC">O</span>
+              <span class="conn-name">OpsGenie</span>
+            </div>
+            <div class="conn-avail-meta">Incident alerts</div>
+            <div class="conn-foot">
+              <span class="conn-connect">+ Connect</span>
+            </div>
+          </div>
+
+          <!-- Zendesk -->
+          <div class="conn-card muted">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#03363D">Z</span>
+              <span class="conn-name">Zendesk</span>
+            </div>
+            <div class="conn-avail-meta">Support tickets</div>
+            <div class="conn-foot">
+              <span class="conn-connect">+ Connect</span>
+            </div>
+          </div>
+
+          <!-- Slack -->
+          <div class="conn-card muted">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#4A154B">
+                <svg viewBox="0 0 24 24" fill="#fff"><path d="M6 14.5a2 2 0 1 1-2-2h2v2Zm1 0a2 2 0 0 1 4 0v5a2 2 0 0 1-4 0v-5Zm2-8a2 2 0 1 1 2-2v2H9Zm0 1a2 2 0 0 1 0 4H4a2 2 0 0 1 0-4h5Zm9 2a2 2 0 1 1 2 2h-2v-2Zm-1 0a2 2 0 0 1-4 0v-5a2 2 0 0 1 4 0v5Zm-2 8a2 2 0 1 1-2 2v-2h2Zm0-1a2 2 0 0 1 0-4h5a2 2 0 0 1 0 4h-5Z"/></svg>
+              </span>
+              <span class="conn-name">Slack</span>
+            </div>
+            <div class="conn-avail-meta">Send alerts to channels</div>
+            <div class="conn-foot">
+              <span class="conn-connect">+ Connect</span>
+            </div>
+          </div>
+
+          <!-- Microsoft Teams -->
+          <div class="conn-card muted">
+            <div class="conn-top">
+              <span class="conn-glyph" style="background:#5059C9">T</span>
+              <span class="conn-name">Microsoft Teams</span>
+            </div>
+            <div class="conn-avail-meta">Send alerts to Teams</div>
+            <div class="conn-foot">
+              <span class="conn-connect">+ Connect</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section D: Webhook Endpoints ===== -->
+    <section class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Webhook Endpoints</span>
+        <a class="panel-link" href="#">Manage →</a>
+      </div>
+      <div class="panel-body">
+        <table class="wh-table">
+          <thead>
+            <tr>
+              <th style="width:18%">Source</th>
+              <th style="width:42%">Endpoint</th>
+              <th style="width:16%">Last Received</th>
+              <th style="width:24%">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="wh-src">PagerDuty</td>
+              <td class="wh-ep">hooks.causeloop.ai/pd/4821</td>
+              <td class="wh-time">38s ago</td>
+              <td>
+                <div class="wh-status-cell">
+                  <span class="wh-chip healthy"><span class="wdot"></span>Healthy</span>
+                  <span class="wh-rotate">Rotate secret</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="wh-src">Jira</td>
+              <td class="wh-ep">hooks.causeloop.ai/jira/proj-RISK</td>
+              <td class="wh-time">2m ago</td>
+              <td>
+                <div class="wh-status-cell">
+                  <span class="wh-chip healthy"><span class="wdot"></span>Healthy</span>
+                  <span class="wh-rotate">Rotate secret</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="wh-src">GitHub</td>
+              <td class="wh-ep">hooks.causeloop.ai/gh/acme-platform</td>
+              <td class="wh-time">1m ago</td>
+              <td>
+                <div class="wh-status-cell">
+                  <span class="wh-chip healthy"><span class="wdot"></span>Healthy</span>
+                  <span class="wh-rotate">Rotate secret</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="wh-src">ServiceNow</td>
+              <td class="wh-ep">hooks.causeloop.ai/snow/itsm</td>
+              <td class="wh-time">14m ago</td>
+              <td>
+                <div class="wh-status-cell">
+                  <span class="wh-chip degraded"><span class="wdot"></span>Degraded</span>
+                  <span class="wh-rotate">Rotate secret</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.toggle').forEach(function(t){
+      t.addEventListener('click', function(){ t.classList.toggle('on'); });
+    });
+  });
+</script>
+
+</body>
+</html>
