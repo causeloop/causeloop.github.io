@@ -135,6 +135,46 @@ nav{padding:8px 0 0;}
 .toggle::after{content:"";position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;background:#fff;transition:left .15s var(--ease);}
 .toggle.on::after{left:19px;}
 .toggle.off{background:var(--border-2);}
+
+/* ============ RESPONSIVE ============ */
+/* A) Sidebar -> icon rail at <=1024px (stays a rail on mobile) */
+@media (max-width:1024px){
+  .sidebar{width:64px}
+  .sidebar-logo{justify-content:center;padding-left:0;padding-right:0;gap:0}
+  .sidebar-logo .wm{display:none}
+  .nav-item{justify-content:center;gap:0;font-size:0;padding-left:0;padding-right:0}
+  .nav-item svg{width:18px;height:18px}
+  .nav-item .badge{display:none}
+  .sidebar-user{justify-content:center;padding-left:0;padding-right:0}
+  .user-name,.user-role{display:none}
+  .back-link{font-size:0;padding:10px 0}
+}
+@media (max-width:640px){ .sidebar{width:56px} }
+
+/* C) KPI grid: 2 cols <=1024px, 1 col <=640px (top KPI row only) */
+@media (max-width:1024px){ .kpi-row:not(.mt16){grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .kpi-row:not(.mt16){grid-template-columns:1fr} }
+
+/* D) Two-column row (Forecast Accuracy + Alert Rules) stacks <=900px.
+   Uses .kpi-row.mt16 with an inline grid-template-columns, so !important is required. */
+@media (max-width:900px){ .kpi-row.mt16{grid-template-columns:1fr!important} }
+
+/* Topbar control row wraps <=768px */
+@media (max-width:768px){ .tb-right{flex-wrap:wrap} }
+
+/* E) Predicted Risk Signals table scrolls horizontally <=768px */
+@media (max-width:768px){
+  .sig-table{min-width:640px}
+  .panel-body{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+
+/* B) Topbar + content at <=640px */
+@media (max-width:640px){
+  .topbar{padding:12px 14px;gap:10px;flex-wrap:wrap}
+  .page-title{font-size:1.05rem}
+  .content{padding:16px 14px}
+  .chart-legend{flex-wrap:wrap}
+}
 </style>
 </head>
 <body>

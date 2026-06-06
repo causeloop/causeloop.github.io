@@ -117,6 +117,38 @@ nav{padding:8px 0 0;}
 .activity-text{font-size:.86rem;color:var(--text-soft);line-height:1.4;}
 .activity-text strong{color:var(--text);font-weight:600;}
 .activity-time{font-family:var(--f-m);font-size:.62rem;color:var(--text-faint);}
+
+/* ============ RESPONSIVE ============ */
+/* A) Sidebar -> icon rail at <=1024px (stays a rail on mobile) */
+@media (max-width:1024px){
+  .sidebar{width:64px}
+  .sidebar-logo{justify-content:center;padding-left:0;padding-right:0;gap:0}
+  .sidebar-logo .wm{display:none}
+  .nav-item{justify-content:center;gap:0;font-size:0;padding-left:0;padding-right:0}
+  .nav-item svg{width:18px;height:18px}
+  .nav-item .badge{display:none}
+  .sidebar-user{justify-content:center;padding-left:0;padding-right:0}
+  .user-name,.user-role{display:none}
+  .back-link{font-size:0;padding:10px 0}
+}
+@media (max-width:640px){ .sidebar{width:56px} }
+
+/* C) KPI grid: 2 cols <=1024px, 1 col <=640px */
+@media (max-width:1024px){ .kpi-row{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .kpi-row{grid-template-columns:1fr} }
+
+/* D) Two-column row (Top Risk Patterns + AI Recommendations) stacks <=900px */
+@media (max-width:900px){ .two-col{grid-template-columns:1fr} }
+
+/* Topbar control row wraps <=768px */
+@media (max-width:768px){ .tb-right{flex-wrap:wrap} }
+
+/* B) Topbar + content at <=640px */
+@media (max-width:640px){
+  .topbar{padding:12px 14px;gap:10px;flex-wrap:wrap}
+  .page-title{font-size:1.05rem}
+  .content{padding:16px 14px}
+}
 </style>
 </head>
 <body>

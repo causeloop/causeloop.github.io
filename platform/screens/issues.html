@@ -163,6 +163,35 @@ td.td-main{color:var(--text);font-weight:500}
 .bulk-close{padding:5px;border-radius:5px;color:var(--text-faint);cursor:pointer;transition:color .15s}
 .bulk-close:hover{color:var(--text)}
 .bulk-close svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+
+/* ── Responsive ── */
+@media (max-width:1024px){
+  .sidebar{width:64px}
+  .sidebar-logo{justify-content:center;padding-left:0;padding-right:0;gap:0}
+  .sidebar-logo .wm{display:none}
+  .nav-item{justify-content:center;gap:0;font-size:0;padding-left:0;padding-right:0}
+  .nav-item svg{width:18px;height:18px}
+  .nav-item .badge{display:none}
+  .sidebar-user{justify-content:center;padding-left:0;padding-right:0}
+  .user-name,.user-role{display:none}
+  .back-link{font-size:0;padding:10px 0}
+}
+@media (max-width:900px){
+  .issues-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{min-width:760px}
+}
+@media (max-width:768px){
+  .filter-bar{flex-wrap:wrap}
+  .bulk-bar{flex-wrap:wrap}
+}
+@media (max-width:640px){
+  .sidebar{width:56px}
+  .topbar{padding:12px 14px;gap:10px;flex-wrap:wrap}
+  .page-title{font-size:1.05rem}
+  .content{padding:16px 14px}
+  .search-wrap{min-width:0;flex:1 1 100%}
+  .pagination{flex-wrap:wrap;gap:10px}
+}
 </style>
 </head>
 <body>
