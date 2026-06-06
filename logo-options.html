@@ -3,41 +3,43 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Causeloop — Logo options</title>
+<title>Causeloop — Logo options (bold)</title>
 <meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@700;800;900&display=swap" rel="stylesheet" />
 <style>
-  :root{--navy:#1E2A5A;--terra:#E2603F;--cobalt:#4A78FF;}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Hanken Grotesk',system-ui,sans-serif;background:#F4F5F8;color:#1E2A5A;padding:28px 18px 80px;line-height:1.5}
-  .wrap{max-width:760px;margin:0 auto}
+  .wrap{max-width:780px;margin:0 auto}
   h1{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;letter-spacing:-.03em;font-size:1.9rem;margin-bottom:6px}
+  h2{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;color:#5A6480;margin:28px 0 12px}
   .sub{color:#5A6480;margin-bottom:8px}
-  .pick{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.06em;color:#E2603F;background:#FBE9E2;display:inline-block;padding:7px 12px;border-radius:999px;margin-bottom:26px}
-  .opt{background:#fff;border:1px solid #E7E9F0;border-radius:18px;padding:20px;margin-bottom:18px;box-shadow:0 10px 30px rgba(30,42,90,.06)}
-  .opt h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;letter-spacing:-.02em;font-size:1.15rem;margin-bottom:4px}
-  .recipe{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.04em;color:#98A0B5;margin-bottom:16px}
+  .pick{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.05em;color:#E2603F;background:#FBE9E2;display:inline-block;padding:7px 12px;border-radius:999px;margin-bottom:8px}
+  .opt{background:#fff;border:1px solid #E7E9F0;border-radius:18px;padding:18px;margin-bottom:16px;box-shadow:0 10px 30px rgba(30,42,90,.06)}
+  .opt h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;letter-spacing:-.02em;font-size:1.1rem;margin-bottom:3px}
+  .recipe{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.03em;color:#98A0B5;margin-bottom:14px}
   .swatches{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media(max-width:520px){.swatches{grid-template-columns:1fr}}
-  .swatch{padding:26px 20px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .swatch{padding:24px 18px;border-radius:14px;display:flex;align-items:center;justify-content:center;min-height:92px}
   .swatch.light{background:#FBFBFC;border:1px solid #E7E9F0;--letters:#1E2A5A}
   .swatch.dark{background:#0C1124;--letters:#EEF1FA}
-  .lockrow{display:flex;align-items:center;gap:13px}
+  .lockrow{display:flex;align-items:center;gap:12px}
   .opt-mark{width:42px;height:42px;display:block;flex:none}
-  .opt-wm{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;letter-spacing:-.05em;display:inline-flex;align-items:baseline;color:var(--letters);font-size:1.9rem;white-space:nowrap}
+  .opt-wm{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;letter-spacing:-.05em;display:inline-flex;align-items:baseline;color:var(--letters);font-size:1.85rem;white-space:nowrap}
   .opt-oo{width:1.16em;height:.82em;align-self:center;margin:0 .02em;position:relative;top:.02em;flex:none}
   .opt-tld{color:var(--tld);letter-spacing:-.03em}
+  .badge{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:13px;flex:none}
+  .badge .opt-mark{width:30px;height:30px}
+  .glow{filter:drop-shadow(0 0 7px var(--glow,rgba(59,130,246,.85)))}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Causeloop — logo options</h1>
-    <p class="sub">Flat (no gradient) treatments, each shown on light &amp; dark. The infinity “oo” and the <b>.ai</b> are in every one.</p>
-    <p class="pick">↳ Reply with the number you like (e.g. “3”). You can mix — e.g. “3 but .ai in navy”.</p>
+    <h1>Causeloop — bolder logo options</h1>
+    <p class="sub">Punchier directions, each on light &amp; dark. Infinity “oo” + <b>.ai</b> in all.</p>
+    <p class="pick">↳ Reply with the number (e.g. “9”). Mix freely — “9 but violet badge”, etc.</p>
 
-    <!-- shared symbols, driven by CSS custom properties per option -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
       <symbol id="m" viewBox="0 0 64 64">
         <g fill="none" stroke="var(--loop)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
@@ -53,52 +55,103 @@
       </symbol>
     </defs></svg>
 
-    <section class="opt" style="--loop:#4A78FF;--arrow:#4A78FF;--point:#E2603F;--oo:#4A78FF;--oo-point:#E2603F;--tld:#E2603F">
-      <h3>1 · Cobalt</h3>
-      <p class="recipe">mark + ∞ solid cobalt · cause-points terracotta · .ai terracotta</p>
+    <h2>Bolder colours (outline mark)</h2>
+
+    <section class="opt" style="--loop:#2F6BFF;--arrow:#2F6BFF;--point:#FF6A3D;--oo:#2F6BFF;--oo-point:#FF6A3D;--tld:#FF6A3D">
+      <h3>1 · Electric blue + hot coral</h3>
+      <p class="recipe">vivid blue #2F6BFF · coral points #FF6A3D · .ai coral</p>
       <div class="swatches">
         <div class="swatch light"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
         <div class="swatch dark"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
       </div>
     </section>
 
-    <section class="opt" style="--loop:#4A78FF;--arrow:#E2603F;--point:#E2603F;--oo:#4A78FF;--oo-point:#E2603F;--tld:#E2603F">
-      <h3>2 · Two-tone (blue loop, terracotta break)</h3>
-      <p class="recipe">loop cobalt · arrow + points terracotta · ∞ cobalt · .ai terracotta</p>
+    <section class="opt" style="--loop:#6D5EF6;--arrow:#6D5EF6;--point:#FF7A45;--oo:#6D5EF6;--oo-point:#FF7A45;--tld:#6D5EF6">
+      <h3>2 · Electric violet</h3>
+      <p class="recipe">violet #6D5EF6 · warm points #FF7A45 · modern “AI” energy</p>
       <div class="swatches">
         <div class="swatch light"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
         <div class="swatch dark"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
       </div>
     </section>
 
-    <section class="opt" style="--loop:#4A78FF;--arrow:#4A78FF;--point:#E2603F;--oo:#E2603F;--oo-point:#FBE9E2;--tld:#E2603F">
-      <h3>3 · Cool mark, warm “oo”</h3>
-      <p class="recipe">mark cobalt · the ∞ in terracotta (warm signature) · .ai terracotta</p>
+    <section class="opt" style="--loop:#FF5630;--arrow:#FF5630;--point:#1E2A5A;--oo:#FF5630;--oo-point:#FFE3D8;--tld:#FF5630">
+      <h3>3 · Vivid coral</h3>
+      <p class="recipe">punchy coral #FF5630 · navy points · warm-led</p>
       <div class="swatches">
         <div class="swatch light"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
         <div class="swatch dark"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
       </div>
     </section>
 
-    <section class="opt" style="--loop:var(--letters);--arrow:var(--letters);--point:#E2603F;--oo:#E2603F;--oo-point:#FBE9E2;--tld:#E2603F">
-      <h3>4 · Navy mark, warm “oo”</h3>
-      <p class="recipe">mark navy/white (mono) · the ∞ terracotta · .ai terracotta — most restrained</p>
+    <section class="opt" style="--loop:#00B3A4;--arrow:#00B3A4;--point:#FF6A3D;--oo:#00B3A4;--oo-point:#FF6A3D;--tld:#FF6A3D">
+      <h3>4 · Teal + coral</h3>
+      <p class="recipe">teal #00B3A4 · coral points · fresh, distinct (not the old cyan)</p>
       <div class="swatches">
         <div class="swatch light"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
         <div class="swatch dark"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
       </div>
     </section>
 
-    <section class="opt" style="--loop:#E2603F;--arrow:#E2603F;--point:#FBE9E2;--oo:#E2603F;--oo-point:#FBE9E2;--tld:var(--letters)">
-      <h3>5 · All terracotta</h3>
-      <p class="recipe">mark + ∞ terracotta · cream cause-points · .ai in navy/white — warm-led</p>
+    <h2>Badge / icon (mark in a filled chip)</h2>
+
+    <section class="opt" style="--oo:#FF6A3D;--oo-point:#FFE3D8;--tld:#FF6A3D">
+      <h3>5 · Electric-blue badge</h3>
+      <p class="recipe">white mark on a blue chip · coral “oo” + .ai · app-icon feel</p>
       <div class="swatches">
-        <div class="swatch light"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
-        <div class="swatch dark"><div class="lockrow"><svg class="opt-mark"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+        <div class="swatch light"><div class="lockrow"><span class="badge" style="background:#2F6BFF;--loop:#fff;--point:#FF6A3D"><svg class="opt-mark"><use href="#m"/></svg></span><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+        <div class="swatch dark"><div class="lockrow"><span class="badge" style="background:#2F6BFF;--loop:#fff;--point:#FF6A3D"><svg class="opt-mark"><use href="#m"/></svg></span><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
       </div>
     </section>
 
-    <p class="sub" style="margin-top:20px">Want a colour that isn’t here (e.g. a deeper indigo, or terracotta letters)? Just describe it.</p>
+    <section class="opt" style="--oo:#2F6BFF;--oo-point:#FF6A3D;--tld:#FF6A3D">
+      <h3>6 · Coral badge</h3>
+      <p class="recipe">white mark on a coral chip · blue “oo” · warm &amp; bold</p>
+      <div class="swatches">
+        <div class="swatch light"><div class="lockrow"><span class="badge" style="background:#FF5630;--loop:#fff;--point:#fff"><svg class="opt-mark"><use href="#m"/></svg></span><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+        <div class="swatch dark"><div class="lockrow"><span class="badge" style="background:#FF5630;--loop:#fff;--point:#fff"><svg class="opt-mark"><use href="#m"/></svg></span><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+      </div>
+    </section>
+
+    <section class="opt" style="--oo:#6D5EF6;--oo-point:#FF7A45;--tld:#6D5EF6">
+      <h3>7 · Violet badge</h3>
+      <p class="recipe">white mark on a violet chip · violet “oo” + .ai</p>
+      <div class="swatches">
+        <div class="swatch light"><div class="lockrow"><span class="badge" style="background:#6D5EF6;--loop:#fff;--point:#FF7A45"><svg class="opt-mark"><use href="#m"/></svg></span><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+        <div class="swatch dark"><div class="lockrow"><span class="badge" style="background:#6D5EF6;--loop:#fff;--point:#FF7A45"><svg class="opt-mark"><use href="#m"/></svg></span><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+      </div>
+    </section>
+
+    <section class="opt" style="--oo:#FF6A3D;--oo-point:#FFE3D8;--tld:#FF6A3D">
+      <h3>8 · Navy badge, coral accents</h3>
+      <p class="recipe">white mark on navy chip · coral “oo” + .ai · classic + warm pop</p>
+      <div class="swatches">
+        <div class="swatch light"><div class="lockrow"><span class="badge" style="background:#1E2A5A;--loop:#fff;--point:#FF6A3D"><svg class="opt-mark"><use href="#m"/></svg></span><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+        <div class="swatch dark"><div class="lockrow"><span class="badge" style="background:#27336A;--loop:#fff;--point:#FF6A3D"><svg class="opt-mark"><use href="#m"/></svg></span><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+      </div>
+    </section>
+
+    <h2>Glow / neon (pops on dark)</h2>
+
+    <section class="opt" style="--loop:#3B82F6;--arrow:#3B82F6;--point:#FF6A3D;--oo:#3B82F6;--oo-point:#FF6A3D;--tld:#FF6A3D;--glow:rgba(59,130,246,.9)">
+      <h3>9 · Electric blue + glow</h3>
+      <p class="recipe">blue mark with a neon halo · very eye-catching on dark</p>
+      <div class="swatches">
+        <div class="swatch light"><div class="lockrow"><svg class="opt-mark glow"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+        <div class="swatch dark"><div class="lockrow"><svg class="opt-mark glow"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+      </div>
+    </section>
+
+    <section class="opt" style="--loop:#7C3AED;--arrow:#7C3AED;--point:#FF7A45;--oo:#7C3AED;--oo-point:#FF7A45;--tld:#7C3AED;--glow:rgba(124,58,237,.9)">
+      <h3>10 · Violet + glow</h3>
+      <p class="recipe">violet mark with a neon halo</p>
+      <div class="swatches">
+        <div class="swatch light"><div class="lockrow"><svg class="opt-mark glow"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+        <div class="swatch dark"><div class="lockrow"><svg class="opt-mark glow"><use href="#m"/></svg><span class="opt-wm">causel<svg class="opt-oo"><use href="#o"/></svg>p<span class="opt-tld">.ai</span></span></div></div>
+      </div>
+    </section>
+
+    <p class="sub" style="margin-top:20px">Not feeling any? Tell me the <b>vibe</b> (e.g. “Stripe-like”, “neon fintech”, “warm &amp; human”) or a colour, and I’ll mock that.</p>
   </div>
 </body>
 </html>
