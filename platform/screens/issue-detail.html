@@ -151,6 +151,37 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .rec-title{font-size:.86rem;font-weight:600;color:var(--text);margin-bottom:3px}
 .rec-desc{font-size:.8rem;color:var(--text-soft);line-height:1.4}
 .rec-impact{font-family:var(--f-m);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;margin-top:5px;color:var(--terra-2)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1024px){
+  .sidebar{width:64px}
+  .sidebar-logo{justify-content:center;padding-left:0;padding-right:0;gap:0}
+  .sidebar-logo .wm{display:none}
+  .nav-item{justify-content:center;gap:0;font-size:0;padding-left:0;padding-right:0}
+  .nav-item svg{width:18px;height:18px}
+  .nav-item .badge{display:none}
+  .sidebar-user{justify-content:center;padding-left:0;padding-right:0}
+  .user-name,.user-role{display:none}
+  .back-link{font-size:0;padding:10px 0}
+
+  /* two-column content stacks to one */
+  .content{grid-template-columns:1fr}
+  .content-main{border-right:none}
+  .content-aside{border-top:1px solid var(--border)}
+}
+@media (max-width:768px){
+  .topbar{flex-wrap:wrap}
+  .breadcrumb{flex-wrap:wrap}
+  .topbar-right{flex-wrap:wrap}
+}
+@media (max-width:640px){
+  .sidebar{width:56px}
+  .topbar{padding:12px 14px;gap:10px;flex-wrap:wrap}
+  .content-main{padding:16px 14px}
+  .content-aside{padding:16px 14px}
+  .issue-meta-row{flex-wrap:wrap}
+  .issue-dates{flex-wrap:wrap;gap:8px 16px}
+}
 </style>
 </head>
 <body>

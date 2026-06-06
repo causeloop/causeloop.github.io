@@ -132,6 +132,32 @@ nav{padding:8px 0 0;}
 .wh-chip.degraded .wdot{width:6px;height:6px;border-radius:50%;background:#F5A623;}
 .wh-rotate{font-family:var(--f-m);font-size:.6rem;color:var(--text-faint);cursor:pointer;transition:color .15s var(--ease);}
 .wh-rotate:hover{color:var(--text-soft);}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1024px){
+  .sidebar{width:64px}
+  .sidebar-logo{justify-content:center;padding-left:0;padding-right:0;gap:0}
+  .sidebar-logo .wm{display:none}
+  .nav-item{justify-content:center;gap:0;font-size:0;padding-left:0;padding-right:0}
+  .nav-item svg{width:18px;height:18px}
+  .nav-item .badge{display:none}
+  .sidebar-user{justify-content:center;padding-left:0;padding-right:0}
+  .user-name,.user-role{display:none}
+  .back-link{font-size:0;padding:10px 0}
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:768px){
+  .wh-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;min-width:0}
+  .wh-table thead,.wh-table tbody{display:table;width:100%;min-width:620px}
+}
+@media (max-width:640px){
+  .sidebar{width:56px}
+  .topbar{padding:12px 14px;gap:10px;flex-wrap:wrap}
+  .page-title{font-size:1.05rem}
+  .content{padding:16px 14px}
+  .kpi-row{grid-template-columns:1fr}
+  .conn-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
