@@ -205,11 +205,11 @@ nav{padding:8px 0 0;}
     </a>
     <a class="nav-item" href="issues.html">
       <svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="18" r="1"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg>
-      Issues<span class="badge">247</span>
+      Issues<span class="badge">25</span>
     </a>
     <a class="nav-item" href="patterns.html">
       <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>
-      Patterns<span class="badge">12</span>
+      Patterns<span class="badge">5</span>
     </a>
     <a class="nav-item active" href="predictions.html">
       <svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
@@ -265,23 +265,23 @@ nav{padding:8px 0 0;}
     <section class="kpi-row">
       <div class="kpi-card">
         <div class="kpi-label">Predicted Recurrences</div>
-        <div class="kpi-num">14</div>
+        <div class="kpi-num">9</div>
         <div class="kpi-sub">next 30 days</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">High-Probability</div>
-        <div class="kpi-num" style="color:var(--terra-2)">5</div>
+        <div class="kpi-num" style="color:var(--terra-2)">4</div>
         <div class="kpi-sub">≥80% likely</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Forecast Accuracy</div>
-        <div class="kpi-num" style="color:#2BA672">91%</div>
+        <div class="kpi-num" style="color:#2BA672">90%</div>
         <div class="kpi-sub">trailing 90d</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Alerts Active</div>
-        <div class="kpi-num">8</div>
-        <div class="kpi-sub">3 channels</div>
+        <div class="kpi-num">6</div>
+        <div class="kpi-sub">4 channels</div>
       </div>
     </section>
 
@@ -324,7 +324,7 @@ nav{padding:8px 0 0;}
             </g>
             <!-- divider where forecast (future third) begins -->
             <line x1="427" y1="20" x2="427" y2="180" stroke="#2C3660" stroke-width="1" stroke-dasharray="3 4"/>
-            <text x="431" y="32" fill="#6E7798" font-family="'JetBrains Mono',monospace" font-size="8.5">forecast</text>
+            <text x="431" y="32" fill="#6E7798" font-family="'JetBrains Mono',monospace" font-size="8.5">Predicted: next breach window</text>
 
             <!-- confidence band (filled area between upper + lower bound) -->
             <path d="M40,150 L100,142 L160,134 L220,121 L280,109 L340,96 L390,86 L427,79
@@ -377,46 +377,46 @@ nav{padding:8px 0 0;}
           </thead>
           <tbody>
             <tr>
-              <td><span class="sig-name">Auth timeout recurrence</span></td>
-              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span></td>
-              <td><div class="prob-cell"><span class="prob-num" style="color:#FF4B6B">93%</span><span class="prob-bar"><span class="prob-fill" style="width:93%;background:#FF4B6B"></span></span></div></td>
+              <td><span class="sig-name">New prompt-injection / PII-leak surface</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:#FF4B6B">94%</span><span class="prob-bar"><span class="prob-fill" style="width:94%;background:#FF4B6B"></span></span></div></td>
               <td><span class="win-cell">within 14d</span></td>
               <td><span class="imp-chip imp-critical">Critical</span></td>
             </tr>
             <tr>
-              <td><span class="sig-name">DB pool exhaustion</span></td>
-              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>DB pool exhaustion</span></td>
+              <td><span class="sig-name">Auto-trader fail-open under load</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Speed-First Architecture</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:#FF4B6B">90%</span><span class="prob-bar"><span class="prob-fill" style="width:90%;background:#FF4B6B"></span></span></div></td>
+              <td><span class="win-cell">within 7d</span></td>
+              <td><span class="imp-chip imp-critical">Critical</span></td>
+            </tr>
+            <tr>
+              <td><span class="sig-name">KYC data-quality drift recurrence</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Model Lifecycle Drift</span></td>
               <td><div class="prob-cell"><span class="prob-num" style="color:#FF4B6B">88%</span><span class="prob-bar"><span class="prob-fill" style="width:88%;background:#FF4B6B"></span></span></div></td>
-              <td><span class="win-cell">within 3d</span></td>
+              <td><span class="win-cell">within 7d</span></td>
               <td><span class="imp-chip imp-high">High</span></td>
             </tr>
             <tr>
-              <td><span class="sig-name">Payment retry storm</span></td>
-              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Payment retry cascade</span></td>
+              <td><span class="sig-name">New shadow model on corporate card</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Shadow AI Procurement</span></td>
               <td><div class="prob-cell"><span class="prob-num" style="color:#FF4B6B">81%</span><span class="prob-bar"><span class="prob-fill" style="width:81%;background:#FF4B6B"></span></span></div></td>
-              <td><span class="win-cell">within 9d</span></td>
+              <td><span class="win-cell">within 21d</span></td>
               <td><span class="imp-chip imp-high">High</span></td>
             </tr>
             <tr>
-              <td><span class="sig-name">Rate limiter false-positive spike</span></td>
-              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Rate limiter false positives</span></td>
-              <td><div class="prob-cell"><span class="prob-num" style="color:var(--terra-2)">64%</span><span class="prob-bar"><span class="prob-fill" style="width:64%;background:#F0764F"></span></span></div></td>
+              <td><span class="sig-name">Analyst rubber-stamping AI alerts</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Institutional Automation Bias</span></td>
+              <td><div class="prob-cell"><span class="prob-num" style="color:var(--terra-2)">63%</span><span class="prob-bar"><span class="prob-fill" style="width:63%;background:#F0764F"></span></span></div></td>
               <td><span class="win-cell">within 21d</span></td>
               <td><span class="imp-chip imp-medium">Medium</span></td>
             </tr>
             <tr>
-              <td><span class="sig-name">CDN cache miss storm</span></td>
-              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>S3 CDN cache misses</span></td>
+              <td><span class="sig-name">Credit-risk model accuracy decay</span></td>
+              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Model Lifecycle Drift</span></td>
               <td><div class="prob-cell"><span class="prob-num" style="color:#F5A623">52%</span><span class="prob-bar"><span class="prob-fill" style="width:52%;background:#F5A623"></span></span></div></td>
               <td><span class="win-cell">within 30d</span></td>
               <td><span class="imp-chip imp-medium">Medium</span></td>
-            </tr>
-            <tr>
-              <td><span class="sig-name">Token refresh thundering herd</span></td>
-              <td><span class="pat-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span></td>
-              <td><div class="prob-cell"><span class="prob-num" style="color:#F5A623">47%</span><span class="prob-bar"><span class="prob-fill" style="width:47%;background:#F5A623"></span></span></div></td>
-              <td><span class="win-cell">within 30d</span></td>
-              <td><span class="imp-chip imp-low">Low</span></td>
             </tr>
           </tbody>
         </table>
@@ -433,20 +433,20 @@ nav{padding:8px 0 0;}
         </div>
         <div class="panel-body" style="padding:6px 18px 10px;">
           <div class="stat-row">
-            <div class="stat-top"><span class="stat-label">Precision</span><span class="stat-val">0.89</span></div>
-            <div class="stat-bar"><span class="stat-fill" style="width:89%"></span></div>
+            <div class="stat-top"><span class="stat-label">Precision</span><span class="stat-val">0.88</span></div>
+            <div class="stat-bar"><span class="stat-fill" style="width:88%"></span></div>
           </div>
           <div class="stat-row">
-            <div class="stat-top"><span class="stat-label">Recall</span><span class="stat-val">0.84</span></div>
-            <div class="stat-bar"><span class="stat-fill" style="width:84%"></span></div>
+            <div class="stat-top"><span class="stat-label">Recall</span><span class="stat-val">0.83</span></div>
+            <div class="stat-bar"><span class="stat-fill" style="width:83%"></span></div>
           </div>
           <div class="stat-row">
-            <div class="stat-top"><span class="stat-label">Brier Score · lower better</span><span class="stat-val">0.11</span></div>
-            <div class="stat-bar"><span class="stat-fill" style="width:11%;background:#2BA672"></span></div>
+            <div class="stat-top"><span class="stat-label">Brier Score · lower better</span><span class="stat-val">0.12</span></div>
+            <div class="stat-bar"><span class="stat-fill" style="width:12%;background:#2BA672"></span></div>
           </div>
           <div class="stat-row">
-            <div class="stat-top"><span class="stat-label">Lead Time Avg</span><span class="stat-val">6.2 days</span></div>
-            <div class="stat-bar"><span class="stat-fill" style="width:62%;background:var(--cyan)"></span></div>
+            <div class="stat-top"><span class="stat-label">Lead Time Avg</span><span class="stat-val">6.5 days</span></div>
+            <div class="stat-bar"><span class="stat-fill" style="width:65%;background:var(--cyan)"></span></div>
           </div>
         </div>
       </div>
@@ -461,7 +461,7 @@ nav{padding:8px 0 0;}
           <div class="rule-row">
             <div class="rule-body">
               <span class="rule-desc">Recurrence ≥ 80% within 7 days</span>
-              <span class="rule-chan chan-slack"><span class="chan-dot"></span>Slack #risk-eng</span>
+              <span class="rule-chan chan-slack"><span class="chan-dot"></span>Slack #ai-governance</span>
             </div>
             <span class="toggle on" role="switch" aria-checked="true"></span>
           </div>
@@ -474,7 +474,7 @@ nav{padding:8px 0 0;}
           </div>
           <div class="rule-row">
             <div class="rule-body">
-              <span class="rule-desc">Weekly forecast digest</span>
+              <span class="rule-desc">Weekly model-risk forecast digest</span>
               <span class="rule-chan chan-email"><span class="chan-dot"></span>Email</span>
             </div>
             <span class="toggle on" role="switch" aria-checked="true"></span>

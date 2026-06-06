@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Causeloop · Pattern Analysis — Auth service timeouts</title>
+<title>Causeloop · Pattern Analysis — Non-Deterministic Attack Surface</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -195,11 +195,11 @@ nav{padding:8px 0 0;}
     </a>
     <a class="nav-item" href="issues.html">
       <svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="18" r="1"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg>
-      Issues<span class="badge">247</span>
+      Issues<span class="badge">25</span>
     </a>
     <a class="nav-item active" href="patterns.html">
       <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>
-      Patterns<span class="badge">12</span>
+      Patterns<span class="badge">5</span>
     </a>
     <a class="nav-item" href="predictions.html">
       <svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
@@ -238,7 +238,7 @@ nav{padding:8px 0 0;}
     <div class="crumb">
       <a href="patterns.html">Patterns</a>
       <span class="chev">›</span>
-      <span class="cur">Auth service timeouts</span>
+      <span class="cur">Non-Deterministic Attack Surface</span>
     </div>
     <div class="tb-right">
       <span class="status-chip chip-active"><span class="dot"></span>Active</span>
@@ -261,19 +261,19 @@ nav{padding:8px 0 0;}
         <span class="pat-icon">
           <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>
         </span>
-        <h1>Auth service timeouts</h1>
+        <h1>Non-Deterministic Attack Surface</h1>
       </div>
       <div class="pill-row">
         <span class="pill pill-terra"><span class="dot"></span>Active</span>
-        <span class="pill pill-red">Risk 94 · Critical</span>
-        <span class="pill pill-cobalt">96% confidence</span>
+        <span class="pill pill-red">Risk 96 · Critical</span>
+        <span class="pill pill-cobalt">95% confidence</span>
       </div>
       <div class="metric-strip">
-        <span><strong>31</strong> ISSUES</span>
-        <span>FIRST SEEN <strong>APR 4, 2026</strong></span>
-        <span>LAST SEEN <strong>2H AGO</strong></span>
-        <span>PATTERN MTTR <strong>4.2H</strong></span>
-        <span><strong>8</strong> OCCURRENCES / 90D</span>
+        <span><strong>6</strong> ISSUES</span>
+        <span>FIRST SEEN <strong>APR 2026</strong></span>
+        <span>LAST SEEN <strong>18M AGO</strong></span>
+        <span>AVG TIME-TO-CONTAIN <strong>5.1D</strong></span>
+        <span>EXPOSURE <strong>$750K–$100M</strong></span>
       </div>
     </section>
 
@@ -335,7 +335,7 @@ nav{padding:8px 0 0;}
             <!-- predicted next bar (dashed outline) value 8 -->
             <rect x="474" y="10" width="24" height="140" rx="2" fill="#4A78FF" fill-opacity="0.14" stroke="#4A78FF" stroke-width="1.2" stroke-dasharray="3 3"/>
             <!-- label -->
-            <text x="486" y="166" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#4A78FF">Predicted: Jun 18</text>
+            <text x="486" y="166" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#4A78FF">Predicted: KYC-style breach window</text>
             <!-- x baseline -->
             <line x1="36" y1="150" x2="500" y2="150" stroke="#2C3660" stroke-width="1.2"/>
           </svg>
@@ -351,19 +351,19 @@ nav{padding:8px 0 0;}
           <div class="stat-stack">
             <div class="stat-row">
               <span class="stat-label">Confidence</span>
-              <span class="stat-value">96%</span>
-              <span class="stat-bar"><span class="stat-fill" data-w="96" style="background:var(--cobalt)"></span></span>
+              <span class="stat-value">95%</span>
+              <span class="stat-bar"><span class="stat-fill" data-w="95" style="background:var(--cobalt)"></span></span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-row">
               <span class="stat-label">Recurrence probability</span>
-              <span class="stat-value">93%</span>
-              <span class="stat-bar"><span class="stat-fill" data-w="93" style="background:var(--terra-2)"></span></span>
+              <span class="stat-value">92%</span>
+              <span class="stat-bar"><span class="stat-fill" data-w="92" style="background:var(--terra-2)"></span></span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-row">
-              <span class="stat-label">Avg MTTR</span>
-              <span class="stat-value">4.2h</span>
+              <span class="stat-label">Avg time-to-contain</span>
+              <span class="stat-value">5.1d</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-row">
@@ -372,8 +372,8 @@ nav{padding:8px 0 0;}
             </div>
             <div class="stat-divider"></div>
             <div class="stat-row">
-              <span class="stat-label">Est. cost</span>
-              <span class="stat-value">$48k / quarter</span>
+              <span class="stat-label">Exposure</span>
+              <span class="stat-value">$750k–$100M</span>
             </div>
           </div>
         </div>
@@ -385,7 +385,7 @@ nav{padding:8px 0 0;}
     <section class="panel full-panel">
       <div class="panel-head">
         <span class="panel-title">Issue Cluster</span>
-        <span class="panel-count">31 members</span>
+        <span class="panel-count">6 members</span>
       </div>
       <div class="panel-body">
         <svg class="cluster-svg" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
@@ -415,13 +415,13 @@ nav{padding:8px 0 0;}
           <!-- member nodes -->
           <!-- prominent labelled -->
           <circle cx="180" cy="70" r="20" fill="#4A78FF"/>
-          <text x="180" y="74" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">#1312</text>
+          <text x="180" y="74" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" fill="#fff">AI-AUDIT-002</text>
           <circle cx="510" cy="95" r="17" fill="#1FC2FF"/>
-          <text x="510" y="99" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#0C1124">#1274</text>
+          <text x="510" y="99" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#0C1124">AI-AUDIT-014</text>
           <circle cx="310" cy="262" r="16" fill="#4A78FF"/>
-          <text x="310" y="266" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#fff">#1231</text>
+          <text x="310" y="266" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#fff">AI-AUDIT-005</text>
           <circle cx="585" cy="135" r="14" fill="#1FC2FF"/>
-          <text x="585" y="139" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#0C1124">#1195</text>
+          <text x="585" y="139" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#0C1124">AI-AUDIT-022</text>
 
           <!-- other nodes (varying sizes, some faded) -->
           <circle cx="150" cy="150" r="13" fill="#4A78FF" fill-opacity="0.92"/>
@@ -436,8 +436,8 @@ nav{padding:8px 0 0;}
           <!-- central hub (cause) -->
           <circle cx="350" cy="150" r="40" fill="#E2603F"/>
           <circle cx="350" cy="150" r="46" fill="none" stroke="#F0764F" stroke-width="1.2" stroke-opacity="0.5"/>
-          <text x="350" y="146" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#fff">JWT signing</text>
-          <text x="350" y="158" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#fff">on request thread</text>
+          <text x="350" y="146" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" fill="#fff">Deterministic guardrails</text>
+          <text x="350" y="158" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" fill="#fff">on probabilistic systems</text>
         </svg>
       </div>
     </section>
@@ -451,28 +451,28 @@ nav{padding:8px 0 0;}
       <div class="panel-body">
         <div class="fp-grid">
           <div class="fp-chip">
-            <span class="fp-attr">Service: <strong>auth-gateway</strong></span>
-            <span class="fp-freq">31/31</span>
+            <span class="fp-attr">Surface: <strong>model input/interaction</strong></span>
+            <span class="fp-freq">6/6</span>
           </div>
           <div class="fp-chip">
-            <span class="fp-attr">Component: <strong>jwt-validator</strong></span>
-            <span class="fp-freq">28/31</span>
+            <span class="fp-attr">Failure: <strong>input treated as trusted string</strong></span>
+            <span class="fp-freq">6/6</span>
           </div>
           <div class="fp-chip">
-            <span class="fp-attr">Error: <strong>ThreadPoolExhausted</strong></span>
-            <span class="fp-freq">26/31</span>
+            <span class="fp-attr">Domains: <strong>PII leak · prompt injection · bias · deepfake</strong></span>
+            <span class="fp-freq">4 types</span>
           </div>
           <div class="fp-chip">
-            <span class="fp-attr">Time-of-day: <strong>14:00–16:00 UTC peak</strong></span>
-            <span class="fp-freq">22/31</span>
+            <span class="fp-attr">Regulations: <strong>GDPR/CCPA · ECOA · BIPA</strong></span>
+            <span class="fp-freq">6/6</span>
           </div>
           <div class="fp-chip">
-            <span class="fp-attr">Trigger: <strong>≥8k concurrent sessions</strong></span>
-            <span class="fp-freq">24/31</span>
+            <span class="fp-attr">Control gap: <strong>no AI gateway / guardrail model</strong></span>
+            <span class="fp-freq">6/6</span>
           </div>
           <div class="fp-chip">
-            <span class="fp-attr">Region: <strong>us-east-1</strong></span>
-            <span class="fp-freq">19/31</span>
+            <span class="fp-attr">Business unit: <strong>retail, HR, customer ops</strong></span>
+            <span class="fp-freq">mixed</span>
           </div>
         </div>
       </div>
@@ -482,7 +482,7 @@ nav{padding:8px 0 0;}
     <section class="panel full-panel">
       <div class="panel-head">
         <span class="panel-title">Member Issues</span>
-        <a class="panel-link" href="issues.html">View all 31 members →</a>
+        <a class="panel-link" href="issues.html">View all 6 members →</a>
       </div>
       <div class="panel-body" style="padding:0;">
         <table class="mtable">
@@ -497,39 +497,46 @@ nav{padding:8px 0 0;}
           </thead>
           <tbody>
             <tr>
-              <td class="m-id">#1312</td>
-              <td class="m-title">Auth service: JWT validation timing out under load</td>
+              <td class="m-id">AI-AUDIT-002</td>
+              <td class="m-title">Mortgage AI disparate impact on Hispanic applicants</td>
               <td><span class="m-status st-loop">In Loop</span></td>
-              <td class="m-risk" style="color:#FF4B6B">94</td>
+              <td class="m-risk" style="color:#FF4B6B">96</td>
               <td class="m-age">2h</td>
             </tr>
             <tr>
-              <td class="m-id">#1274</td>
-              <td class="m-title">Auth timeout spike — peak traffic event</td>
-              <td><span class="m-status st-resolved">Resolved</span></td>
-              <td class="m-risk" style="color:var(--terra-2)">91</td>
-              <td class="m-age">9d</td>
+              <td class="m-id">AI-AUDIT-022</td>
+              <td class="m-title">Deepfake 'CEO' voice note nearly triggered $500k wire</td>
+              <td><span class="m-status st-loop">In Loop</span></td>
+              <td class="m-risk" style="color:#FF4B6B">95</td>
+              <td class="m-age">1d</td>
             </tr>
             <tr>
-              <td class="m-id">#1231</td>
-              <td class="m-title">JWT validation queue backup</td>
-              <td><span class="m-status st-resolved">Resolved</span></td>
-              <td class="m-risk" style="color:var(--terra-2)">88</td>
-              <td class="m-age">19d</td>
+              <td class="m-id">AI-AUDIT-014</td>
+              <td class="m-title">Resume AI penalizing women's-college candidates</td>
+              <td><span class="m-status st-resolved">Pattern Found</span></td>
+              <td class="m-risk" style="color:#FF4B6B">91</td>
+              <td class="m-age">3d</td>
             </tr>
             <tr>
-              <td class="m-id">#1195</td>
-              <td class="m-title">Auth service P95 latency exceeded SLA</td>
-              <td><span class="m-status st-resolved">Resolved</span></td>
-              <td class="m-risk" style="color:#F5A623">82</td>
-              <td class="m-age">30d</td>
+              <td class="m-id">AI-AUDIT-005</td>
+              <td class="m-title">HR chatbot disclosed employee salary from SharePoint</td>
+              <td><span class="m-status st-loop">In Loop</span></td>
+              <td class="m-risk" style="color:#FF4B6B">90</td>
+              <td class="m-age">1d</td>
             </tr>
             <tr>
-              <td class="m-id">#1162</td>
-              <td class="m-title">Session token validation failures at scale</td>
-              <td><span class="m-status st-resolved">Resolved</span></td>
-              <td class="m-risk" style="color:#F5A623">76</td>
-              <td class="m-age">41d</td>
+              <td class="m-id">AI-AUDIT-015</td>
+              <td class="m-title">Bond-pricing API vulnerable to model-extraction</td>
+              <td><span class="m-status" style="background:rgba(110,119,152,.16);color:var(--text-faint)">Analyzed</span></td>
+              <td class="m-risk" style="color:var(--terra-2)">86</td>
+              <td class="m-age">4d</td>
+            </tr>
+            <tr>
+              <td class="m-id">AI-AUDIT-007</td>
+              <td class="m-title">Customer bot jailbroken to disparage bank fees</td>
+              <td><span class="m-status st-resolved">Pattern Found</span></td>
+              <td class="m-risk" style="color:var(--terra-2)">79</td>
+              <td class="m-age">2d</td>
             </tr>
           </tbody>
         </table>

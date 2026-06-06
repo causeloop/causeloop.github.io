@@ -106,23 +106,25 @@ svg.mark{display:block}
   align-items:baseline;
   white-space:nowrap;
 }
-/* the "oo" rendered as a brand infinity — the blue gradient flows around the
-   loop (animated in the SVG); CSS adds a soft, gently pulsing blue glow */
+/* the "oo" rendered as a brand infinity — stroked in currentColor so it reads
+   as the same colour as the surrounding wordmark letters; a subtle breathe
+   keeps it alive without recolouring it */
 .wm-oo{
   width:1.16em;height:.82em;
   align-self:center;
   margin:0 .015em;
   position:relative;top:.02em;
   flex:none;
-  animation:oo-glow 3.2s ease-in-out infinite;
+  transform-origin:center;
+  animation:oo-breathe 3.4s ease-in-out infinite;
 }
-@keyframes oo-glow{
-  0%,100%{filter:drop-shadow(0 0 1px rgba(74,120,255,.35))}
-  50%{filter:drop-shadow(0 0 5px rgba(74,120,255,.7))}
+@keyframes oo-breathe{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
 }
 @media (prefers-reduced-motion:reduce){
   .mark{animation:none;filter:drop-shadow(0 0 4px rgba(74,120,255,.5))}
-  .wm-oo{animation:none;filter:none}
+  .wm-oo{animation:none}
 }
 /* the .ai top-level domain, in brand orange */
 .wm-tld{color:var(--terra);letter-spacing:-.03em}
