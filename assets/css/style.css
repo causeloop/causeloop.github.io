@@ -89,7 +89,12 @@ ul,ol{list-style:none}
 .skip-link:focus{left:0}
 
 svg.mark{display:block}
-.mark{width:30px;height:30px;color:var(--text)}
+/* electric-blue mark with a neon glow halo that gently pulses (option 9) */
+.mark{width:30px;height:30px;color:var(--text);filter:drop-shadow(0 0 5px rgba(59,130,246,.5));animation:mark-glow 3s ease-in-out infinite}
+@keyframes mark-glow{
+  0%,100%{filter:drop-shadow(0 0 4px rgba(59,130,246,.42))}
+  50%{filter:drop-shadow(0 0 9px rgba(59,130,246,.82)) drop-shadow(0 0 16px rgba(59,130,246,.32))}
+}
 
 /* brand wordmark — the bespoke "Loopface" treatment */
 .wm{
@@ -101,13 +106,24 @@ svg.mark{display:block}
   align-items:baseline;
   white-space:nowrap;
 }
-/* the "oo" rendered as a brand infinity */
+/* the "oo" rendered as a brand infinity — stroked in currentColor so it matches
+   the wordmark letters; a subtle "breathing" animation keeps it alive */
 .wm-oo{
   width:1.16em;height:.82em;
   align-self:center;
   margin:0 .015em;
   position:relative;top:.02em;
   flex:none;
+  transform-origin:center;
+  animation:oo-breathe 3.4s ease-in-out infinite;
+}
+@keyframes oo-breathe{
+  0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(226,96,63,0))}
+  50%{transform:scale(1.06);filter:drop-shadow(0 0 3px rgba(226,96,63,.45))}
+}
+@media (prefers-reduced-motion:reduce){
+  .mark{animation:none;filter:drop-shadow(0 0 4px rgba(59,130,246,.5))}
+  .wm-oo{animation:none}
 }
 /* the .ai top-level domain, in brand orange */
 .wm-tld{color:var(--terra);letter-spacing:-.03em}
