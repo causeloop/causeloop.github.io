@@ -161,6 +161,45 @@ nav{padding:8px 0 0;}
 .sso-meta{font-family:var(--f-m);font-size:.68rem;color:var(--text-faint);margin-top:3px;}
 .sso-link{font-family:var(--f-m);font-size:.7rem;color:var(--cobalt);white-space:nowrap;flex-shrink:0;}
 .sso-link:hover{text-decoration:underline;}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1024px){
+  .sidebar{width:64px}
+  .sidebar-logo{justify-content:center;padding-left:0;padding-right:0;gap:0}
+  .sidebar-logo .wm{display:none}
+  .nav-item{justify-content:center;gap:0;font-size:0;padding-left:0;padding-right:0}
+  .nav-item svg{width:18px;height:18px}
+  .nav-item .badge{display:none}
+  .sidebar-user{justify-content:center;padding-left:0;padding-right:0}
+  .user-name,.user-role{display:none}
+  .back-link{font-size:0;padding:10px 0}
+}
+@media (max-width:900px){
+  /* two-column settings layout stacks: sub-nav becomes a horizontal scroll strip on top */
+  .settings-grid{grid-template-columns:1fr}
+  .subnav{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch;position:static;gap:6px;padding-bottom:4px}
+  .subnav-label{display:none}
+  .subnav-item{white-space:nowrap;flex:none}
+  .panel-col{min-width:0}
+}
+@media (max-width:768px){
+  .topbar{flex-wrap:wrap}
+  .crumb{flex-wrap:wrap}
+  .tb-right{flex-wrap:wrap}
+  .sec-head{flex-wrap:wrap}
+  .panel-head{flex-wrap:wrap}
+  .sso-card{flex-wrap:wrap}
+  /* tables scroll horizontally inside their panels */
+  .panel{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .mtable{min-width:620px}
+  .perm-table{min-width:520px}
+}
+@media (max-width:640px){
+  .sidebar{width:56px}
+  .topbar{padding:12px 14px;gap:10px;flex-wrap:wrap}
+  .page-title{font-size:1.05rem}
+  .content{padding:16px 14px}
+}
 </style>
 </head>
 <body>
