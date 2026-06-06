@@ -170,11 +170,11 @@ nav{padding:8px 0 0;}
     </a>
     <a class="nav-item" href="issues.html">
       <svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="18" r="1"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg>
-      Issues<span class="badge">247</span>
+      Issues<span class="badge">25</span>
     </a>
     <a class="nav-item" href="patterns.html">
       <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>
-      Patterns<span class="badge">12</span>
+      Patterns<span class="badge">5</span>
     </a>
     <a class="nav-item" href="predictions.html">
       <svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
@@ -230,23 +230,23 @@ nav{padding:8px 0 0;}
     <section class="kpi-row">
       <div class="kpi-card">
         <div class="kpi-label">Open Actions</div>
-        <div class="kpi-num">18</div>
+        <div class="kpi-num">9</div>
         <div class="kpi-sub" style="color:var(--text-faint)">across 5 patterns</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">High Impact</div>
-        <div class="kpi-num" style="color:var(--terra-2)">6</div>
+        <div class="kpi-num" style="color:var(--terra-2)">4</div>
         <div class="kpi-sub" style="color:var(--terra-2)">priority queue</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">In Progress</div>
-        <div class="kpi-num" style="color:var(--cobalt)">4</div>
+        <div class="kpi-num" style="color:var(--cobalt)">2</div>
         <div class="kpi-sub" style="color:var(--text-faint)">being shipped</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">Loops Prevented</div>
-        <div class="kpi-num" style="color:#2BA672">11</div>
-        <div class="kpi-sub" style="color:var(--text-faint)">this quarter</div>
+        <div class="kpi-label">Exposure Avoided</div>
+        <div class="kpi-num" style="color:#2BA672">$1.5M</div>
+        <div class="kpi-sub" style="color:var(--text-faint)">annualized</div>
       </div>
     </section>
 
@@ -254,8 +254,7 @@ nav{padding:8px 0 0;}
     <section class="filter-bar">
       <div class="chip-group">
         <span class="chip active">All</span>
-        <span class="chip">Code fix</span>
-        <span class="chip">Config change</span>
+        <span class="chip">Architecture</span>
         <span class="chip">Process</span>
         <span class="chip">Monitoring</span>
       </div>
@@ -274,18 +273,18 @@ nav{padding:8px 0 0;}
       <article class="rec-card">
         <div class="rec-head">
           <span class="rec-rank">1</span>
-          <span class="rec-title">Offload JWT signing to async crypto workers</span>
+          <span class="rec-title">Deploy a centralized AI gateway</span>
           <span class="rec-chips">
             <span class="r-chip chip-terra">High Impact</span>
             <span class="r-chip chip-cobalt">In Progress</span>
           </span>
         </div>
-        <p class="rec-desc">Move HMAC-SHA256 signing off request threads into a dedicated worker pool to remove head-of-line blocking under load.</p>
+        <p class="rec-desc">Route all enterprise AI traffic through a proxy that enforces rate-limiting, prompt-injection filtering, PII stripping, and uniform logging to retention policy. Closes the whole class of input-trust failures.</p>
         <div class="rec-meta">
-          <span class="type-badge">Code fix</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>3–5 day fix</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~4 loops</span>
-          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span>
+          <span class="type-badge">Architecture</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>6–8 wks</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~12 issues</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface + Shadow AI Procurement + Speed-First Architecture</span>
         </div>
         <div class="rec-foot pad">
           <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
@@ -298,18 +297,18 @@ nav{padding:8px 0 0;}
       <article class="rec-card">
         <div class="rec-head">
           <span class="rec-rank">2</span>
-          <span class="rec-title">Add circuit breaker on auth gateway</span>
+          <span class="rec-title">Continuous model-drift &amp; data-quality monitoring</span>
           <span class="rec-chips">
             <span class="r-chip chip-terra">High Impact</span>
-            <span class="r-chip chip-faint">Pending</span>
+            <span class="r-chip chip-cobalt">In Progress</span>
           </span>
         </div>
-        <p class="rec-desc">Reject retry storms during auth degradation; cut load amplification from 4× to 1×.</p>
+        <p class="rec-desc">Replace point-in-time MRM documentation with runtime engines that flag performance drift and corrupt inputs automatically (SR 11-7 / OCC 2011-12).</p>
         <div class="rec-meta">
-          <span class="type-badge">Code fix</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>1–2 day fix</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~3 loops</span>
-          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span>
+          <span class="type-badge">Monitoring</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>4–6 wks</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~4 issues</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Model Lifecycle Drift</span>
         </div>
         <div class="rec-foot pad">
           <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
@@ -322,18 +321,18 @@ nav{padding:8px 0 0;}
       <article class="rec-card">
         <div class="rec-head">
           <span class="rec-rank">3</span>
-          <span class="rec-title">Raise DB pool max + add backpressure</span>
+          <span class="rec-title">Enforce AI safety gates in CI/CD &amp; IAM</span>
           <span class="rec-chips">
             <span class="r-chip chip-terra">High Impact</span>
-            <span class="r-chip chip-cobalt">In Progress</span>
+            <span class="r-chip chip-faint">Pending</span>
           </span>
         </div>
-        <p class="rec-desc">Size the orders-service connection pool to peak load and add queue backpressure to fail fast.</p>
+        <p class="rec-desc">Mandatory circuit breakers, least-privilege on training data, and approval-gated model rollbacks before production deploys.</p>
         <div class="rec-meta">
-          <span class="type-badge">Config change</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>1 day</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~3 loops</span>
-          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>DB pool exhaustion</span>
+          <span class="type-badge">Process</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>3–4 wks</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~5 issues</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Speed-First Architecture Deficit</span>
         </div>
         <div class="rec-foot pad">
           <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
@@ -346,18 +345,18 @@ nav{padding:8px 0 0;}
       <article class="rec-card">
         <div class="rec-head">
           <span class="rec-rank">4</span>
-          <span class="rec-title">Add ±10% jitter to token TTL</span>
+          <span class="rec-title">Automated enterprise AI model inventory</span>
           <span class="rec-chips">
-            <span class="r-chip chip-green">Quick Win</span>
+            <span class="r-chip chip-terra">High Impact</span>
             <span class="r-chip chip-faint">Pending</span>
           </span>
         </div>
-        <p class="rec-desc">Prevent synchronized refresh storms by jittering token expiry; cuts peak auth RPS ~35%.</p>
+        <p class="rec-desc">Discover shadow models via cloud + expense telemetry so every model is registered with MRM (OCC Bulletin 2011-12).</p>
         <div class="rec-meta">
-          <span class="type-badge">Config change</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>&lt;4h</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~2 loops</span>
-          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span>
+          <span class="type-badge">Architecture</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>2–3 wks</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~6 issues</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Shadow AI Procurement</span>
         </div>
         <div class="rec-foot pad">
           <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
@@ -370,18 +369,18 @@ nav{padding:8px 0 0;}
       <article class="rec-card">
         <div class="rec-head">
           <span class="rec-rank">5</span>
-          <span class="rec-title">Idempotency keys on payment retries</span>
+          <span class="rec-title">Mandatory automation-bias guardrails &amp; training</span>
           <span class="rec-chips">
-            <span class="r-chip chip-amber">Medium</span>
+            <span class="r-chip chip-green">Quick Win</span>
             <span class="r-chip chip-faint">Pending</span>
           </span>
         </div>
-        <p class="rec-desc">Make the payment retry path idempotent so the 3rd-retry cascade stops triggering the rate limiter.</p>
+        <p class="rec-desc">Enforce cross-verification of AI outputs and manual-capability drills; reclaim ~$450k/yr in QA double-checking hours.</p>
         <div class="rec-meta">
-          <span class="type-badge">Code fix</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>2–3 day fix</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~2 loops</span>
-          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Payment retry cascade</span>
+          <span class="type-badge">Process</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>&lt;2 wks</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~4 issues</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Institutional Automation Bias</span>
         </div>
         <div class="rec-foot pad">
           <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>
@@ -394,18 +393,18 @@ nav{padding:8px 0 0;}
       <article class="rec-card">
         <div class="rec-head">
           <span class="rec-rank">6</span>
-          <span class="rec-title">Alert on CDN cache-hit ratio &lt; 85%</span>
+          <span class="rec-title">Bias &amp; fairness testing in model validation</span>
           <span class="rec-chips">
             <span class="r-chip chip-amber">Medium</span>
             <span class="r-chip chip-green">Implemented</span>
           </span>
         </div>
-        <p class="rec-desc">Add a monitoring alert that fires before a deploy-time cache-miss storm escalates to an incident.</p>
+        <p class="rec-desc">Add disparate-impact and explainability gates to validation for any decisioning model (ECOA / SR 11-7).</p>
         <div class="rec-meta">
-          <span class="type-badge">Monitoring</span>
+          <span class="type-badge">Process</span>
           <span class="meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>done</span>
-          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~1 loop</span>
-          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>S3 CDN cache misses</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><polyline points="7 14 11 10 14 13 19 8"/></svg>prevents ~2 issues</span>
+          <span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface</span>
         </div>
         <div class="rec-foot pad">
           <button class="ghost-btn"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>View detail</button>

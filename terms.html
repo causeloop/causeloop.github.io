@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css?v=20260606b" />
+<link rel="stylesheet" href="assets/css/style.css?v=20260606c" />
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -26,14 +26,6 @@
        marks the surfaced cause. -->
     <linearGradient id="clg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
     <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#A6C8FF"/>
-  </linearGradient>
-  <!-- Animated variant for the infinity "oo": a light band repeats and slides
-       across the same blue, so the loop appears to flow endlessly. -->
-  <linearGradient id="clgo" x1="24" y1="6" x2="76" y2="6" gradientUnits="userSpaceOnUse" spreadMethod="repeat">
-    <stop offset="0" stop-color="#4A78FF"/>
-    <stop offset=".5" stop-color="#BBD6FF"/>
-    <stop offset="1" stop-color="#4A78FF"/>
-    <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="52 0" dur="3.2s" repeatCount="indefinite"/>
   </linearGradient>
   <symbol id="mk" viewBox="0 0 64 64">
     <g fill="none" stroke="url(#clg)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
@@ -47,9 +39,8 @@
        o's of "causeloop"). -->
   <symbol id="inf" viewBox="24 6 52 38">
     <path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z"
-          fill="none" stroke="url(#clgo)" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="40" cy="25" r="4.4" fill="#E2603F"/>
-    <circle cx="60" cy="25" r="4.4" fill="#E2603F"/>
+          fill="none" stroke="currentColor" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50" cy="25" r="4.4" fill="#E2603F"/>
   </symbol>
 </defs></svg>
 <a class="skip-link" href="#main">Skip to content</a>

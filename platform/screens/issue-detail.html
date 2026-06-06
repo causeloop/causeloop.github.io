@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Issue #1312 — Causeloop Platform</title>
+<title>AI-AUDIT-002 — Causeloop Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -71,6 +71,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .issue-id-lg{font-family:var(--f-m);font-size:.8rem;letter-spacing:.06em;color:var(--text-faint)}
 .src-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:5px;font-family:var(--f-m);font-size:.6rem;letter-spacing:.08em;font-weight:600;text-transform:uppercase;white-space:nowrap}
 .src-pd{background:rgba(6,215,63,.1);color:#3DD68C}
+.src-audit{background:rgba(245,166,35,.14);color:#F5C26B}
 .status{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-family:var(--f-m);font-size:.6rem;letter-spacing:.08em;font-weight:600;text-transform:uppercase;white-space:nowrap}
 .status-dot{width:5px;height:5px;border-radius:50%;flex:none}
 .st-loop{background:rgba(240,118,79,.14);color:var(--terra-2)}
@@ -205,8 +206,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   </div>
   <nav style="padding:8px 0 0">
     <a class="nav-item" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Dashboard</a>
-    <a class="nav-item active" href="issues.html"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>Issues<span class="badge">247</span></a>
-    <a class="nav-item" href="patterns.html"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Patterns<span class="badge">12</span></a>
+    <a class="nav-item active" href="issues.html"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>Issues<span class="badge">25</span></a>
+    <a class="nav-item" href="patterns.html"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Patterns<span class="badge">5</span></a>
     <a class="nav-item" href="predictions.html"><svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>Predictions</a>
     <a class="nav-item" href="recommendations.html"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>Recommendations</a>
     <div style="height:1px;background:var(--border);margin:10px 16px"></div>
@@ -227,7 +228,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       <nav class="breadcrumb">
         <a href="issues.html">Issues</a>
         <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        <span style="color:var(--text-soft)">#1312 — Auth service JWT timeout</span>
+        <span style="color:var(--text-soft)">AI-AUDIT-002 — Mortgage AI disparate impact</span>
       </nav>
     </div>
     <div class="topbar-right">
@@ -242,16 +243,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     <div class="content-main">
       <div class="issue-header">
         <div class="issue-meta-row">
-          <span class="issue-id-lg">#1312</span>
-          <span class="src-badge src-pd">PagerDuty</span>
+          <span class="issue-id-lg">AI-AUDIT-002</span>
+          <span class="src-badge src-audit">Internal Audit</span>
           <span class="status st-loop"><span class="status-dot"></span>In Loop</span>
-          <span class="risk-chip"><svg viewBox="0 0 24 24"><polygon points="10.29 3.86 1.82 18 22.18 18 13.71 3.86"/></svg>Risk 94 · Critical</span>
+          <span class="risk-chip"><svg viewBox="0 0 24 24"><polygon points="10.29 3.86 1.82 18 22.18 18 13.71 3.86"/></svg>Risk 96 · Critical</span>
         </div>
-        <h1 class="issue-title-lg">Auth service: JWT validation timing out under peak load — P1 incident</h1>
+        <h1 class="issue-title-lg">Mortgage underwriting AI shows a 15% disparate-impact gap against Hispanic applicants</h1>
         <div class="issue-dates">
-          <span>OPENED Jun 6, 2026 at 09:14 UTC</span>
-          <span>UPDATED 2h ago</span>
-          <span>SOURCE PagerDuty · INC-44821</span>
+          <span>OPENED Apr 18, 2026</span>
+          <span>UPDATED 18m ago</span>
+          <span>SOURCE Internal Audit · AUD-2026-0142</span>
         </div>
       </div>
 
@@ -262,7 +263,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
             AI Root Cause Analysis
             <span class="ai-badge">Causeloop AI</span>
           </span>
-          <span style="font-family:var(--f-m);font-size:.6rem;color:var(--cobalt);letter-spacing:.06em">Confidence 91%</span>
+          <span style="font-family:var(--f-m);font-size:.6rem;color:var(--cobalt);letter-spacing:.06em">Confidence 95%</span>
         </div>
         <div class="panel-body">
           <div class="ai-section-title">
@@ -270,24 +271,24 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
             Root cause
           </div>
           <p class="ai-text">
-            This incident is a direct recurrence of a <strong>known pattern</strong> (Auth service timeouts, first detected 43 days ago). The immediate trigger is <strong>JWT HMAC-SHA256 signing operations becoming CPU-bound</strong> at ≥8,000 concurrent sessions, causing the validation queue to back up beyond the 500ms timeout threshold.
+            The mortgage underwriting model exhibits <strong>statistically significant disparate impact</strong> against a protected class — Hispanic applicants are denied at a 15% higher rate than baseline — and it cannot explain its decisions. This violates <strong>Fair Lending law (ECOA)</strong> and <strong>SR 11-7</strong> model-risk management guidance.
           </p>
           <div class="cause-highlight">
             <div class="cause-label">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#F0764F"/><line x1="12" y1="8" x2="12" y2="12" stroke="#1A1206" stroke-width="2"/><line x1="12" y1="16" x2="12.01" y2="16" stroke="#1A1206" stroke-width="2"/></svg>
               The Cause
             </div>
-            <p>The auth service thread pool (maxThreads=200) is not sized for current peak load of 12,400 rps observed post-expansion. JWT key signing is not offloaded to a dedicated crypto worker — all signing happens on request threads, causing head-of-line blocking under load.</p>
+            <p>The model was deployed as a complex, uninterpretable deep neural network without adequate bias testing or explainability constraints during the validation phase.</p>
           </div>
           <div class="ai-section-title">Contributing factors</div>
           <p class="ai-text">
-            <strong>1. No circuit breaker on the auth gateway</strong> — downstream services continue retrying failed auth calls, amplifying load by 3–4× during degradation.<br/>
-            <strong>2. Token refresh not distributed</strong> — a cohort of sessions refresh simultaneously (token expiry set uniformly to 1h after the last deployment), causing traffic spikes at predictable intervals.<br/>
-            <strong>3. Missing async key rotation</strong> — JWKS key rotation blocks the request path briefly during key reload, exacerbating timeouts during high load windows.
+            <strong>1. No disparate-impact / adverse-impact test gate</strong> in model validation.<br/>
+            <strong>2. Black-box architecture</strong> with no reason codes or explainability (e.g. SHAP).<br/>
+            <strong>3. Trained on historical lending data</strong> that carries embedded human bias, never debiased.
           </p>
           <div class="ai-section-title">Why this keeps recurring</div>
           <p class="ai-text" style="margin-bottom:0">
-            This is the <strong>8th occurrence in 90 days</strong> (see loop detection below). Each prior incident was resolved by scaling up compute, without addressing the thread-pool architecture or synchronous signing path. Causeloop predicts a <strong>93% probability</strong> of recurrence within 14 days unless the signing path is decoupled.
+            This is one of <strong>6 findings</strong> in the "Non-Deterministic Attack Surface" pattern. The firm keeps protecting probabilistic AI with deterministic guardrails — the identical control gap produced the resume-screening bias (AI-AUDIT-014), the HR-chatbot PII leak (AI-AUDIT-005), the customer-bot prompt injection (AI-AUDIT-007), and the deepfake wire fraud (AI-AUDIT-022). Causeloop predicts a <strong>94% chance</strong> a new instance appears within 14 days unless an AI gateway with guardrails is deployed.
           </p>
         </div>
       </div>
@@ -302,18 +303,18 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
         </div>
         <div class="panel-body">
           <div class="loop-stat">
-            <span class="loop-num">8×</span>
+            <span class="loop-num">6×</span>
             <div class="loop-desc">
-              This issue is part of the <strong>"Auth service timeouts"</strong> loop pattern.<br/>
-              8 similar incidents in the last 90 days · Avg MTTR 4.2h · Pattern risk 94/100
+              This finding is part of the <strong>"Non-Deterministic Attack Surface"</strong> loop pattern.<br/>
+              6 findings across retail, HR, and customer ops · Exposure $750k–$100M · ECOA class actions $2M–$15M
             </div>
           </div>
           <div class="loop-timeline">
-            <div class="loop-event"><div class="loop-dot active"></div><span class="loop-event-date">Jun 6</span><span class="loop-event-text">Current incident — #1312 <span>P1 · open</span></span></div>
-            <div class="loop-event"><div class="loop-dot"></div><span class="loop-event-date">May 28</span><span class="loop-event-text">#1274 — Auth timeout spike <span>resolved 3.8h</span></span></div>
-            <div class="loop-event"><div class="loop-dot"></div><span class="loop-event-date">May 18</span><span class="loop-event-text">#1231 — JWT validation queue backup <span>resolved 6.1h</span></span></div>
-            <div class="loop-event"><div class="loop-dot"></div><span class="loop-event-date">May 7</span><span class="loop-event-text">#1195 — Auth latency P95 &gt;2s <span>resolved 2.9h</span></span></div>
-            <div style="font-family:var(--f-m);font-size:.65rem;color:var(--text-faint);padding-left:18px;margin-top:6px">+ 4 more occurrences since Apr 4, 2026</div>
+            <div class="loop-event"><div class="loop-dot active"></div><span class="loop-event-date">now</span><span class="loop-event-text">AI-AUDIT-002 — mortgage disparate impact <span>this finding · open</span></span></div>
+            <div class="loop-event"><div class="loop-dot"></div><span class="loop-event-date">1d</span><span class="loop-event-text">AI-AUDIT-022 — deepfake 'CEO' voice note nearly triggered $500k wire</span></div>
+            <div class="loop-event"><div class="loop-dot"></div><span class="loop-event-date">3d</span><span class="loop-event-text">AI-AUDIT-014 — resume-screening AI penalizing women's-college candidates</span></div>
+            <div class="loop-event"><div class="loop-dot"></div><span class="loop-event-date">1w</span><span class="loop-event-text">AI-AUDIT-005 — HR chatbot disclosed an employee's salary from SharePoint</span></div>
+            <div style="font-family:var(--f-m);font-size:.65rem;color:var(--text-faint);padding-left:18px;margin-top:6px">+ 2 more findings in this pattern</div>
           </div>
         </div>
       </div>
@@ -324,14 +325,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
             <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>
             Similar Issues in Pattern
           </span>
-          <a href="patterns.html" style="font-family:var(--f-m);font-size:.64rem;color:var(--cobalt)">View all 31 →</a>
+          <a href="patterns.html" style="font-family:var(--f-m);font-size:.64rem;color:var(--cobalt)">View all 6 →</a>
         </div>
         <div class="panel-body" style="padding-top:6px;padding-bottom:6px">
-          <div class="rel-issue"><span class="rel-id">#1274</span><span class="rel-title">Auth timeout spike — peak traffic event</span><span class="rel-score">91</span></div>
-          <div class="rel-issue"><span class="rel-id">#1231</span><span class="rel-title">JWT validation queue backup — sustained load</span><span class="rel-score">88</span></div>
-          <div class="rel-issue"><span class="rel-id">#1195</span><span class="rel-title">Auth service P95 latency exceeded SLA</span><span class="rel-score">82</span></div>
-          <div class="rel-issue"><span class="rel-id">#1162</span><span class="rel-title">Session token validation failures at scale</span><span class="rel-score">76</span></div>
-          <div class="rel-issue"><span class="rel-id">#1131</span><span class="rel-title">JWT signing CPU saturation — post-launch</span><span class="rel-score">71</span></div>
+          <div class="rel-issue"><span class="rel-id">AI-AUDIT-014</span><span class="rel-title">Resume-screening AI penalizes women's-college candidates</span><span class="rel-score">92</span></div>
+          <div class="rel-issue"><span class="rel-id">AI-AUDIT-022</span><span class="rel-title">Deepfake voice note nearly triggered a $500k wire</span><span class="rel-score">89</span></div>
+          <div class="rel-issue"><span class="rel-id">AI-AUDIT-005</span><span class="rel-title">HR chatbot disclosed employee salary (PII)</span><span class="rel-score">86</span></div>
+          <div class="rel-issue"><span class="rel-id">AI-AUDIT-007</span><span class="rel-title">Customer bot jailbroken via prompt injection</span><span class="rel-score">81</span></div>
+          <div class="rel-issue"><span class="rel-id">AI-AUDIT-015</span><span class="rel-title">Bond-pricing API vulnerable to model extraction</span><span class="rel-score">74</span></div>
         </div>
       </div>
 
@@ -346,30 +347,30 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
           <div class="activity-item">
             <div class="activity-icon ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
             <div class="activity-body">
-              <div class="activity-text">Causeloop AI <strong>completed root cause analysis</strong> — 91% confidence. Issue linked to <strong>Auth service timeouts</strong> pattern.</div>
-              <div class="activity-time">Today at 09:22 UTC · AI Analysis</div>
+              <div class="activity-text">Causeloop AI <strong>completed root-cause analysis</strong> — 95% confidence. Linked <strong>AI-AUDIT-002</strong> to <strong>Non-Deterministic Attack Surface</strong>.</div>
+              <div class="activity-time">Today 09:22 · AI Analysis</div>
             </div>
           </div>
           <div class="activity-item">
             <div class="activity-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
             <div class="activity-body">
-              <div class="activity-text"><strong>Rushabh Patel</strong> linked this issue to pattern "Auth service timeouts"</div>
-              <div class="activity-time">Today at 09:18 UTC</div>
+              <div class="activity-text"><strong>Maria Chen</strong> (Model Risk) linked this finding to the pattern.</div>
+              <div class="activity-time">Today 09:18</div>
             </div>
           </div>
           <div class="activity-item">
             <div class="activity-icon"><svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg></div>
             <div class="activity-body">
-              <div class="activity-text">Issue ingested from <strong>PagerDuty</strong> (INC-44821) · Status: <strong>In Loop</strong> assigned by AI classification</div>
-              <div class="activity-time">Today at 09:14 UTC · PagerDuty Integration</div>
+              <div class="activity-text">Finding ingested from <strong>Internal Audit</strong> (AUD-2026-0142); classified <strong>In Loop</strong> by AI.</div>
+              <div class="activity-time">Today 09:14 · Internal Audit</div>
             </div>
           </div>
 
           <div class="comment">
-            <div class="comment-avatar">RP</div>
+            <div class="comment-avatar">MC</div>
             <div class="comment-body">
-              <span class="comment-author">Rushabh Patel</span><span class="comment-time">Today at 09:31 UTC</span>
-              <div class="comment-text">Escalated to eng-platform. We need to finally address the thread pool sizing and move signing to async workers — been kicking this can for 8 incidents. @priya-m please review the recommendations and assign sprint tickets.</div>
+              <span class="comment-author">Maria Chen</span><span class="comment-time">Today 09:34</span>
+              <div class="comment-text">Legal escalated. We need disparate-impact testing + reason codes before this model stays in production another day — this is the 4th fairness/PII failure from the same missing control. @david-r please prioritise the AI-gateway rollout.</div>
             </div>
           </div>
 
@@ -386,12 +387,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       <div class="aside-section">
         <div class="aside-title">Properties</div>
         <div class="aside-row"><span class="aside-label">Status</span><span class="aside-val"><span class="status st-loop" style="font-size:.6rem"><span class="status-dot"></span>In Loop</span></span></div>
-        <div class="aside-row"><span class="aside-label">Risk score</span><span class="aside-val accent">94 / 100</span></div>
+        <div class="aside-row"><span class="aside-label">Risk score</span><span class="aside-val accent">96 / 100</span></div>
         <div class="aside-row"><span class="aside-label">Priority</span><span class="aside-val" style="color:#FF4B6B">P1 — Critical</span></div>
-        <div class="aside-row"><span class="aside-label">Source</span><span class="aside-val">PagerDuty</span></div>
-        <div class="aside-row"><span class="aside-label">External ID</span><span class="aside-val" style="font-family:var(--f-m);font-size:.72rem">INC-44821</span></div>
-        <div class="aside-row"><span class="aside-label">Assigned to</span><span class="aside-val">Priya M.</span></div>
-        <div class="aside-row"><span class="aside-label">Team</span><span class="aside-val">Platform Eng</span></div>
+        <div class="aside-row"><span class="aside-label">Source</span><span class="aside-val">Internal Audit</span></div>
+        <div class="aside-row"><span class="aside-label">External ID</span><span class="aside-val" style="font-family:var(--f-m);font-size:.72rem">AUD-2026-0142</span></div>
+        <div class="aside-row"><span class="aside-label">Assigned to</span><span class="aside-val">Maria Chen</span></div>
+        <div class="aside-row"><span class="aside-label">Team</span><span class="aside-val">Model Risk Mgmt</span></div>
       </div>
 
       <div class="aside-section">
@@ -399,9 +400,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px">
           <div style="font-weight:600;font-size:.9rem;color:var(--cobalt);margin-bottom:4px;display:flex;align-items:center;gap:6px">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>
-            Auth service timeouts
+            Non-Deterministic Attack Surface
           </div>
-          <div style="font-size:.8rem;color:var(--text-faint);margin-bottom:8px">31 issues · Risk 94 · Active</div>
+          <div style="font-size:.8rem;color:var(--text-faint);margin-bottom:8px">6 issues · Risk 96 · Active</div>
           <a href="patterns.html" style="font-family:var(--f-m);font-size:.64rem;color:var(--cobalt);letter-spacing:.04em">Open pattern →</a>
         </div>
       </div>
@@ -411,25 +412,25 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
         <div class="rec-item">
           <div class="rec-num">1</div>
           <div>
-            <div class="rec-title">Offload JWT signing to crypto worker pool</div>
-            <div class="rec-desc">Introduce a dedicated async worker pool for HMAC-SHA256 operations. Decouples signing from request threads.</div>
-            <div class="rec-impact">HIGH IMPACT · 3–5 day fix</div>
+            <div class="rec-title">Deploy a centralized AI gateway with bias, PII, and prompt-injection guardrails</div>
+            <div class="rec-desc">A single enforcement layer in front of every model — deterministic guardrails around probabilistic AI.</div>
+            <div class="rec-impact">HIGH IMPACT · 6–8 wks</div>
           </div>
         </div>
         <div class="rec-item">
           <div class="rec-num">2</div>
           <div>
-            <div class="rec-title">Add circuit breaker on auth gateway</div>
-            <div class="rec-desc">Reject retry storms during auth degradation. Reduces amplification factor from 4× back to 1×.</div>
-            <div class="rec-impact">HIGH IMPACT · 1–2 day fix</div>
+            <div class="rec-title">Add disparate-impact & explainability gates to model validation</div>
+            <div class="rec-desc">Block deployment unless adverse-impact tests pass and reason codes are produced.</div>
+            <div class="rec-impact">HIGH IMPACT · 2–3 wks</div>
           </div>
         </div>
         <div class="rec-item">
           <div class="rec-num">3</div>
           <div>
-            <div class="rec-title">Stagger token expiry times</div>
-            <div class="rec-desc">Add ±10% jitter to token TTL to prevent synchronized refresh storms. Cuts peak auth RPS ~35%.</div>
-            <div class="rec-impact">QUICK WIN · &lt;4h to deploy</div>
+            <div class="rec-title">Retrain with debiasing + reason codes (ECOA adverse-action)</div>
+            <div class="rec-desc">Debias the training data and add reason-code output so denials are explainable and compliant.</div>
+            <div class="rec-impact">MEDIUM · 4 wks</div>
           </div>
         </div>
       </div>
@@ -437,8 +438,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       <div class="aside-section">
         <div class="aside-title">Recurrence Prediction</div>
         <div style="background:rgba(240,118,79,.07);border:1px solid rgba(240,118,79,.2);border-radius:10px;padding:12px">
-          <div style="font-family:var(--f-m);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--terra-2);margin-bottom:5px">93% likely to recur</div>
-          <div style="font-size:.84rem;color:var(--text-soft);line-height:1.4">Within <strong style="color:var(--text)">14 days</strong> if root cause is not addressed. Next likely trigger: Tuesday peak traffic window.</div>
+          <div style="font-family:var(--f-m);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--terra-2);margin-bottom:5px">94% likely to recur</div>
+          <div style="font-size:.84rem;color:var(--text-soft);line-height:1.4">Within <strong style="color:var(--text)">14 days</strong> a new bias/PII/injection surface appears unless the AI gateway is deployed. Regulations at stake: ECOA · SR 11-7 · GDPR/CCPA · BIPA.</div>
         </div>
       </div>
     </div>

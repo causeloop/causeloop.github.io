@@ -125,6 +125,15 @@ td.td-main{color:var(--text);font-weight:500}
 .st-analysis .status-dot{background:var(--text-faint)}
 .st-resolved{background:rgba(43,166,114,.08);color:#2BA672;opacity:.7}
 .st-resolved .status-dot{background:#2BA672}
+.st-mitigating{background:rgba(245,166,35,.14);color:#F5A623}
+.st-mitigating .status-dot{background:#F5A623}
+.st-analyzed{background:rgba(105,130,210,.14);color:#9DB2EC}
+.st-analyzed .status-dot{background:#9DB2EC}
+.st-wontfix{background:rgba(150,160,180,.1);color:var(--text-faint);opacity:.75}
+.st-wontfix .status-dot{background:var(--text-faint)}
+.src-audit{background:rgba(245,166,35,.14);color:#F5C26B}
+.src-slack{background:rgba(135,90,170,.2);color:#C49BE0}
+.src-archer{background:rgba(31,194,255,.12);color:#5BD0F5}
 
 .pattern-tag{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:5px;background:rgba(74,120,255,.08);color:var(--cobalt);font-size:.72rem;font-weight:500;white-space:nowrap;max-width:180px;overflow:hidden;text-overflow:ellipsis}
 .pattern-tag svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2;flex:none}
@@ -218,10 +227,10 @@ td.td-main{color:var(--text);font-weight:500}
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Dashboard
     </a>
     <a class="nav-item active" href="issues.html">
-      <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>Issues<span class="badge">247</span>
+      <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>Issues<span class="badge">25</span>
     </a>
     <a class="nav-item" href="patterns.html">
-      <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Patterns<span class="badge">12</span>
+      <svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Patterns<span class="badge">5</span>
     </a>
     <a class="nav-item" href="predictions.html">
       <svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>Predictions
@@ -254,7 +263,7 @@ td.td-main{color:var(--text);font-weight:500}
     <div class="filter-bar">
       <div class="search-wrap">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input class="search-input" type="text" placeholder="Search issues by title, ID, or description…" value="authentication"/>
+        <input class="search-input" type="text" placeholder="Search AI-governance findings by title, ID, or pattern…" value=""/>
       </div>
       <button class="filter-chip active"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>Source: All<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="filter-chip active"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>Status: Open<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -278,7 +287,7 @@ td.td-main{color:var(--text);font-weight:500}
       <div class="table-header">
         <div style="display:flex;align-items:center;gap:12px">
           <span class="table-title">All Issues</span>
-          <span class="table-count">247 RESULTS</span>
+          <span class="table-count">25 RESULTS</span>
         </div>
         <div class="table-actions">
           <div class="icon-btn" title="Column settings"><svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg></div>
@@ -300,99 +309,265 @@ td.td-main{color:var(--text);font-weight:500}
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-002</span></td>
+            <td class="td-main"><div class="issue-title"><span>Mortgage AI rejecting Hispanic applicants 15% above baseline</span></div></td>
+            <td><span class="src-badge src-audit">Audit</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface</span></td>
+            <td><div class="risk-score risk-critical"><span class="risk-num">96</span><div class="risk-bar"><div class="risk-fill" style="width:96%"></div></div></div></td>
+            <td><span class="age">5h ago</span></td>
+          </tr>
           <tr style="background:rgba(74,120,255,.04)">
             <td style="padding-left:16px"><div class="cb checked"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
-            <td><span class="issue-id">#1312</span></td>
-            <td class="td-main"><div class="issue-title"><span>Auth service: JWT validation timing out under load (P1)</span></div></td>
+            <td><span class="issue-id">AI-AUDIT-022</span></td>
+            <td class="td-main"><div class="issue-title"><span>Deepfake 'CEO' voice note nearly triggered a $500k wire</span></div></td>
+            <td><span class="src-badge src-audit">Audit</span></td>
+            <td><span class="status st-loop"><span class="status-dot"></span>In Loop</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface</span></td>
+            <td><div class="risk-score risk-critical"><span class="risk-num">95</span><div class="risk-bar"><div class="risk-fill" style="width:95%"></div></div></div></td>
+            <td><span class="age">4d ago</span></td>
+          </tr>
+          <tr style="background:rgba(74,120,255,.04)">
+            <td style="padding-left:16px"><div class="cb checked"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-004</span></td>
+            <td class="td-main"><div class="issue-title"><span>Auto-trader lost $2M with no kill switch in a market dip</span></div></td>
             <td><span class="src-badge src-pd">PagerDuty</span></td>
             <td><span class="status st-loop"><span class="status-dot"></span>In Loop</span></td>
-            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Speed-First Architecture</span></td>
             <td><div class="risk-score risk-critical"><span class="risk-num">94</span><div class="risk-bar"><div class="risk-fill" style="width:94%"></div></div></div></td>
-            <td><span class="age">2h ago</span></td>
-          </tr>
-          <tr>
-            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
-            <td><span class="issue-id">#1309</span></td>
-            <td class="td-main"><div class="issue-title"><span>DB connection pool exhausted — orders service (P1)</span></div></td>
-            <td><span class="src-badge src-jira">Jira</span></td>
-            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
-            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>DB pool exhaustion</span></td>
-            <td><div class="risk-score risk-high"><span class="risk-num">87</span><div class="risk-bar"><div class="risk-fill" style="width:87%"></div></div></div></td>
-            <td><span class="age">4h ago</span></td>
-          </tr>
-          <tr style="background:rgba(74,120,255,.04)">
-            <td style="padding-left:16px"><div class="cb checked"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
-            <td><span class="issue-id">#1305</span></td>
-            <td class="td-main"><div class="issue-title"><span>Payment retry cascade: 3rd retry loop triggering rate limiter</span></div></td>
-            <td><span class="src-badge src-sn">ServiceNow</span></td>
-            <td><span class="status st-loop"><span class="status-dot"></span>In Loop</span></td>
-            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Payment retry cascade</span></td>
-            <td><div class="risk-score risk-high"><span class="risk-num">79</span><div class="risk-bar"><div class="risk-fill" style="width:79%"></div></div></div></td>
-            <td><span class="age">7h ago</span></td>
-          </tr>
-          <tr>
-            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
-            <td><span class="issue-id">#1301</span></td>
-            <td class="td-main"><div class="issue-title"><span>Rate limiter returning 429 for valid internal API calls</span></div></td>
-            <td><span class="src-badge src-gh">GitHub</span></td>
-            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
-            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Rate limiter false positives</span></td>
-            <td><div class="risk-score risk-med"><span class="risk-num">65</span><div class="risk-bar"><div class="risk-fill" style="width:65%"></div></div></div></td>
             <td><span class="age">1d ago</span></td>
           </tr>
           <tr style="background:rgba(74,120,255,.04)">
             <td style="padding-left:16px"><div class="cb checked"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
-            <td><span class="issue-id">#1298</span></td>
-            <td class="td-main"><div class="issue-title"><span>S3 presigned URL expiry race condition in upload handler</span></div></td>
-            <td><span class="src-badge src-jira">Jira</span></td>
-            <td><span class="status st-new"><span class="status-dot"></span>New</span></td>
-            <td style="color:var(--text-faint);font-size:.78rem">— Analyzing</td>
-            <td><div class="risk-score risk-med"><span class="risk-num">58</span><div class="risk-bar"><div class="risk-fill" style="width:58%"></div></div></div></td>
-            <td><span class="age">2d ago</span></td>
+            <td><span class="issue-id">AI-AUDIT-013</span></td>
+            <td class="td-main"><div class="issue-title"><span>Fraud AI failed open ('approve all') for 45 min under load</span></div></td>
+            <td><span class="src-badge src-pd">PagerDuty</span></td>
+            <td><span class="status st-loop"><span class="status-dot"></span>In Loop</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Speed-First Architecture</span></td>
+            <td><div class="risk-score risk-critical"><span class="risk-num">92</span><div class="risk-bar"><div class="risk-fill" style="width:92%"></div></div></div></td>
+            <td><span class="age">2h ago</span></td>
           </tr>
           <tr>
             <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
-            <td><span class="issue-id">#1291</span></td>
-            <td class="td-main"><div class="issue-title"><span>CDN cache miss storm after deployment — asset hash mismatch</span></div></td>
-            <td><span class="src-badge src-pd">PagerDuty</span></td>
-            <td><span class="status st-analysis"><span class="status-dot"></span>Analyzing</span></td>
-            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>S3 CDN cache misses</span></td>
-            <td><div class="risk-score risk-med"><span class="risk-num">48</span><div class="risk-bar"><div class="risk-fill" style="width:48%"></div></div></div></td>
+            <td><span class="issue-id">AI-AUDIT-014</span></td>
+            <td class="td-main"><div class="issue-title"><span>Resume-screening AI penalizing women's-college candidates</span></div></td>
+            <td><span class="src-badge src-sn">ServiceNow</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface</span></td>
+            <td><div class="risk-score risk-critical"><span class="risk-num">91</span><div class="risk-bar"><div class="risk-fill" style="width:91%"></div></div></div></td>
+            <td><span class="age">5h ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-005</span></td>
+            <td class="td-main"><div class="issue-title"><span>HR chatbot disclosed an employee's salary from SharePoint</span></div></td>
+            <td><span class="src-badge src-slack">Slack</span></td>
+            <td><span class="status st-loop"><span class="status-dot"></span>In Loop</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface</span></td>
+            <td><div class="risk-score risk-critical"><span class="risk-num">90</span><div class="risk-bar"><div class="risk-fill" style="width:90%"></div></div></div></td>
+            <td><span class="age">1d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-008</span></td>
+            <td class="td-main"><div class="issue-title"><span>2019 credit-risk model missing defaults — no retrain in 3 yrs</span></div></td>
+            <td><span class="src-badge src-archer">Archer</span></td>
+            <td><span class="status st-mitigating"><span class="status-dot"></span>Mitigating</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Model Lifecycle Drift</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">88</span><div class="risk-bar"><div class="risk-fill" style="width:88%"></div></div></div></td>
             <td><span class="age">3d ago</span></td>
           </tr>
           <tr>
             <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
-            <td><span class="issue-id">#1288</span></td>
-            <td class="td-main"><div class="issue-title"><span>Notification service: Duplicate event delivery on reconnect</span></div></td>
-            <td><span class="src-badge src-linear">Linear</span></td>
-            <td><span class="status st-new"><span class="status-dot"></span>New</span></td>
-            <td style="color:var(--text-faint);font-size:.78rem">— Unassigned</td>
-            <td><div class="risk-score risk-low"><span class="risk-num">32</span><div class="risk-bar"><div class="risk-fill" style="width:32%"></div></div></div></td>
+            <td><span class="issue-id">AI-AUDIT-017</span></td>
+            <td class="td-main"><div class="issue-title"><span>KYC model ran 2 weeks on blank country-of-origin field</span></div></td>
+            <td><span class="src-badge src-pd">PagerDuty</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Model Lifecycle Drift</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">87</span><div class="risk-bar"><div class="risk-fill" style="width:87%"></div></div></div></td>
+            <td><span class="age">1d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-015</span></td>
+            <td class="td-main"><div class="issue-title"><span>Bond-pricing API vulnerable to model-extraction attack</span></div></td>
+            <td><span class="src-badge src-jira">Jira</span></td>
+            <td><span class="status st-analyzed"><span class="status-dot"></span>Analyzed</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">86</span><div class="risk-bar"><div class="risk-fill" style="width:86%"></div></div></div></td>
+            <td><span class="age">8h ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-003</span></td>
+            <td class="td-main"><div class="issue-title"><span>Analysts blind-closing 500 unexplained AML alerts</span></div></td>
+            <td><span class="src-badge src-sn">ServiceNow</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Automation Bias</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">84</span><div class="risk-bar"><div class="risk-fill" style="width:84%"></div></div></div></td>
+            <td><span class="age">8h ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-018</span></td>
+            <td class="td-main"><div class="issue-title"><span>Call-center biometric voiceprints captured without consent</span></div></td>
+            <td><span class="src-badge src-sn">ServiceNow</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Shadow AI Procurement</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">83</span><div class="risk-bar"><div class="risk-fill" style="width:83%"></div></div></div></td>
+            <td><span class="age">2d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-001</span></td>
+            <td class="td-main"><div class="issue-title"><span>Devs pasting proprietary trading code into public ChatGPT</span></div></td>
+            <td><span class="src-badge src-sn">ServiceNow</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Shadow AI Procurement</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">82</span><div class="risk-bar"><div class="risk-fill" style="width:82%"></div></div></div></td>
+            <td><span class="age">2h ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-010</span></td>
+            <td class="td-main"><div class="issue-title"><span>Every data scientist has read/write to production training data</span></div></td>
+            <td><span class="src-badge src-jira">Jira</span></td>
+            <td><span class="status st-analyzed"><span class="status-dot"></span>Analyzed</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Speed-First Architecture</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">81</span><div class="risk-bar"><div class="risk-fill" style="width:81%"></div></div></div></td>
             <td><span class="age">4d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-020</span></td>
+            <td class="td-main"><div class="issue-title"><span>OCC model inventory missing 5 shadow cloud models</span></div></td>
+            <td><span class="src-badge src-audit">Audit</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Shadow AI Procurement</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">80</span><div class="risk-bar"><div class="risk-fill" style="width:80%"></div></div></div></td>
+            <td><span class="age">3d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-007</span></td>
+            <td class="td-main"><div class="issue-title"><span>Customer bot jailbroken into disparaging bank fees</span></div></td>
+            <td><span class="src-badge src-slack">Slack</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Non-Deterministic Attack Surface</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">79</span><div class="risk-bar"><div class="risk-fill" style="width:79%"></div></div></div></td>
+            <td><span class="age">2d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-024</span></td>
+            <td class="td-main"><div class="issue-title"><span>Mortgage processing fully dependent on one AI vendor (no BCP)</span></div></td>
+            <td><span class="src-badge src-sn">ServiceNow</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Automation Bias</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">78</span><div class="risk-bar"><div class="risk-fill" style="width:78%"></div></div></div></td>
+            <td><span class="age">6d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-011</span></td>
+            <td class="td-main"><div class="issue-title"><span>Copilot hallucinated target EBITDA 20% high in a pitch deck</span></div></td>
+            <td><span class="src-badge src-slack">Slack</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Automation Bias</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">77</span><div class="risk-bar"><div class="risk-fill" style="width:77%"></div></div></div></td>
+            <td><span class="age">5d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-009</span></td>
+            <td class="td-main"><div class="issue-title"><span>Wealth AI tool expensed on a card, invisible to MRM</span></div></td>
+            <td><span class="src-badge src-audit">Audit</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Shadow AI Procurement</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">74</span><div class="risk-bar"><div class="risk-fill" style="width:74%"></div></div></div></td>
+            <td><span class="age">3d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-023</span></td>
+            <td class="td-main"><div class="issue-title"><span>Trading model rolled back in prod with no change ticket</span></div></td>
+            <td><span class="src-badge src-jira">Jira</span></td>
+            <td><span class="status st-analyzed"><span class="status-dot"></span>Analyzed</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Speed-First Architecture</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">72</span><div class="risk-bar"><div class="risk-fill" style="width:72%"></div></div></div></td>
+            <td><span class="age">5d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-025</span></td>
+            <td class="td-main"><div class="issue-title"><span>Churn model shipped to prod with only a compile check</span></div></td>
+            <td><span class="src-badge src-jira">Jira</span></td>
+            <td><span class="status st-analyzed"><span class="status-dot"></span>Analyzed</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Speed-First Architecture</span></td>
+            <td><div class="risk-score risk-high"><span class="risk-num">71</span><div class="risk-bar"><div class="risk-fill" style="width:71%"></div></div></div></td>
+            <td><span class="age">2h ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-012</span></td>
+            <td class="td-main"><div class="issue-title"><span>Trading-bot training data sourced from unverified web scraping</span></div></td>
+            <td><span class="src-badge src-audit">Audit</span></td>
+            <td><span class="status st-analyzed"><span class="status-dot"></span>Analyzed</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Shadow AI Procurement</span></td>
+            <td><div class="risk-score risk-med"><span class="risk-num">69</span><div class="risk-bar"><div class="risk-fill" style="width:69%"></div></div></div></td>
+            <td><span class="age">6d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-019</span></td>
+            <td class="td-main"><div class="issue-title"><span>Credit memos copy-pasted verbatim from AI (automation bias)</span></div></td>
+            <td><span class="src-badge src-slack">Slack</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Automation Bias</span></td>
+            <td><div class="risk-score risk-med"><span class="risk-num">66</span><div class="risk-bar"><div class="risk-fill" style="width:66%"></div></div></div></td>
+            <td><span class="age">2d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-016</span></td>
+            <td class="td-main"><div class="issue-title"><span>Market-sentiment NLP unvalidated since 2023 (drift)</span></div></td>
+            <td><span class="src-badge src-archer">Archer</span></td>
+            <td><span class="status st-pattern"><span class="status-dot"></span>Pattern Found</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Model Lifecycle Drift</span></td>
+            <td><div class="risk-score risk-med"><span class="risk-num">64</span><div class="risk-bar"><div class="risk-fill" style="width:64%"></div></div></div></td>
+            <td><span class="age">1d ago</span></td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+            <td><span class="issue-id">AI-AUDIT-006</span></td>
+            <td class="td-main"><div class="issue-title"><span>Midjourney campaign art contains a Getty watermark</span></div></td>
+            <td><span class="src-badge src-jira">Jira</span></td>
+            <td><span class="status st-wontfix"><span class="status-dot"></span>Won't Fix</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Shadow AI Procurement</span></td>
+            <td><div class="risk-score risk-med"><span class="risk-num">58</span><div class="risk-bar"><div class="risk-fill" style="width:58%"></div></div></div></td>
+            <td><span class="age">2d ago</span></td>
           </tr>
           <tr style="opacity:.6">
             <td style="padding-left:16px"><div class="cb"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div></td>
-            <td><span class="issue-id">#1281</span></td>
-            <td class="td-main"><div class="issue-title"><span>Session token refresh race: concurrent requests creating duplicates</span></div></td>
-            <td><span class="src-badge src-sn">ServiceNow</span></td>
+            <td><span class="issue-id">AI-AUDIT-021</span></td>
+            <td class="td-main"><div class="issue-title"><span>Enterprise-LLM prompt logs retained indefinitely vs 30-day policy</span></div></td>
+            <td><span class="src-badge src-archer">Archer</span></td>
             <td><span class="status st-resolved"><span class="status-dot"></span>Resolved</span></td>
-            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Auth service timeouts</span></td>
-            <td><div class="risk-score risk-low"><span class="risk-num">—</span><div class="risk-bar"><div class="risk-fill" style="width:0%"></div></div></div></td>
-            <td><span class="age">6d ago</span></td>
+            <td><span class="pattern-tag"><svg viewBox="0 0 24 24"><path d="M12 8 C12 4 6 4 6 8 C6 12 12 12 12 8 C12 4 18 4 18 8 C18 12 12 12 12 8 Z"/></svg>Model Lifecycle Drift</span></td>
+            <td><div class="risk-score risk-med"><span class="risk-num">—</span><div class="risk-bar"><div class="risk-fill" style="width:0%"></div></div></div></td>
+            <td><span class="age">3d ago</span></td>
           </tr>
         </tbody>
       </table>
 
       <div class="pagination">
-        <span class="pag-info">Showing 1–8 of 247 issues</span>
+        <span class="pag-info">Showing 1–25 of 25 issues</span>
         <div class="pag-btns">
           <button class="pag-btn" disabled><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
           <button class="pag-btn active">1</button>
-          <button class="pag-btn">2</button>
-          <button class="pag-btn">3</button>
-          <span style="color:var(--text-faint);font-size:.82rem;padding:0 4px">…</span>
-          <button class="pag-btn">31</button>
-          <button class="pag-btn"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <button class="pag-btn" disabled><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
       </div>
     </div>
