@@ -4,7 +4,7 @@
     <style>@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@800&amp;display=swap');
       .w{font-family:'Schibsted Grotesk',Arial,sans-serif;font-weight:800;font-size:44px;letter-spacing:-2.2px}</style>
     <linearGradient id="clg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+      <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#A6C8FF"/>
     </linearGradient>
   </defs>
   <rect width="300" height="80" fill="#10172E"/>
@@ -19,7 +19,7 @@
   <g transform="translate(184.5,18.75) scale(0.95)">
     <path d="M50 25 C50 13 30 13 30 25 C30 37 50 37 50 25 C50 13 70 13 70 25 C70 37 50 37 50 25 Z"
           fill="none" stroke="url(#clg)" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="50" cy="25" r="4.4" fill="#E2603F"/>
+    <circle cx="40" cy="25" r="4.4" fill="#E2603F"/><circle cx="60" cy="25" r="4.4" fill="#E2603F"/>
   </g>
   <text class="w" x="253" y="54" fill="#FFFFFF">p</text>
 </svg>

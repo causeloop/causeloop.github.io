@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256" role="img" aria-label="Causeloop mark">
   <defs>
     <linearGradient id="clg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#1FC2FF"/>
+      <stop offset="0" stop-color="#4A78FF"/><stop offset="1" stop-color="#A6C8FF"/>
     </linearGradient>
   </defs>
   <g fill="none" stroke="url(#clg)" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round">
